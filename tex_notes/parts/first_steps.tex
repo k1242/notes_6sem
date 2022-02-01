@@ -1,0 +1,172 @@
+% вводные слова
+% структура документа
+% операторы существующие
+% операторы к добавлению -> команды
+
+% \lstinline{begin}
+% \codeword{begin}
+% \addtocounter{equation}{-1}
+
+\section*{Первые шаги в документ}
+\addcontentsline{toc}{section}{Первые шаги в документ}
+
+
+Допустим у вас уже есть готовая преамбула, которая компилируется без ошибок и предупредений (например эта), в которой вы разобрались или обязательно как-нибудь потом разберетесь. Можем начинать писать!
+
+\textbf{Структура документа}. 
+Для начала замечу, что писать сплошной простынкой это варварство. Избежать файла на 100500 строчек вам поможет
+\begin{lstlisting}
+\input{folder_name/file_name}
+\end{lstlisting}
+где, кстати, допустим и \codeword{file_name}, и \codeword{file_name.tex}.
+
+
+\textbf{Виды окружений для формул}. Документ структурирован, можем писать текст с формулами, которые оформляются окружениями, среди которых вам будут полезны:
+
+
+
+\begin{itemize}
+    \item <<внутристрочное>> окружение, используется для записи формул внутри текста: \\
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}
+Supposing $\alpha > 0$ we can ...
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.45\textwidth}
+    Supposing $\alpha > 0$ we can ...
+\end{minipage}
+    \item <<equation>>, базовое окружение, удобно использовать для формулы в одну строчку \\
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}
+\begin{equation}
+    ...    
+\end{equation}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \begin{equation}
+        i \hbar \partial_t \Psi = \hat{H} \Psi
+    \end{equation}
+\end{minipage}
+\\ Можем быть удобно заменить \codeword{\begin{equation*}...\end{equation*}} на более короткую запись: \codeword{$$...$$} или \codeword{\[...\]}, где последнее чуть более вариативно.
+
+\addtocounter{equation}{-1}
+
+\item <<align>>, удобно использовать для формул друг под другом: \\
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}
+\begin{align}
+    ... \\
+    ...
+\end{align}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \begin{align}
+        \vc{E} = \frac{3 (\vc{d} \cdot \vc{n}) \vc{n} - \vc{d}}{r^3} - \frac{4\pi}{3} \delta(\vc{r}) \vc{d}, \\
+        \vc{H} = \frac{3 (\vc{\mu} \cdot \vc{n}) \vc{n} - \vc{\mu}}{r^3} + \frac{8\pi}{3} \delta(\vc{r}) \vc{\mu}.
+    \end{align}
+\end{minipage}
+\\ или для длинных формул, обозначая нужные для выравнивания места через \codeword{&}, \\
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+    ... = ... &= ... \\
+              &= ...
+\end{align*}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \begin{align*}
+        S = \int_{t_1}^{t_2} L \d t &= \int_{a}^{b} \left(-mc \d s - \frac{e}{c} A_i \d x^i\right) = \\
+        &= \int_{t_1}^{t_2} \left(
+            - mc \d s + \frac{e}{c} \vc{A} \d \vc{r} - e \varphi \d t
+            % - mc^2 \sqrt{1 - \frac{v^2}{c^2}} + \frac{e}{c} \vc{A} \cdot \vc{v} - e \varphi
+        \right) \d t.
+    \end{align*}
+\end{minipage}
+\\ здесь использовано общее правило в \LaTeX e, используя звёздочку после объявления среды \codeword{align*} вы отказываетесь от нумерации этой формулы.
+
+
+\end{itemize}
+
+Ещё есть среда \codeword{gather}, которая повторяет \codeword{align}, но с немного другими правилами центрирования. 
+
+
+
+
+\textbf{Операторы}. Если вы пишите математическую функцию, пишите её как оператор: \\
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+    \cos a \\
+     cos a \\
+\end{align*}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \begin{align*}
+        \cos a \\
+         cos a
+    \end{align*}
+\end{minipage}
+\\И вообще старайтесь придерживаться правила, что переменные выделяются \textit{курсивом}, соответственно всё что не переменная (обычно это и есть какой-нибудь оператор) -- не курсив.
+
+Если нужного вам оператора в системе нет, его можно задать, прописав в преамбуле: \\
+\begin{minipage}{0.65\textwidth}
+\begin{lstlisting}
+\newcommand{\spec}{\mathop{\mathrm{spec}}\nolimits}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.25\textwidth}
+    \begin{align*}
+        \spec A
+    \end{align*}
+\end{minipage}
+\\Не выделять операторы прямым текстом -- очень дурной тон. 
+
+
+\textbf{Команды}. В предыдущем пункте использовалось задание новой команды через \codeword{newcommand}, но бывает, что нужное вам имя занято и его удобно переименовать, тогда пользуемся \codeword{renewcommand}: 
+\begin{lstlisting}
+\renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
+\renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
+\end{lstlisting}
+Если вам нужна команда с обязательными аргументами, то просто дописываем \codeword{[...]}, указывая в квадратных скобках число аргументов \\
+\begin{minipage}{0.45\textwidth}
+\begin{lstlisting}
+\newcommand{\sub}[2]{#1_{\textnormal{#2}}}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.22\textwidth}
+\begin{lstlisting}
+$\sub{A}{in}$
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.22\textwidth}
+$\sub{A}{in}$
+\end{minipage}
+

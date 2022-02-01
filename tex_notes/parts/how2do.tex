@@ -1,0 +1,98 @@
+\section*{А как \texorpdfstring{\TeX}{ТеХ}оть (и как не \texorpdfstring{\TeX}{ТеХ}ать)}
+
+
+% \stepcounter{section}
+\addcontentsline{toc}{section}{А как \texorpdfstring{\TeX}{ТеХ}оть (и как не \texorpdfstring{\TeX}{ТеХ}ать)} 
+% \phantomsection 
+% \markboth{А как техоть}{А как техоть} 
+
+\subsection*{Общие замечания}
+
+
+\begin{itemize}
+\item В техе миллион паков и ваша проблема почти всегда уже кем-то решена. Пользуйтесь гуглом чаще. Если вам кажется, что вы собираете по-новой какую-то часто используемую в мире вещь — скажем, пишите с нуля braket нотацию — перечитайте прошлое предложение\footnote{
+    Хотя иногда хочется некоторой свободы в функционале, и действительно проще написать что-то свое, чем натягивать сову желаемого на глобус существующего.
+} .
+
+\item Если вы нумеруете формулу, значит вы на неё потом сошлётесь. Если не сошлётесь, то зачем нумеруете?
+
+
+\item Цветной текст почти всегда сомнительная идея, особенно яркий в палитре базовых \textcolor{red}{красного}, \textcolor{blue}{синего} и \textcolor{green}{зелёного}. Настолько же плох перебор с подчёркиваниями и выделениями жирным шрифтом и курсивом. \underline{\textbf{Совсем плохо}} объединять любые  два способа выделения текста.
+
+\item \verb+displaystyle+ можно форсировать внутри строчек, но это лучше не делать в середине стены текста. Вынести отдельную формулу всегда эстетически приятнее.
+
+\item Точки или запятые в конце формул.
+
+\item Убрать точки в названия разделов и подразделов.
+
+\item Тире это тире, а не \verb+-+. Пишите \verb+---+ (---) или \verb+--+ (--).
+\end{itemize}
+
+
+
+\subsection*{Богатство команд}
+
+
+\begin{itemize}
+
+\item Нагуглите разницу между \verb+\colon+ и \verb+:+ и используйте первую где нужно. Если вы пишите равенство по определению\footnote{
+А моежете воспользоваться конструкцией \texttt{overset}: 
+$S(\alpha) \overset{\text{def}}{=} \sqrt{\alpha}$.
+}  как \verb+:=+, то пишите его через центрованное двоеточие \verb+\vcentcolon =+: $\vcentcolon =$ vs $:=$.
+\item Если внутри скобок что-то большое, делайте их соответствующего размера с помощью \verb+\left( \right)+.
+\item Overfull и Underfull warning'и выдаются не просто так, почти сто процентов формула вышла кривая.
+\item Текст в индексах это всё ещё текст, поэтому должен писать как \verb+_{\text{...}}+.
+
+\item Операторы некоторых букв могут лучше выглядеть с \verb+\widehat+, чем с \verb+\hat+:
+\[
+\widehat{a}',\widehat{y}, \widehat{\sigma}\quad \text{vs}\quad \hat{a}',\hat{y}, \hat{\sigma} 
+\]
+\item Между обозначение векторов жирным шрифтом и стрелочкой технически всегда лучше использовать жирный шрифт, чтобы избежать нагромождения. Скажем, соответствующий вектору $\tilde{a}$:
+\[
+\widehat{\tilde{\vec{a}}} \quad \widehat{\tilde{\mathbf{a}}}
+\] 
+Но лучше избегать тильд как являния в целом. А уж если там степень появится:
+\[
+\widehat{\vec{p}}^2 \quad \widehat{\mathbf{p}}^2
+\]
+\item Вместо \verb+...+ в формулах лучше \verb+\dots+, и не забывать что в вашем распоряжении \codeword{vdots} $\vdots$ и \codeword{ddots} $\ddots$ (например в матрицах).
+
+\item В кадратных скобках после переноса строки можно уточнять размер пробела а-ля \lstinline{\\[0.4cm]}, это помогает, скажем, если элементы матрицы -- дроби:
+\[
+\begin{pmatrix}
+\dfrac{\partial J}{\partial x_1} & \dfrac{\partial J}{\partial x_2}\\
+\dfrac{\partial J}{\partial y_1} & \dfrac{\partial J}{\partial y_2}
+\end{pmatrix}\quad \text{vs} \quad  \begin{pmatrix}
+\dfrac{\partial J}{\partial x_1} & \dfrac{\partial J}{\partial x_2}\\[0.4cm]
+\dfrac{\partial J}{\partial y_1} & \dfrac{\partial J}{\partial y_2}
+\end{pmatrix}
+\]
+\item \verb+\adjustlimits+ очень нужен, если подряд идут несколько математических операторов с разными пределами:
+\[\text{a)} \lim_{n\to\infty} \max_{p\geq n} \quad
+\text{b)} \lim_{n\to\infty} \max_{p^2\geq n} \quad
+\text{c)} \lim_{n\to\infty} \sup_{p^2\geq nK} \quad
+\text{d)} \limsup_{n\to\infty} \max_{p\geq n}.
+\]
+\[
+\text{vs}
+\] 
+\[
+\text{a)} \adjustlimits\lim_{n\to\infty} \max_{p\geq n} \quad
+\text{b)} \adjustlimits\lim_{n\to\infty} \max_{p^2\geq n} \quad
+\text{c)} \adjustlimits\lim_{n\to\infty} \sup_{p^2\geq nK} \quad
+\text{d)} \adjustlimits\limsup_{n\to\infty} \max_{p\geq n}.
+\]
+\item Если у вас длинный индекс суммирования, пользуйтесь \verb+\substack+. И даже не думайте писать это без \verb+\limits+:
+\[
+\sum_{\substack{i=0 \\ i\neq 4}}^n i \quad \text{vs} \quad \sum_{i=0, i\neq 4}^n i
+\]
+\item Не выдавайте огромные пассажи в степени экспоненты, если пишете её через \lstinline{e^}:
+\[
+e^{\int \frac{d^Dx}{(2\pi)^D} (\varphi(p) + \varepsilon \delta(x-y))} \quad \text{vs} \quad \exp\left(\int \frac{d^Dx}{(2\pi)^D} (\varphi(p) + \varepsilon \delta(x-y))\right).
+\]
+\item Равенства в несколько строк лучше всего оформляются через \verb+\align+ и \verb+\multline+, а не через много \verb+\[...\]+.
+\end{itemize}
+
+
+
+% \item Если вы регулярно пишете в техе какую-то длинную команду -- \verb+\begin{theorem}+ или \verb+\boldsymbol+ -- сэкономьте себе время и обзовидитель user tag'ами или сделайте короткую команду с тем же функционалом.

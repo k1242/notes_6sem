@@ -1,0 +1,32 @@
+\section*{Для любознательных}
+\addcontentsline{toc}{section}{Для любознательных} 
+
+
+\textbf{Необязательные аргументы}.
+Иногда очень хочется, чтобы у функции были необязательные аргументы, например, как у \codeword{\sqrt[3]{8}}: $\sqrt[3]{8}$,
+тогда вам поможет чуть более сложная конструкция: вы объявляете команду через \codeword{DeclareDocumentCommand}, потом указываете имя команды, далее идут аргументы, пока\footnote{
+    Там чуть более богатая история, которую рекомендую на досуге почитать.
+}  можете считать, что \codeword{m} -- обязательные, они укзаваются через \codeword{{...}}, \codeword{o} -- необязательные, которые указываются через \codeword{[...]}. Потом, например, через \codeword{IfNoValueTF}, которая проверяет наличие/отсутствие указания определенного аргумента (№ 2 в примере) распиваете обычный if. Звучит громоздко, так что давайте разберем на примере:
+\begin{lstlisting}
+\DeclareDocumentCommand{\bk}{m o m}{
+    \IfNoValueTF{#2}{\langle #1 | #3 \rangle}{\langle #1 | #2 | #3 \rangle}
+}
+\end{lstlisting}
+Что у нас получилось? Что-то в духе \\
+\begin{minipage}{0.45\textwidth}
+    \begin{lstlisting}
+\begin{align*}
+    \bk{m}{n} \\
+    \bk{m}[\hat{a}]{n}
+\end{align*}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\vline
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{align*}
+    \bk{m}{n} \\
+    \bk{m}[\hat{a}]{n}
+\end{align*}
+\end{minipage}
