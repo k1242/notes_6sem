@@ -1,0 +1,110 @@
+\section{C1. Численное дифференцирование и аппроксимация.}
+
+
+\textbf{Простейший случай}.
+Пусть задана функция в виде пар точек $x_i,\, u(x_i)$. Тогда, в простейшем случае, можем найти производную $u^{(1)} (x_j)$, как
+\begin{align*}
+    u^{(1)} (x_j) &\overset{a)}{=}  \frac{u_j - u_{j-1}}{x_j - x_{j-1}} \\
+    u^{(1)} (x_j) &\overset{b)}{=} \frac{u_{j+1}-u_{j}}{x_{j+1}-x_j} \\
+    u^{(1)} (x_j) &\overset{c)}{=} \frac{u_{j+1}-u_{j-1}}{x_{j+1}-x_{j-1}}.
+\end{align*}
+Хочется понять с какой точностью происходит аппроксимация. Для этого вспоминаем разложение по Тейлору
+\begin{equation*}
+    u(x_j + \Delta x) = \sum_{k=1}^{n} \frac{u^{(k) (x_j)}}{k!} \Delta x^k + O\left(\Delta x^{n+1}\right).
+\end{equation*}
+Далее будем считать, что  значения даны однородна, тога $x_j - x_{j-1} = h$. Раскладывая по Тейлору, находим
+\begin{equation*}
+    u(x_{j-1}) = u_j - h u_j' + \frac{h^2}{2}u_j'' - \frac{h^3}{6} u_j''' + O(h^4),
+\end{equation*}
+подставляя в выражение для производной, находим (для <<a>>)
+\begin{equation*}
+    \frac{1}{h}\left(
+        u_j - u_j + h u_j' - \frac{h^2}{2} u_j'' + \frac{h^3}{6} u_j'''
+    \right) = u_j' - \frac{h}{2} u_j'' + \frac{h^2}{6} u_j''' \approx u_j' + O(h).
+\end{equation*}
+Аналогично для <<b>> $u'(x_j) = u_j' + O(h)$.
+
+Интересно посмотреть на <<c>>:
+\begin{equation*}
+    u'(x_j) = \frac{u_{j+1}-u_{j-1}}{2 h} = u_j' + O(h^2),
+\end{equation*}
+что лучше предыдущего результата.
+
+
+\textbf{Общий случай}. Пусть теперь нам нужно найти $u^{(k)} (x_*) = u_*^{(k)}$, которое может быть выражено в виде
+\begin{equation*}
+     u_*^{(k)} = \sum_{j=-l}^{m} \alpha_i u(x_* + \Delta x_j),
+\end{equation*}
+где $n = m + l$ -- количество узлов, $x_* \in [x_j, x_{j+1}]$, $\Delta x_j = x_j-x_*$.
+
+Снова раскладывая по Тейлору, найдём $\alpha_i$:
+\begin{equation*}
+    u(x_* + \Delta x_j) = u_* + \Delta x_j u_*' + \ldots + \frac{\Delta x_j^n}{n!} u^{(n)}_*,
+\end{equation*}
+домножая на $\alpha_j$, суммируя и группируя коэффициенты при $u_*^{(k)}$
+\begin{equation*}
+    u^{(k)}(x_*) = u_* \sum_{j=-l}^{m} \alpha_j + u_*' \sum_{j=-l}^{m} \alpha_j \Delta x_j + \frac{u_*''}{2} \sum_{j=-l}^{m} \alpha_j \Delta x_j^2 + \ldots
+     + \frac{u_*^{(n)}}{n!} \sum_{j=-l}^{m} \alpha_j \Delta x_j^n.
+\end{equation*}
+
+Пусть мы хотим аппроксимировать при $k=0$, а значит 
+\begin{equation*}
+    \sum_{j=-l}^{m} \alpha_j = 1, 
+    \hspace{5 mm} 
+    \sum_{j=-l}^{m} \Delta x_j \alpha_j = 0, 
+    \hspace{5 mm} 
+    \ldots
+    \hspace{5 mm} 
+    \sum_{j=-l}^{m} \Delta x_j^n \alpha_j = 0.
+\end{equation*}
+Всего узлов $n$, соответственно $n$ неизвестных $\alpha_j$, а значит останавливаемя на аппроскимации с точностью до $\frac{u_*^{(n)}}{n!}\Delta x_j^n$. 
+
+Допустим теперь $k=k$, тогда мы бы требовали $\sum_{j=-l}^{m} \Delta x_j^{k} \alpha_j = 1$, а остальные суммы равны нулю. И так можем продолжать вплоть до $k = n-1$. 
+
+\textbf{Решение СЛУ}. Перейдём к системе вида 
+$A \vc{\alpha} = \vc{f}$
+, где 
+$\vc{\alpha} = \{\alpha_{-l},\, \alpha_{-l+1},\, \ldots,\, \alpha_{m-1},\, \alpha_{m}\}$
+, а $\vc{f} = \{1,\, 0,\ldots,0\}$ для $k=0$. Осталось найти $A$, которое будет вида
+\begin{equation*}
+    A = \begin{pmatrix}
+        1 & \ldots & 1 \\
+        \Delta x_{-l} & \ldots & \delta x_{m} \\
+        \vdots & \ddots & \vdots \\
+        \Delta x_{-l}^{n-1} & \ldots &\Delta x_{m}^{n-1}
+    \end{pmatrix},
+\end{equation*}
+которую ещё называют матрицей Вандермонда. Её замечательная особенность в её невырожденности, а значит решение можем найти в виде $\vc{\alpha} = A^{-1} \vc{f}$.
+
+Если $x_* = x_j$, то решение даст $\alpha_j = 1$ и $\alpha_{j\pm i} = 0$. А значит решение может быть представлено в виде
+\begin{equation*}
+    \alpha_j = \frac{
+    (x_* - x_{-l}) (x_* - x_{-l+1}) \ldots (x_{*} - x_{j-1}) (x_* - x_{j+1})\ldots (x_* - x_m)
+    }{
+    (x_j - x_{-l}) (x_j - x_{-l+1}) \ldots (x_{j} - x_{j-1}) (x_j - x_{j+1})\ldots (x_j - x_m)
+    },
+\end{equation*}
+которое вроде и является решением для $k=0$. 
+
+Для общего вида $k$ также можно получить рекуррентные соотношения чуть более сложного вида. Напомним, что для $k$ производной точноть аппроксимации будет $O(\Delta x^{n-k})$.
+
+
+\textbf{Функция многих переменных}. 
+Для начала вспоминим, что дифференциал
+\begin{equation*}
+    d^k u(x_*, y_*) = (dx\, \partial_x + dy \ \partial_y)^k u(x_*, y_*) \approx
+    \left(
+        \Delta x_i \,\partial_x + \Delta y_i \, \partial_y
+    \right)^k u(x_*,\, y_*).
+\end{equation*}
+Подставляя это в ряд Тейлора и представляя 
+\begin{equation*}
+    u^{(k)}(x_*, y_*) = \sum_i \alpha_i u(x_* + \Delta x_i,\, y_* + \Delta y_i) = \ldots
+\end{equation*}
+приходим к системе для $\alpha_i$ (при $k=0$):
+\begin{equation*}
+    \sum_{i=0}^{I} \alpha_i = 1,
+    \hspace{5 mm} 
+    \sum_{i=0}^{I} \Delta x_i \alpha_i = 0, \ \ \sum_{i=0}^{I} \Delta y_i \alpha_i = 0, \hspace{5 mm} \ldots
+\end{equation*}
+А дальше уже снова можем подставлять $\neq 0$ часть $\vc{f}$ при той производной, которая нам нужна.
