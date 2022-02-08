@@ -1,0 +1,51 @@
+\section*{ТеорМин №1}
+\addcontentsline{toc}{section}{ТеорМин №1}
+
+\textbf{Излучение}. Волновое уравнение с источником:
+\begin{equation}
+    (\partial_t^2 - c^2 \nabla^2) u = \chi,
+    \label{field_eq}
+\end{equation}
+c законом дисперсии $\varpi = cq$. 
+
+Функция Грина оператора $\partial_t^2 - c^2 \nabla^2$:
+\begin{equation*}
+    G(t, r) = \frac{\theta(t)}{4 \pi c r} \delta(r - ct),
+\end{equation*}
+а значит выражение для поля:
+\begin{equation}
+    u(t, \vc{r}) = \frac{1}{4 \pi c^2} \int \frac{d^3 r_1}{R} \ \chi(t-R/c, \vc{r}_1),
+    \label{field_sol}
+\end{equation}
+где $R = |\vc{r} - \vc{r}_1|$. 
+
+
+\textbf{Уравнение диффузии}. 
+Уравнение диффузии:
+\begin{equation}
+    \left(\partial_t - \nabla^2\right) u = 0,
+    \label{difeq}
+\end{equation}
+решение которого может быть найдено в виде:
+\begin{equation}
+    u(t, \vc{x}) = \int_{\mathbb{R}^d} \frac{d y_1 \ldots d y_d}{(4 \pi t)^{d/2}} \exp\left(- \frac{(\vc{x}-\vc{y})^2}{4 t}\right) u_0(\vc{y}).
+    \label{difsol}
+\end{equation}
+Асимтотики могут быть найдены в виде
+\begin{equation}
+    u(t, \vc{x}) \approx \frac{A}{(4 \pi t)^{d/2}} \exp\left(- \frac{\vc{x}^2}{4 t}\right),
+    \hspace{5 mm} 
+    A = \int_{ \mathbb{R}^d} dy_1 \ldots dy_d \ u_0(\vc{y}).
+    \label{difas1}
+\end{equation}
+При $A = 0$ асимтотика будет соответствовать
+\begin{equation}
+    u(t, \vc{x}) \approx  \frac{\vc{B} \cdot \vc{x}}{(4 \pi t)^{d/2+1}} \exp\left(
+        - \frac{\vc{x}^2}{4 t}
+    \right), \hspace{5 mm} 
+    \bar{B} = 2 \pi \int_{ \mathbb{R}^d} dy_1 \ldots dy_d \ \vc{y}\, u_0(\vc{y}),
+    \label{difas2}
+\end{equation}
+где асимтотики имеют место при $t \gg l^2$, $l$ -- масштаб на котором локализовано поле.
+
+

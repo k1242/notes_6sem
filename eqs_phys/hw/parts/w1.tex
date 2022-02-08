@@ -1,0 +1,148 @@
+\section{Неделя I}
+
+\subsection*{№ 4.1.6}
+
+Найдё решение волнового уравнения \eqref{field_eq} для точечного гармонческого источника
+\begin{equation*}
+    \chi = \cos(\omega t) \delta(\vc{r}).
+\end{equation*}
+Подставляя $\xi$ в \eqref{field_sol}, находим
+\begin{equation*}
+    u(t, \vc{r}) = \frac{1}{4 \pi c^2} \int \frac{d^3 r_1}{|\vc{r} - \vc{r}_1|} \cos(\omega t - \omega |\vc{r} - \vc{r}_1|/c) \delta(\vc{r}_1) = 
+    \frac{1}{4 \pi c^2} \frac{\cos\left(\omega (t - \frac{r}{c})\right)}{r} .
+\end{equation*}
+
+
+
+
+\subsection*{№ 4.1.7}
+
+Найдём значение функции Грина при $r=0$ для оператора $\partial_t^2 + \nabla^4$. Для начала перейдём к Фурье образу
+\begin{equation*}
+    \tilde{G}(t, \vc{q}) = \int \d^3 \vc{x} \ e^{-i \smallvc{q} \cdot \smallvc{x}} G(t, \vc{x}),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \left(\partial_t^2 + q^4\right) \tilde{G} = \delta(t).
+\end{equation*}
+Решение этого уравнение известно\footnote{
+    Конпект, (1.11).
+}:
+\begin{equation*}
+    \tilde{G}(t) = \theta(t) \frac{1}{q^2} \sin\left(q^2 t\right).
+\end{equation*}
+Осталось найти 
+\begin{equation*}
+    G(t, 0) = \theta(t) \int \frac{\d^3 \vc{q}}{(2 \pi)^3} \frac{\sin( q^2 t)}{q^2} = \frac{\theta(t)}{(2\pi)^3}
+    \int_{0}^{\pi} \sin \theta \d \theta \int_{0}^{2\pi} d \varphi \int_{0}^{\infty} \sin\left(q^2 t\right) = \frac{1}{8 \sqrt{2} \pi ^{5/2}} \cdot \frac{\theta(t) }{\sqrt{t}}.
+\end{equation*}
+
+
+
+\subsection*{№ 4.2.2}
+
+Найдём решение одномерного дифузионного уравнения для 
+\begin{equation*}
+    \left(\partial_t - \partial_x^2\right) u = 0,
+    \hspace{10 mm} 
+    u_0(x) = \exp\left(- \frac{x^2}{2l^2}\right).
+\end{equation*}
+
+\textbf{Точное решение}. Воспользуемся \eqref{difsol}, тогда
+\begin{equation*}
+    u(t, x) = \frac{1}{\sqrt{4 \pi t}}\int_{\mathbb{R}} \exp\left(
+        - \frac{(x-y)^2}{4 t} - \frac{y^2}{2 l^2}
+    \right) \d y.
+\end{equation*}
+Выделяя полный квадрат, находим, что
+\begin{equation*}
+    \frac{(x-y)^2}{4 t} + \frac{y^2}{2 l^2} = \left(\sqrt{\frac{1}{2 l^2} + \frac{1}{4 t}} y -\frac{x}{4 t \sqrt{\frac{1}{2 l^2}+\frac{1}{4 t}}}\right)^2+\frac{x^2}{2 l^2+4 t},
+\end{equation*}
+а значит
+\begin{equation*}
+    u(t, x) = \frac{l}{\sqrt{l^2 + 2 t}} \exp\left(
+        - \frac{x^2}{2 l^2 + 4 t}
+    \right).
+\end{equation*}
+
+
+\textbf{Асимптотика}. Так как фунция $u_0$ симметрична, то через \eqref{difas1} находим
+\begin{equation*}
+    A = \int_{\mathbb{R}} u_0 (x) \d x = l \sqrt{2 \pi},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    u(t, x) \approx \frac{l}{\sqrt{2 t}} \exp\left(- \frac{x^2}{4 t}\right),
+\end{equation*}
+что является асимптотикой точного решения при $t \gg l^2$.
+
+
+
+
+\subsection*{№ 4.2.3}
+
+Найдём асимтотическое поведение решение одномерного диффузного уравнения \eqref{difeq} для различных начальных условий.
+
+\textbf{1}. Рассмотрим
+\begin{equation*}
+    u_0 (x) = x \exp\left(- \frac{x^2}{2l^2}\right).
+\end{equation*}
+В силу нечетности функции, через \eqref{difas2}, находим
+\begin{equation*}
+    B = 2 \pi \int_{ \mathbb{R}} x^2 \exp\left(- \frac{x^2}{2l^2}\right) =
+    -4 \pi l^2 \ \partial_\alpha \int_{-\infty}^{+\infty} e^{- \alpha x^2 / 2 l^2} \d x = 
+    -4 \pi l^2 \sqrt{2 \pi} l  \ \partial_\alpha \frac{1}{\sqrt{\alpha}} = l^3  (2\pi)^{3/2},
+\end{equation*}
+а значит искомая асимптотика
+\begin{equation*}
+    u(t, x) \approx \left(\frac{l}{\sqrt{2}}\right)^3  \frac{x e^{-{x^2}/{4 t}}}{t^{3/2}}.
+\end{equation*}
+
+\textbf{2}. Рассмотрим
+\begin{equation*}
+    u_0 (x) = \exp\left(- \frac{|x|}{l}\right).
+\end{equation*}
+В силу четности функции, через \eqref{difas1}, находим
+\begin{equation*}
+    A = 2 \int_{0}^{\infty} e^{-x/l} \d x = 2 l.
+\end{equation*}
+Тогда искомая асимптотика
+\begin{equation*}
+    u(t, x) \approx \frac{l}{\sqrt{\pi}} \frac{e^{-x^2 / 4 t}}{\sqrt{t}}.
+\end{equation*}
+
+\textbf{3}. Рассмотрим
+\begin{equation*}
+    u_0 (x) = x \exp\left(- \frac{|x|}{l}\right).
+\end{equation*}
+В силу нечетности функции, через \eqref{difas2}, находим
+\begin{equation*}
+    B = 4 \pi \int_0^\infty x^2 \exp\left(- \frac{|x|}{l}\right) \d x = 4 \pi l^2 \ \partial_\alpha^2 \int_{0}^{\infty} e^{- \alpha x / l} \d x = 2 \pi l^2 \partial_\alpha^2 \left(\frac{l}{\alpha}\right) = 8 \pi l^3,
+\end{equation*}
+а значит
+\begin{equation*}
+    u(t, x) \approx \frac{l^3}{\sqrt{\pi}}\frac{x e^{-{x^2}/{4 t}}}{t^{3/2}}.
+\end{equation*}
+
+\textbf{4}. Рассмотрим
+\begin{equation*}
+    u_0 (x) = \frac{1}{x^2 + l^2}.
+\end{equation*}
+В силу четности функции, через \eqref{difas1}, находим
+\begin{equation*}
+    A = \int_{-\infty}^{\infty} \frac{1}{x^2 + l^2} \d x = 2 \pi i \frac{1}{2 i l} = \frac{\pi}{l},
+\end{equation*}
+тогда искомая асимптотика
+\begin{equation*}
+    u(t, x) \approx \frac{\sqrt{\pi}}{2 l} \frac{e^{-x^2 / 4 t}}{\sqrt{t}}.
+\end{equation*}
+
+\textbf{5}. Рассмотрим
+\begin{equation*}
+    u_0 (x) = \frac{x}{(x^2 + l^2)^2}.
+\end{equation*}
+В силу четности функции, через \eqref{difas2}, находим
+\begin{equation*}
+    B = 2 \pi \int_{ \mathbb{R}} \frac{x}{(x^2 + l^2)^2} \d x = 4 \pi i
+    \lim_{x \to i l} \left(\frac{x^2}{(x + il)^2}\right)' = \frac{\pi^2}{l}.
+\end{equation*}
+Тогда искомая асимптотика
+\begin{equation*}
+    u(t, x) = \frac{\sqrt{\pi}}{8 l} \frac{x e^{-{x^2}/{4 t}}}{t^{3/2}}.
+\end{equation*}
