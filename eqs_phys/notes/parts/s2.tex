@@ -1,0 +1,164 @@
+\section{Семинар №2}
+
+
+
+\textbf{Секулярные члены}. Пусть есть уравнение вида
+\begin{equation*}
+    \ddot{x} + \omega_0^2 x = - \varepsilon \omega_0^2 x,\hspace{5 mm} 
+    x(0) = a,
+    \hspace{5 mm} \dot{x} (0) = 0.
+\end{equation*}
+Решение может быть найдено в виде
+\begin{equation*}
+    x(t) = a \cos \left(\omega_0 \sqrt{1 + \varepsilon} t\right) \approx  
+    a \cos\left(\omega_0 \left(1 + \tfrac{\varepsilon}{2}\right)t\right) = a \cos \omega_0 t - \frac{a \varepsilon \omega_0 t}{2} \sin (\omega_0 t) + o(\varepsilon).
+\end{equation*}
+И вот видна беда, при $\varepsilon \omega_0 t \sim 1$ теория возмущений не работает. В большей части резонансных систем возникают секулярные члены. 
+
+Получим этот результат в терминах теории возмущений. Пусть есть тот же гармонический осциллятор, заданы начальные условия, и знаем решение в виде
+\begin{equation*}
+    x(t) = x(0) \cos \omega_0 t + \frac{\dot{x}(0)}{\omega_0} \sin \omega_0 t + \int_{0}^{t} \frac{\sin \omega_0 (t-\tau)}{\omega_0} f(\tau) \d \tau.
+\end{equation*}
+Разложим это всё по $\varepsilon$ и приравняем при степенях $\varepsilon$:
+\begin{align*}
+    &\varepsilon^0: 
+    & \ddot{x}_0 + \omega_0^2 x_0 &= 0 
+    &&x_0(0)= a, \ \ \dot{x}_0(0) = 0, \\
+    &\varepsilon^1: 
+    & \ddot{x}_1 + \omega_0^2 x_1 &= - \omega_0^2 x_0 
+    &&x_1(0)= 0, \ \ \dot{x}_1(0) = 0,
+\end{align*}
+так приходим к
+\begin{equation*}
+    x_1 (t) = - a \omega_0 \int_{0}^{t} \sin \left(\omega_0 (t-\tau)\right) \cos \left(\omega_0 \tau\right) \d \tau = - \frac{a \omega_0}{2} \sin (\omega_0 t) \cdot t,
+\end{equation*}
+что получается даёт ответ только на конечном интервале времени. 
+
+\textbf{Медленные переменные}. 
+Основная идея решения таких возмущений:
+\begin{equation*}
+    \ddot{x} + \omega_0^2 x = f(x, \dot{x}, t),
+\end{equation*}
+где $f$ содержит малость $\sim \varepsilon \ll 1$ -- ввести медленно меняющиеся переменные:
+\begin{equation*}
+    x(t) = A(t) \sin (\omega_0 t + \varphi(t)).
+\end{equation*}
+Подставляем это в диффур
+\begin{align*}
+    \dot{x} &= \dot{A} \sin(\omega_0 t + \varphi) + A \cos (\omega_0 t + \varphi) (\omega_0 + \dot{\varphi}) \\
+    \ddot{x} &= \ddot{A} \sin (\omega_0 t + \varphi) + 2 \dot{A} \cos(\omega_0 t + \varphi) (\omega_0 + \dot{\varphi}) + A \ddot{\varphi} \cos(\omega_0  t + \varphi) - A (\omega_0 + \dot{\varphi})^2 \sin(\omega_0 t + \varphi).
+\end{align*}
+Зафиксируем, что $\dot{A} (t) \ll \omega_0 A(t)$ и $\dot{\varphi} \ll \omega_0$. Оставим здесь только слагаемые до первого порядка малости:
+\begin{align*}
+    \ddot{x} = 2 \dot{A} \omega_0 \cos(\omega_0 t + \varphi)  - 2 A \omega_0 \dot{\varphi} \sin(\omega_0 t + \varphi) = 
+    f\left(
+        A \sin(\omega_0 t + \varphi),\, A \omega_0 \cos (\omega_0 t + \varphi),\, t
+    \right).
+\end{align*}
+Домножим это уравнение на $\cos(\omega_0 \tau + \varphi(t))$, также на $\sin \ldots$ и проинтегрируем по периоду:
+\begin{equation*}
+    \int_{t-T/2}^{t+T/2} \left(
+        2 \dot{A}(\tau) \omega_0 \cos^2 \left(\omega_0 \tau + \varphi(t)\right) - 2 A(\tau) \omega_0 \dot{\varphi} (\tau) \sin(\omega_0 \tau + \varphi(t)) \cos(\omega_0 \tau + \varphi(t))
+    \right) \d \tau.
+\end{equation*}
+Так как $A$ и $\varphi$ меняются медленно, то можем считать их на масштабе интегрирования $A(\tau) = A(t)$, $\varphi(\tau) = \varphi(t)$. 
+Тогда уравнения перепишется в виде
+\begin{align}
+    \dot{A} \omega_0 &= \langle f \cos(\omega_0 \tau + \varphi(t))\rangle_\tau, \\
+    A \dot{\varphi} \omega_0 &= - \langle f \sin\left(\omega_0 \tau + \varphi(t)\right)\rangle_\tau.
+\end{align}
+
+
+\textbf{Пример №1}. Рассмотрим осциллятор с затуханием, пусть $f = - 2 \gamma \dot{x}$:
+\begin{equation*}
+    \dot{A} \omega_0 = - \frac{2 \gamma}{T} \int_{t-T/2}^{t+T/2} 
+        A \omega_0 \cos^2 \left(\omega_0 \tau + \varphi\right)
+     \d \tau = - \gamma A \omega_0,
+     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+     A(t) = A(0) e^{- \gamma t}.
+\end{equation*}
+Для фазы:
+\begin{equation*}
+    A \dot{\varphi} \omega_0 = \frac{2 \gamma}{T} \int_{t-T/2}^{t+T/2} A \omega_0 \sin (\ldots) \cos (\ldots) \d \tau = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \varphi = \const + 0(\gamma).
+\end{equation*}
+
+
+\textbf{Пример №2}. Пусть теперь $f = - \varepsilon x^3$, $\varepsilon \ll 1$:
+\begin{equation*}
+    \dot{A} \omega_0 = - \frac{\varepsilon}{T} \int_{t-T/2}^{t+T/2} A^3 \sin^3 \xi \cos \xi \d \tau = 0,
+\end{equation*}
+для фазы:
+\begin{equation*}
+    A \dot{\varphi} \omega_0 = + \frac{\varepsilon}{T} \int_{t-T/2}^{t+T/2} A^3(t) \sin^4 \xi \d \tau = \frac{3 \varepsilon A^3(t)}{8},
+\end{equation*}
+но так как $A = \const$, находим
+\begin{equation*}
+    \dot{\varphi} = \frac{3 \varepsilon \dot{A}}{8 \omega_0},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    x(t) =  A \sin \left(\omega_0 t + \frac{3 \varepsilon A^2}{8 \omega_0} t\right).
+\end{equation*}
+
+
+\textbf{Пример №3}. Рассмотрим генератор Ван-дер-Поля, $f = \varepsilon \dot{x} (1-x^2)$, $\varepsilon \ll 1$:
+\begin{equation*}
+    \dot{A} \omega_0 = \frac{\varepsilon}{T} \int_{t+T/2}^{t-T/2} A \omega_0 \cos(\xi) (1- A^2 \sin^2 \xi) \cos \xi \d \tau = 
+    \frac{\varepsilon A \omega_0}{2} - \frac{\varepsilon A^3 \omega_0}{8} = \frac{\varepsilon A \omega_0}{2} \left(1 - \frac{A^2}{4}\right).
+\end{equation*}
+Теперь уравнение на фазу:
+\begin{equation*}
+    A \dot{\varphi} \omega_0 = - \frac{\varepsilon}{T} \int_{t-T/2}^{t+T/2} A \omega_0 \sin \xi \cos \xi (1 - A^2 \sin^2 \xi) \d \tau = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \varphi(t) = \const.
+\end{equation*}
+Найдём $A$, решая уравнение с разделяющимися переменными:
+\begin{equation*}
+    \frac{\dot{A}}{A\left(1 - \frac{A^2}{4}\right)} = \frac{\varepsilon}{2},
+    \hspace{0.5cm} \overset{A^2 = \alpha}{=} \hspace{0.5cm}
+    \frac{\alpha}{4-\alpha} = C e^{\varepsilon t},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    A = \frac{2 C ^{\varepsilon t/2}}{\sqrt{1 + C^2 e^{\varepsilon t}}},
+\end{equation*}
+где $A \to 2$ при $t \to \infty$ -- предельный цикл.
+
+\textbf{Пример №4}. Рассмотрим параметрический резонанс:
+\begin{equation*}
+    \ddot{x} + \omega_0^2 \left(1 + h \cos\left(2(\omega_0 + \delta \omega) t\right)\right) x(t) = 0,
+\end{equation*}
+что также гордо именуется уравнением Матье. Это аналогично наличию $f = - h \cos(2 (\omega_0 +\delta \omega) t) x$.  Введем параметр $\theta = \omega \omega t - \varphi(t)$, тогда
+\begin{equation*}
+    \dot{A} \omega_0 = - \frac{h}{T} \int_{t-T/2}^{t+T/2} A \sin \xi \cos \xi \cos(2 \xi + 2 \theta) \d \tau = - \frac{h \omega_0^2}{2T} A(t) \int_{t-/2}^{t+T/2} \sin(2 \xi) \left(
+        0 - \sin(2 \xi) \sin(2 \theta)
+    \right) \d \tau = \frac{\omega_0^2 h}{4}A \sin(2 \theta).
+\end{equation*}
+Итого, окончательное уравнение
+\begin{equation*}
+    \dot{A} = \frac{\omega_0 h}{4} A \sin(2 \theta).
+\end{equation*}
+Для фазы же
+\begin{equation*}
+    A \dot{\varphi} \omega_0  = - \frac{h \omega_0^2}{T} \int_{t-T/2}^{t+T/2} A \sin^2 \xi \left(
+        \cos 2 \xi \cos 2 \theta - 0
+    \right) \d \tau = \frac{h \omega_0^2}{4} A \cos 2 \theta,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \dot{\varphi} = \frac{h \omega_0}{4} \cos 2 \theta.
+\end{equation*}
+Но лучше решать уравнение на $\dot{\varphi} = \delta \omega - \dot{\theta}$:
+\begin{equation*}
+    \dot{\theta} = \delta \omega - \frac{h \omega_0}{4} \cos 2 \theta,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \bigg/ |\delta \omega| < \bigg| \frac{h \omega_0}{4} \bigg| \bigg/
+    \hspace{5 mm} 
+    \exists \theta_0 \colon  \theta(t) = \theta_0 = \const,
+\end{equation*}
+а значит
+\begin{equation*}
+    A(t) = A(0) \exp\left(
+        \frac{\omega_0 h \sin 2 \theta_0}{4} t
+    \right).
+\end{equation*}
+Кстати, вроде $A^2 \dot{\theta}$ -- первый интеграл системы.
+
+
+% последние две задачи можно не решать к следующему разу.  
