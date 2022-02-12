@@ -126,7 +126,7 @@
 \begin{equation*}
     \ddot{x} + \omega_0^2 \left(1 + h \cos\left(2(\omega_0 + \delta \omega) t\right)\right) x(t) = 0,
 \end{equation*}
-что также гордо именуется уравнением Матье. Это аналогично наличию $f = - h \cos(2 (\omega_0 +\delta \omega) t) x$.  Введем параметр $\theta = \omega \omega t - \varphi(t)$, тогда
+что также гордо именуется уравнением Матье. Это аналогично наличию $f = - h \cos(2 (\omega_0 +\delta \omega) t) x$.  Введем параметр $\theta = \omega_0 t - \varphi(t)$, тогда
 \begin{equation*}
     \dot{A} \omega_0 = - \frac{h}{T} \int_{t-T/2}^{t+T/2} A \sin \xi \cos \xi \cos(2 \xi + 2 \theta) \d \tau = - \frac{h \omega_0^2}{2T} A(t) \int_{t-/2}^{t+T/2} \sin(2 \xi) \left(
         0 - \sin(2 \xi) \sin(2 \theta)
@@ -154,7 +154,7 @@
 \end{equation*}
 а значит
 \begin{equation*}
-    A(t) = A(0) \exp\left(
+    A(t) = A_0 \exp\left(
         \frac{\omega_0 h \sin 2 \theta_0}{4} t
     \right).
 \end{equation*}

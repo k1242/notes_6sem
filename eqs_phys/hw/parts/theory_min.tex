@@ -49,3 +49,27 @@ c законом дисперсии $\varpi = cq$.
 где асимтотики имеют место при $t \gg l^2$, $l$ -- масштаб на котором локализовано поле.
 
 
+\textbf{Меленные переменные}. Рассмотрим прозвольное возмущение гармонического осциллятора:
+\begin{equation}
+    \left(\partial_t^2 + \omega_0^2\right) x(t) = \varepsilon f(t, x, \dot{x}).
+    \label{sloweq}
+\end{equation}
+Приближенно (до $o(\varepsilon)$) можем методом Боголюбова-Крылова найти
+решение в виде
+\begin{equation}
+    x(t) = A(t) \cos(\omega_0 t + \varphi(t)),
+    \label{sloweqview}
+\end{equation}
+где зависимость от времени амплитуды и фазы определяестся уравнениями
+\begin{align}
+    \partial_t A(t) &= \frac{1}{2\pi \omega_0}\int_{\omega_0 t-\pi}^{\omega_0 t+\pi} f(\tau, x, \dot{x}) \cos\left(\omega_0 \tau + \varphi(t)\right) \d (\omega_0\tau), 
+    \label{slowA}
+    \\
+    \partial_t \varphi(t) &= \frac{-1}{2 \pi A \omega_0} \int_{\omega_0 t-\pi}^{\omega_0 t + \pi} f(\tau, x, \dot{x}) \sin(\omega_0 \tau + \varphi(t)) \d (\omega_0 \tau).
+    \label{slowphi}
+\end{align}
+
+\textbf{Огибающая}. Уравнение на огибающую может быть найдено в виде решения уравнения
+\begin{equation*}
+    \partial_t \psi + \vc{v} \cdot \nabla \psi = \frac{i \varepsilon}{\omega} e^{i \theta} \int_{0}^{2\pi} \frac{d \varphi}{2 \pi} e^{-i \varphi} f.
+\end{equation*}

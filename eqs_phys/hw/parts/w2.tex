@@ -1,0 +1,166 @@
+\section{Неделя II}
+
+
+\subsection*{№1. 6.2.2}
+
+Решим уравнение \eqref{sloweq} для $f(\dot{x}) = -\varepsilon \dot{x}^3$. Подставляя $f(t)$ в \eqref{slowA} и \eqref{slowphi}, находим
+уравнения на амплитуду и фазу:
+\begin{align*}
+    \dot{A} = - \frac{3}{8} \varepsilon A^3 \omega_0^2,
+    \hspace{10 mm} 
+    \dot{\varphi} = 0,
+\end{align*}
+откуда сразу находим $\varphi(t) = \varphi_0$ и
+\begin{equation*}
+    \frac{d A}{A^3} = \left(- \frac{3}{8} \varepsilon \omega_0^2\right) \d t,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    A = \frac{A_0}{\sqrt{1 + \frac{3}{4} A_0 \varepsilon \omega_0^2 t}},
+\end{equation*}
+а значит искомое решение
+\begin{equation*}
+    x(t) = \frac{A_0}{\sqrt{1 + \frac{3}{4} A_0 \varepsilon t}} \sin(t + \varphi_0).
+\end{equation*}
+
+
+
+\subsection*{№2. 6.2.6}
+
+Решим уравнение \eqref{sloweq} для $f(t) = \cos t$. Знаем, что точное решение 
+\begin{equation*}
+    x(t) = A \sin(t + \varphi_0) + \frac{\varepsilon t}{2} \sin(t).
+\end{equation*}
+Однако решим методом медленных амплитуд.
+
+Подставляя $f(t)$ в \eqref{slowA} и \eqref{slowphi}, находим
+уравнения на амплитуду и фазу:
+\begin{equation*}
+    \left\{\begin{aligned}
+        \dot{A}(t) &= \tfrac{\varepsilon}{2} \cos(\varphi(t)), \\
+        \dot{\varphi}(t) &= \tfrac{-\varepsilon}{2 A(t)} \sin(\varphi(t)),
+    \end{aligned}\right.
+\end{equation*}
+которые приводят к двум случаям.
+
+\textbf{Нулевая фаза}. При $\varphi(0) \overset{\mathrm{def}}{=} \varphi_0 = \tfrac{\pi}{2} \pm \tfrac{\pi}{2} + 2 \pi k$ видим, что $\dot{\varphi} = 0$, а значит $\varphi(t) = \const$. Тогда уравнение на амплитуду легко интегрируется, и находим (считая $A(0) \overset{\mathrm{def}}{=} A_0$)
+\begin{equation*}
+    A(t) = A_0 + \frac{\varepsilon}{2} \cos(\varphi_0) t,
+\end{equation*}
+что прекрасно описывает резонанс:
+\begin{equation*}
+    x(t) = \left(A_0 + \frac{\varepsilon}{2} \cos(\varphi_0)t\right) \sin(t),
+    \hspace{5 mm} 
+    \varphi_0 = 0.
+\end{equation*}
+
+% \textbf{Ненулевая фаза}. При $\varphi_0 \neq 0$, а значит 
+% \begin{equation*}
+%     \frac{d \varphi}{\sin \varphi} = \frac{\varepsilon}{2}\d t,
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+%     \varphi(t) = 2 \arccot \left(
+%         e^{\varepsilon t/2} \cot(\tfrac{1}{2} \varphi_0)
+%     \right).
+% \end{equation*}
+% Тогда, подставляя фазу в уравнение на амплитуду, находим
+% \begin{equation*}
+%     \dot{A}(t) = \frac{\varepsilon}{2} \left(
+%         -1 + \frac{1}{2} 4 \frac{e^{- \varepsilon t}}{\tg^2(\varphi_0/2)}
+%     \right) = - \frac{\varepsilon}{2} + \frac{e^{- \varepsilon t}}{\tg^2(\varphi_0/2)},
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     A(t) = A_0 - \frac{\varepsilon t}{2} + \varepsilon \frac{e^{- \varepsilon t} - 1}{\tg^2\left(\varphi_0/2\right)} + o(\varepsilon).
+% \end{equation*}
+% Собирая всё вместе, находим решение
+% \begin{equation*}
+%     x(t) = \left(A_0 - \frac{\varepsilon t}{2} + \varepsilon \frac{e^{- \varepsilon t} - 1}{\tg^2\left(\varphi_0/2\right)}\right) \sin\left(
+%         t + \pi - 2 \frac{e^{\varepsilon t/2}}{\tg(\varphi_0/2)}
+%     \right) + o(\varepsilon) + o\left(\tfrac{1}{\varepsilon t}\right).
+% \end{equation*}
+
+
+\textbf{Ненулевая фаза}. Разделим два уравнения друг на друга:
+\begin{equation*}
+    \frac{d A}{d \varphi} = -\frac{A}{\tg \varphi},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \log A = - \log \sin \varphi + \tilde{c},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    A = A_0 \frac{\sin \varphi_0}{\sin \varphi},
+\end{equation*}
+таким образом нашли удобный первый интеграл системы.
+
+Подставляя в выражение для $\dot{\varphi}$ находим
+\begin{equation*}
+    \dot{\varphi} = - \frac{\varepsilon}{2} \sin^2(\varphi),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \frac{d \varphi}{\sin^2 \varphi} = - \frac{\varepsilon}{2} \d t,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \varphi = \arctg\left(
+        \frac{1}{\frac{1}{\tg \varphi_0} + \frac{\varepsilon t}{2}}
+    \right).
+\end{equation*}
+
+
+% Вспоминая, что $\sin \arctg x = \frac{x}{\sqrt{1 + x^2}}$, находим
+% \begin{equation*}
+%     A = A_0 \frac{\sin \varphi_0}{\sin \varphi(t)} = A_0  \sqrt{1 + \left(\frac{\varepsilon t}{2} + \frac{1}{\tg \varphi}\right)^2} \approx A_0 + A_0 \frac{\varepsilon t}{4} \sin (2\varphi_0),
+% \end{equation*}
+% что на самом деле неправда, но не до конца понимаю почему.
+
+Теперь нужно подставить $\varphi(t)$ в выражение для $\dot{A}$ и разложить по $\varepsilon$:
+\begin{equation*}
+    \cos \arctg x = \frac{1}{\sqrt{1+x^2}},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \dot{A} = \frac{\varepsilon}{2} \frac{1}{\sqrt{1 + \left(\frac{t \varepsilon }{2}+\frac{1}{\tg (\varphi_0)}\right)^2}} = \frac{\varepsilon}{2 \sqrt{1 + \tg^2 \varphi_0}} + o(\varepsilon),
+\end{equation*}
+а значит искомая амплитуда
+\begin{equation*}
+    A(t) = A_0 + \frac{1}{\sqrt{1 + \tg^2 \varphi_0}} \frac{\varepsilon}{2} t.
+\end{equation*}
+Итого находим (при $\varphi_0 \neq \pi/2$)
+\begin{equation*}
+    x(t) = \left(A_0 + \frac{1}{\sqrt{1 + \tg^2 \varphi_0}} \frac{\varepsilon t}{2}\right) \sin\left(
+        t + \arctg\left(
+        \frac{1}{\frac{1}{\tg \varphi_0} + \frac{\varepsilon t}{2}}
+    \right)
+    \right).
+\end{equation*}
+
+
+
+
+\subsection*{№3. 6.2.8}
+
+
+Решим уравнение \eqref{sloweq} для $f(t) = \kappa \cos t + (1-x^2) \dot{x}$. Подставляя $f(t)$ в \eqref{slowA} и \eqref{slowphi}, находим
+уравнения на амплитуду и фазу:
+\begin{equation*}
+    \dot{A} = \frac{1}{2} \varepsilon \left(\kappa \cos \varphi + A \left(1-\frac{A^2}{4}\right) \right),
+    \hspace{10 mm} 
+    \dot{\varphi} = - \frac{1}{2A} \varepsilon \kappa \sin(\varphi).
+\end{equation*}
+Считая $\kappa$ тоже малым параметром, решаем, аналогично семинару, уравнение с разделяющимеся переменными:
+\begin{equation*}
+    \dot{A} = \frac{1}{2}\varepsilon A \left(1 - \frac{A^2}{4}\right),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm} 
+    A(t) = 2 \frac{A_0}{\sqrt{ 4 e^{-\varepsilon t} + A_0^2\left(1 -  e^{-\varepsilon t}\right)}},
+\end{equation*}
+что похоже на правду, так как всё также
+\begin{equation*}
+    \lim_{t\to \infty} A(t) = 2,
+\end{equation*}
+то есть сохраняется предельный цикл на плоскости $\{x,\, \dot{x}\}$. 
+
+Для фазы можем найти решение при $t\to \infty$:
+\begin{equation*}
+    \dot{\varphi} = -\frac{\varepsilon \kappa}{2} \sin(\varphi) \sqrt{\frac{4 + A_0^2 (e^{\varepsilon t} - 1)}{4 A_0^2 e^{\varepsilon t}}} \approx  - \frac{\varepsilon \kappa}{4} \sin(\varphi),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \tg\left(\tfrac{1}{2}\varphi(t)\right) = \tg\left(\tfrac{1}{2}\varphi_0\right)\exp\left(- \frac{\varepsilon \kappa}{4} t\right).
+\end{equation*}
+Возможно даже корректным будет выражение
+\begin{equation*}
+    \varphi(t) = 2 \arctg\left(\tg\left(\tfrac{1}{2}\varphi_0\right) \exp\left(- \frac{\varepsilon \kappa}{4} t\right)\right),
+\end{equation*}
+получается малая накачка определяет асимптотику на фазы на бесконечности.
+
+
+% \subsection*{№4. 6.2.11}
+
+
