@@ -8,7 +8,6 @@
 \newcommand{\vc}[1]{\mbox{\boldmath $#1$}}
 \newcommand{\smallvc}[1]{\scalebox{0.65}{\mbox{\boldmath $#1$}}}
 \newcommand{\T}{^{\text{T}}}
-\newcommand{\D}{^\dagger}
 \newcommand{\con}{^{\dag}}
 \newcommand{\sub}[2]{#1_{\textnormal{#2}}}
 \newcommand{\vp}{\vphantom{\dfrac{1}{2}}}
@@ -55,8 +54,4 @@
 \newcommand{\ket}[1]{\left| #1 \right\rangle}
 \newcommand{\bra}[1]{\left\langle #1 \right|}
 
-% \newcommand{\dppp}{\frac{d^3 p}{(2 \pi \hbar)^3}}
-
-\DeclareDocumentCommand{\bk}{m o m}{
-    \IfNoValueTF{#2}{\langle #1 | #3 \rangle}{\langle #1 | #2 | #3 \rangle}
-}
+\newcommand{\dppp}{\frac{d^3 p}{(2 \pi \hbar)^3}}

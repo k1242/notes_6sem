@@ -1,0 +1,117 @@
+\section{Неделя №1}
+
+\subsection*{Задача 1}
+
+Рассмотрим эрмитов оператор $\hat{A}$.
+По определению
+\begin{equation*}
+    \hat{A} \ket{a} = a \ket{a},
+    \hspace{5 mm} 
+    \bra{a} \hat{A}^\dag = \bra{a} \bar{a}.
+\end{equation*}
+Домножая на $\ket{a}$, находим
+\begin{equation*}
+    (a - \bar{a}) \bk{a}{a} = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    a = \bar{a},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    a \in \mathbb{R}.
+\end{equation*} 
+Рассмотрим теперь
+\begin{equation*}
+    \bk{a}{\hat{A}}{b} = b \bk{a}{b} = a \bk{a}{b},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \bk{a}{b} = 0,
+\end{equation*}
+при $a \neq b$. 
+
+
+
+\subsection*{Задача 2}
+
+Знаем магнитный момент
+\begin{equation*}
+    \mu = \frac{IS}{c} = \frac{1}{c} \frac{\omega e}{2\pi} \pi r^2 = \frac{e}{2 mc} L = \sub{\mu}{эл}/2,
+\end{equation*}
+т.к. фактор Ланде для $s = 1/2$ равен $g=2$.
+
+
+
+\subsection*{Задача 3}
+
+Можем выписать операторы и найти коммутатор
+\begin{equation*}
+    \hat{S}_x = \frac{\hbar}{2}\kb{+}{-} + \frac{\hbar}{2} \kb{-}{+},
+    \hspace{5 mm} 
+    \hat{S}_y = - \frac{i \hbar}{2} \kb{+}{-} + \frac{i \hbar}{2} \kb{-}{+},
+\end{equation*}
+тогда
+\begin{equation*}
+    [\hat{S}_x,\, \hat{S}_y] = \frac{i \hbar^2}{2} \kb{+}{+} - \frac{i \hbar^2}{2} \kb{-}{-} = i \hbar \hat{S}_z\neq 0,
+\end{equation*}
+что вполне логично.
+
+
+\subsection*{Задача 4}
+
+Рассмотрм эрмитов оператор $\hat{A}$ с базисом $\ket{a_i}$, введем оператор $\hat{B}$:
+\begin{equation*}
+    \hat{B} = \prod_i (\hat{A} - a_i),
+\end{equation*}
+и докажем, что $\hat{B} \ket{b} = 0$ $\forall \ket{b} \in \mathcal H$.
+
+Знаем, что
+\begin{equation*}
+    \ket{b} = \sum_i c_i \ket{a_i},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \hat{B} \ket{b} = \sum_i c_i \hat{B} \ket{a_i} = \sum_i c_i \prod_k (a_i - a_k) \ket{a_i} = 0,
+\end{equation*}
+что и требовалось доказать.
+
+
+\subsection*{Задача 5}
+
+Знаем, что
+\begin{equation*}
+    \ket{S_x, +} = \frac{1}{\sqrt{2}} \ket{+} + \frac{1}{\sqrt{2}} \ket{-},
+    \hspace{5 mm} 
+    \ket{S_x,-} = \frac{1}{\sqrt{2}} \ket{+} - \frac{1}{\sqrt{2}} \ket{-}.
+\end{equation*}
+Ну, выражаем в обратную сторону
+\begin{equation*}
+    \ket{+} = \frac{1}{\sqrt{2}} \ket{S_x,+} + \frac{1}{\sqrt{2}} \ket{S_x,-},
+    \hspace{5 mm} 
+    \ket{-} = \frac{1}{\sqrt{2}} \ket{S_x,+} - \frac{1}{\sqrt{2}} \ket{S_x, -}.
+\end{equation*}
+Подставляя, находим
+\begin{equation*}
+    \hat{S}_z = \frac{\hbar}{2} \left(
+        \kb{S_x,+}{S_x,-} + \kb{S_x,-}{S_x,+}
+    \right).
+\end{equation*}
+
+
+
+\subsection*{Задача 6}
+
+
+Знаем оператор
+\begin{equation*}
+    \hat{S}_\varphi = \frac{\hbar}{2} \left(
+        e^{- i \varphi} \kb{+}{-} + e^{i \varphi} \kb{-}{+}
+    \right).
+\end{equation*}
+Найдём его собственный вектор
+\begin{equation*}
+    \hat{S}_\varphi \ket{\kappa} = \lambda \ket{\kappa},
+    \hspace{10 mm} 
+    \kappa = \alpha_+ \ket{+} + \alpha_- \ket{-},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \lambda = \pm \frac{\hbar}{2},
+\end{equation*}
+тогда собственные векторы
+\begin{equation*}
+    \ket{S_\varphi, +} = \frac{1}{\sqrt{2}} \ket{+} + \frac{e^{i \varphi}}{\sqrt{2}} \ket{-},
+    \hspace{10 mm} 
+    \ket{S_\varphi, -} = \frac{1}{\sqrt{2}} \ket{+} - \frac{e^{i \varphi}}{\sqrt{2}} \ket{-}.
+\end{equation*}

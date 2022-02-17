@@ -8,7 +8,6 @@
 \newcommand{\vc}[1]{\mbox{\boldmath $#1$}}
 \newcommand{\smallvc}[1]{\scalebox{0.65}{\mbox{\boldmath $#1$}}}
 \newcommand{\T}{^{\text{T}}}
-\newcommand{\D}{^\dagger}
 \newcommand{\con}{^{\dag}}
 \newcommand{\sub}[2]{#1_{\textnormal{#2}}}
 \newcommand{\vp}{\vphantom{\dfrac{1}{2}}}
@@ -59,4 +58,8 @@
 
 \DeclareDocumentCommand{\bk}{m o m}{
     \IfNoValueTF{#2}{\langle #1 | #3 \rangle}{\langle #1 | #2 | #3 \rangle}
+}
+
+\DeclareDocumentCommand{\kb}{m o m}{
+    \IfNoValueTF{#2}{|#1\rangle \langle #3|}{|#1\rangle #2 \langle #3 |}
 }
