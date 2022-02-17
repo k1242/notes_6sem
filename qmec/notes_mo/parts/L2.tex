@@ -64,14 +64,94 @@ $\varepsilon = \varepsilon(\omega, \vc{k})$.
 
 Можем разложить
 \begin{equation*}
-    \varepsilon_{ij} = \varepsilon_{ij}^{(0)} + \chi_{ijk}^{(2)} E_k + \chi^{(3)}_{ijkl} E_k E_l + \chi^{(2m)}_{ijk} B_k + \chi_{ijkl}^{(3m)} B_k B_l + \ldots
+    \varepsilon_{ij} = 
+    \varepsilon_{ij}^{(0)} + 
+    \underbrace{\chi_{ijk}^{(2)} E_k}_{\text{Поккельс}} +
+    \underbrace{\chi^{(3)}_{ijkl} E_k E_l}_{\text{Керр}} + 
+    \underbrace{\chi^{(2m)}_{ijk} B_k}_{\text{Фарадей}} + 
+    \underbrace{\chi_{ijkl}^{(3m)} B_k B_l}_{\text{Каттон-Мутон}} + \ldots
 \end{equation*}
-где $\chi_{ijk}^{(2)} E_k$ -- эффект Поккельса, $\chi^{(3)}_{ijkl} E_k E_l$ -- эффект Керра.
 
 
 
 
-\noindent
-\textit{ДЗ} (Эффект Каттона-Мутона). Вывести квадратичную поправку к $\hat{\varepsilon}$: $v = v_0 + v_1 + v_2$. Дедлайн -- неделя.
 
-\textbf{Эффект Фарадея}. 
+
+
+
+\textbf{Эффект Фарадея}. Записываем уравнения Максвелла. Получаем уравнение\footnote{
+    Напомним, что $\mu \approx 1$, а значит $\vc{B} = \vc{H}$.
+}
+\begin{equation*}
+\rot \rot \vc{E} = \frac{\omega}{c} \rot \bar{B},
+\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \grad \div \vc{E} - \Delta E = \frac{\omega^2}{c} \hat{\varepsilon} \vc{E}.
+\end{equation*}
+Переходя к плоским монохроматическим волнам вида $e^{- i \omega t + i \smallvc{k} \smallvc{r}}$, находим
+\begin{equation*}
+    n^2 \vc{E} - \vc{n} (\vc{n} \cdot \vc{E})  = \hat{\varepsilon} \vc{E},
+    \hspace{5 mm} 
+    \vc{n} = \frac{c}{\omega} \vc{k},
+\end{equation*}
+которое ещё называют \textit{уравнением Френеля}.
+
+
+Упростим себе жизнь $\vc{k} \parallel \vc{M} \parallel Oz$:
+\begin{equation*}
+    \vc{n} = \begin{pmatrix}
+        0 \\ 0 \\ n
+    \end{pmatrix},
+    \hspace{5 mm} 
+    \hat{\varepsilon} = \begin{pmatrix}
+        \varepsilon_{0} & -ig & 0 \\
+        -ig & \varepsilon_0 & 0 \\
+        0 & 0 & 0 \\
+    \end{pmatrix}.
+\end{equation*}
+Так приходим к уравнениям
+\begin{align*}
+    n^2 E_x &= \varepsilon_0 E_x + i g E_y, \\
+    n^2 E_y &= \varepsilon_0 E_y - i g E_x, \\
+    n^2 E_z &= \varepsilon_0 E_z + n^2 E_z.
+\end{align*}
+Приравнивая определитель к нулю, находим
+\begin{equation*}
+    \begin{Vmatrix}
+        n^2 - \varepsilon_0 & -i g  \\
+        i g & n^2 - \varepsilon_0  \\
+    \end{Vmatrix} = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    (n^2 - \varepsilon_0)^2 - g^2 = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    n^2 = \varepsilon_0 \pm g.
+\end{equation*}
+Так приходим к показателю преломления
+\begin{equation*}
+    n_{\pm} = \pm \sqrt{\varepsilon_0 \pm g}.
+\end{equation*}
+
+Подставляя $n$, находим волну
+\begin{equation*}
+    \vc{E} = \begin{pmatrix}
+        1 \\ \mp i \\ 0
+    \end{pmatrix} E_0 \exp{\left(- i \omega t + i k_0 z \sqrt{\varepsilon_0 + g} z\right)}.
+\end{equation*}
+то есть мы получили круговую поляризацию, с разной фазовой скоротью для правой и левой поляризации.
+
+Угол Фарадея можем найти, рассмотрев плоскую поляризацию, как сумму двух круговых:
+\begin{equation*}
+    \vc{E} = E_0 \begin{pmatrix}
+        \cos(k_0 \Delta n z) \\ \sin\left(k_0 \Delta n z\right)
+    \end{pmatrix} e^{-i \omega t + i k_0 n_0 z},
+    \hspace{10 mm} 
+    \Delta n = \frac{n_+ - n_-}{2},
+    \hspace{5 mm} 
+    n_0 = \frac{n_+ + n_-}{2}.
+\end{equation*}
+
+Обычно $\varepsilon_0 \gg g$, а значит
+\begin{equation*}
+    \Delta n = \frac{g}{2 \sqrt{\varepsilon_0}},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \theta = k_0 \Delta n z = \frac{k_0 g}{2 n_0} z.
+\end{equation*}
