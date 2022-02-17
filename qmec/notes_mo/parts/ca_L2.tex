@@ -1,0 +1,89 @@
+\section*{Лекция №2}
+
+% вопросы к Штерну-Герлаха
+% судя по вашей оценке вы решали самостоятельно
+
+Уровень ${}^1 S$, 4 вырожденных состояния: $\ket{S_z, I_z}$:
+\begin{equation*}
+    \ket{--},\,  \ket{-+},\,  \ket{+-},\,  \ket{++}.
+\end{equation*}
+Знаем поле диполя:
+\begin{equation*}
+    \vc{B}(\vc{x}) = - \frac{\vc{\mu}}{r^3}  + \frac{3 \vc{x} (\vc{\mu} \cdot \vc{x})}{r^5} + \frac{8 \pi}{3} \vc{\mu} \delta(\vc{x}).
+\end{equation*}
+Так вот, есть магнитный момент ядра $\vc{\mu}_I$ и $\vc{\mu}_S$, которые взаимодействуют:
+\begin{equation*}
+    \hat{\vc{\mu}} = \frac{g_S |e| \hbar}{2 m_e c} \hat{\vc{S}},
+    \hspace{5 mm} 
+    g_S = -2.0023,
+    \hspace{10 mm} 
+    \hat{\vc{\mu}}_I = \frac{g_I |e| \hbar}{2 m_p c} \hat{\vc{I}}, 
+    \hspace{5 mm} 
+    g_I = 5.58.
+\end{equation*}
+Так строим слагаемое для возмущения гамильтониана
+\begin{equation*}
+    V(\hat{\vc{S}}, \hat{\vc{I}}, \hat{\vc{x}}) = \frac{\hat{\vc{\mu}} \cdot \hat{\vc{\mu}}_I}{\hat{r}^3} - \frac{3 (\hat{\vc{\mu}}_S \cdot \hat{\vc{x}})\hat{\vc{\mu}}_I \cdot \hat{\vc{x}}}{r^5} + \frac{8 \pi}{3} \hat{\vc{\mu}}_S \cdot \hat{\vc{\mu}}_I \delta(\hat{\vc{x}}).
+\end{equation*}
+Сам гамильтониан помним:
+\begin{equation*}
+    \hat{H} = \frac{\hat{p}^2}{2m} - \frac{e}{\hat{r}} + \hat{V}.
+\end{equation*}
+Можем посчитать
+\begin{equation*}
+    \hat{H}_{SI} = \bk{100}[V]{100} = \hbar \sub{\nu}{hf} \hat{\vc{S}} \cdot \hat{\vc{I}},
+    \hspace{10 mm} 
+    \frac{\sub{\nu}{hf}}{2 \pi} = 1.4 \text{ ГГц},
+\end{equation*}
+где 
+\begin{equation*}
+    \bk{\vc{x}}{100} = \frac{1}{\sqrt{4 \pi}} \frac{2}{\sub{a}{B}^{3/2}} e^{-r/\sub{a}{B}}.
+\end{equation*}
+Вводим оператор
+\begin{equation*}
+    \hat{\vc{F}} = \hat{\vc{S}} + \hat{\vc{I}},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \hat{\vc{S}} \cdot \hat{\vc{I}} = \frac{1}{2}\left(
+        F(F+1)
+    \right) - \frac{3}{4}.
+\end{equation*}
+Подставляя, находим
+\begin{equation*}
+    \hat{H}_{SI} = \hbar \sub{\nu}{hf} \left(
+        \frac{F(F+1)}{2} - \frac{3}{4}
+    \right).
+\end{equation*}
+Получается отступление от невозмущенного уровня на $\frac{1}{4} \hbar \sub{\nu}{hf}$  и на $- \frac{3}{4} \hbar\sub{\nu}{hf}$ для $F=0,\, F_z = 0$. 
+
+Можем найти путь из старого базиса в новый:
+\begin{equation*}
+    \ket{F,F_z} = \sum \ket{S_z,\, I_z} \bra{S_z,\, I_z} \ket{F,\, F_z}.
+\end{equation*}
+Знаем, что
+\begin{equation*}
+    \ket{11}_F = \ket{++}_S \ket{++}_I = \ket{S_z=\tfrac{1}{2}, I_z = \tfrac{1}{2}}.
+\end{equation*}
+Теперь действуем на $\ket{11}_F$ понижающим оператором $\hat{F}_- = \hat{S}_- + \hat{I}_-$. Помним, что
+\begin{equation*}
+    \hat{J}_- \ket{j, j_z} = \sqrt{(j+j_z)(j-j_z+1)} \ket{j, j_z-1}.
+\end{equation*}
+Так находим ответ
+\begin{equation*}
+    \ket{10}_F = \frac{1}{\sqrt{2}} \ket{+-}_{SI} - \frac{1}{\sqrt{2}} \ket{-+},
+\end{equation*}
+а вообще это коэффициенты Клебша-Гордана.
+
+\textbf{Эффекты Зеемана}. Вспомним добавку к энергии в магнитном поле:
+\begin{equation*}
+    \hat{H} = - \hat{\vc{\mu}} \cdot \vc{B} = - \mu_z B = \hbar \omega_L \hat{S}_z,
+    \hspace{10 mm} 
+    \omega_L = \frac{|e| B}{m_e c}.
+\end{equation*}
+
+
+\textbf{1$s$-орбиталь}. Теперь работаем в гамильтониане
+\begin{equation*}
+    \hat{H} = \hbar \sub{\nu}{hf} \hat{\vc{S}} \cdot \hat{\vc{I}} - \hat{\vc{\mu}} \cdot  \vc{B}.
+\end{equation*}
+
+
