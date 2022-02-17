@@ -9,12 +9,69 @@
 \end{equation*}
 тогда в нулевом приближении
 \begin{equation*}
-    H = 0,
+    H = 0, \hspace{5 mm} m \omega \vc{v}_0 = e \vc{E},
     \hspace{5 mm} 
     \vc{p} = e \vc{r},
     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}  
-    \varepsilon_{(0)} = 1 - f4 \pi \frac{N e^2}{m \omega^2}.
+    \varepsilon_{(0)} = 1 - 4 \pi \frac{N e^2}{m \omega^2}.
 \end{equation*}
 Стоит уточнить, что под $\vc{H}$ понимается постоянное внешнее магнитное  поле, а $\vc{E}$ -- поле волны.
 
+В первом приближении
+\begin{equation*}
+    m \vc{v}_1 = \frac{e}{c}\left[\vc{v}_0 \times \vc{H}\right],
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    m \vc{v}_1 = \frac{e^2}{c} \frac{1}{m \omega} \left[\vc{E} \times  \vc{H}\right].
+\end{equation*}
+Интегрруя, находим
+\begin{equation*}
+    \vc{r}_1 = \frac{-e^2 i}{c m^2 \omega^3} \left[\vc{E} \times  \vc{H}\right],
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \vc{p}_1 = - \frac{N e^3 i}{m^2 c \omega^3} \left[\vc{E} \times  \vc{H}\right].
+\end{equation*}
+Собирая всё вместе, находим
+\begin{equation*}
+    \vc{D} = \left(1 - \frac{4 \pi e^2 N}{m \omega^2}\right) \vc{E} - \frac{4 \pi N e^3 i}{m2 c \omega^3} \left[\vc{E} \times  \vc{H}\right].
+\end{equation*}
 
+Таким образом пришли к тензору на $\hat{\varepsilon}$:
+\begin{equation*}
+    \hat{\varepsilon} = \begin{pmatrix}
+        \varepsilon_{(0)}  & i g_z & -i g_y \\
+        -i g_z & \varepsilon_0 & i g_x \\
+        i g_y & - i g_x & \omega_{(0)} \\
+    \end{pmatrix},
+\end{equation*}
+иначе можем записать в виде
+\begin{equation*}
+    \varepsilon_{ij} = \varepsilon^{(0)} \delta_{ij} -i \epsilon_{ijk} g_k,
+\end{equation*}
+где $\vc{g}$ -- вектор гирации:
+\begin{equation*}
+    \vc{g} = f \vc{H},
+    \hspace{5 mm} 
+    f = \frac{4 \pi N e^3}{m^2 c \omega^3},
+\end{equation*}
+где $f$ указан для свободного электрона. 
+В изотропном магнитном материале $\vc{M} = \chi \vc{H}$.
+В общем виде $\vc{g} = \hat{f} \vc{M}$:
+\begin{equation*}
+    \varepsilon_{ij} = \varepsilon_{ij}^{(0)} - i \epsilon_{ijk} f_{kl} M_l.
+\end{equation*}
+
+\textbf{Дисперсия}. Вообще есть дисперсия, $\vc{D} = \vc{D}(\omega)$, работает причинность, есть некоторый нелокальный отклик, а тогда
+$\varepsilon = \varepsilon(\omega, \vc{k})$. 
+
+Можем разложить
+\begin{equation*}
+    \varepsilon_{ij} = \varepsilon_{ij}^{(0)} + \chi_{ijk}^{(2)} E_k + \chi^{(3)}_{ijkl} E_k E_l + \chi^{(2m)}_{ijk} B_k + \chi_{ijkl}^{(3m)} B_k B_l + \ldots
+\end{equation*}
+где $\chi_{ijk}^{(2)} E_k$ -- эффект Поккельса, $\chi^{(3)}_{ijkl} E_k E_l$ -- эффект Керра.
+
+
+
+
+\noindent
+\textit{ДЗ} (Эффект Каттона-Мутона). Вывести квадратичную поправку к $\hat{\varepsilon}$: $v = v_0 + v_1 + v_2$. Дедлайн -- неделя.
+
+\textbf{Эффект Фарадея}. 
