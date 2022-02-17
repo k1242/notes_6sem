@@ -14,7 +14,7 @@
 * **ркц**
 ([*квантовая оптика*](https://github.com/k1242/notes_6sem/blob/main/qmec/notes_qo/notes_qo.pdf),
 [*магнитооптика*](https://github.com/k1242/notes_6sem/blob/main/qmec/notes_mo/notes_mo.pdf),
-[*задание ЭРКФ*](https://github.com/k1242/notes_6sem/tree/main/qmec/hw_ca/hw_ca.pdf)
+[*задание ЭРКФ*](https://github.com/k1242/notes_6sem/tree/main/qmec/hw_ca/hw_ca.pdf),
 [*заметки ЭРКФ*](https://github.com/k1242/notes_6sem/blob/main/qmec/notes_ca/notes_ca.pdf));
 
 
