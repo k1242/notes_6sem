@@ -1,0 +1,21 @@
+Итак, для заданной скорости $v_z$ (далее просто $v$) можем найти $\rho_{v}(t)$. Далее будем работать с усредненным значением
+\begin{equation*}
+    \bar{\rho}_{v} = \frac{1}{n_t} \sum_{j=0}^{n_t} \rho\left(
+        v,\, t_j
+    \right),
+\end{equation*}
+где $n_t$ -- количество точек по которым проиходит усреднение, $t_j = j \cdot dt$, $dt$ -- шаг\footnote{
+    По советам \cite{main_2006} возьмём  $dt \approx$ 0.2 нс и $n_t \cdot dt \approx 50 \tau$.
+}  усреднения по времени.
+
+Зная распределение по $v$:
+\begin{equation*}
+    f(v) \d v = \sqrt{\frac{m}{2\pi \sub{k}{B} T}} \exp\left(
+        - \frac{m v^2}{2 \sub{k}{B} T}
+    \right) \d v,
+\end{equation*}
+можем найти среднее по атомам значение для $\hat{\rho}$:
+\begin{equation*}
+    \bar{\rho} = \sum_{i=1}^{n_v} \bar{\rho}_v(v) f(v),
+\end{equation*}
+где $n_v \approx 200$, скорости $v$ берём до $3 v_Q = \sqrt{\frac{\sub{k}{B} T}{m}}$.

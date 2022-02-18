@@ -1,0 +1,65 @@
+\textbf{Уравнение Лиувилля}. 
+Эволюцию матрицы плотности знаем из уравнения Лиувилля \cite{mandel_wolf_1995}:
+\begin{equation}
+    i \hbar\, \partial_t \hat{\rho} = [\hat{H}, \hat{\rho}].
+    \label{master_eq}
+\end{equation}
+Далее будет феноменологически введено спонтанное излучение, также считаем неизменным излучение лазера, поэтому гамильтониан сводится к
+\begin{equation*}
+    H = H^{\text{A}} + H^{\text{I}},
+\end{equation*}
+где $H^{\text{A}}$ -- гамильтониан атома, $H^{\text{I}}$ -- взаимодейтвие атома с полем.
+
+
+
+\textbf{Атомарный гамильтониан}. Матричное предтавление для $\hat{H}^A$ диагонально:
+\begin{equation*}
+    H^A_{\beta \alpha} = \hbar \omega_{\beta \gamma} \delta_{\beta \alpha},
+\end{equation*}
+где $\ket{\gamma}$ выбран за нижнее $g$-состояние. Можем найти
+\begin{equation*}
+    [H^A,\, \hat{\rho}]_{\alpha\beta} = \sum_{a} \bra{\alpha} \hat{H}^A \kb{a}{a} \hat{\rho} \ket{\beta} - \sum_b \bra{\alpha} \hat{\rho} \kb{b}{b} \hat{H}^A \ket{\beta} = \hbar \omega_{\beta \gamma} \rho_{\beta \alpha} - \hbar \omega_{\alpha \gamma} \rho_{\beta \alpha} = \hbar \rho_{\beta \alpha} \omega_{\beta \alpha}.
+\end{equation*}
+
+
+\textbf{Гамильтониан взаимодействия}. \red{...} И получаем (для бегущей волны)
+\begin{equation*}
+    H^I_{\beta \alpha} = \hbar \Omega_{\beta \alpha} e^{i \omega t - i k z},
+\end{equation*}
+где $\Omega_{\beta \alpha} = 0$, $z$ -- положение атома относительно лазерного излучения.
+
+В насыщенной спектроскопии мы работаем с атомарным газом, определяющим уширением в динамике будет зависимсоть $z(t)$. Действительно, считая что атом движется со скоростью $v$, под углом $\theta$ к пучку, находим
+\begin{equation*}
+    z(t) = v t \cos \theta,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    i \omega t - i k z(t) = i t \left(\omega - \frac{\omega}{c} v \cos \theta\right)
+\end{equation*}
+где для каждого атома считаем $z(0)=0$. Получается, что для атома появляется доплеровский сдвиг:
+\begin{equation*}
+    \omega' = \omega \left(1 - \frac{v}{c}\cos \theta\right).
+\end{equation*}
+Далее будем расматривать распределение Максвелла по $v_z$, тогда $H^I_{\beta \alpha}$ перепишется в виде
+\begin{equation*}
+    H^I_{\beta \alpha} = \hbar \Omega_{\beta \alpha} e^{i \omega' t},
+    \hspace{5 mm} 
+    \omega' = \omega\left(1 - \frac{v_z}{c}\right).
+\end{equation*}
+
+
+\textbf{Замена переменных}. Жизнь станет лучше, если перейдём к новым недиагональным элементам \cite{main_2006} $\tilde{\rho}_{\beta \alpha}$:
+\begin{equation*}
+    \tilde{\rho}_{\beta \alpha} = \rho_{\beta \alpha} e^{i\omega t (1-\delta_{\alpha \beta})} = \left\{\begin{aligned}
+        &\rho_{\beta \alpha} e^{i \omega t},  &\beta \neq \alpha, \\
+        &\rho_{\beta \alpha},  &\beta=\alpha.
+    \end{aligned}\right. 
+\end{equation*}
+Тогда производная по времени перепишется в виде
+\begin{equation*}
+    \partial_t \rho_{\beta \alpha} = \left(\partial_t \tilde{\rho} - i \omega \tilde{\rho}_{\beta \alpha}\right) e^{- i \omega t}.
+\end{equation*}
+Тогда уравнение на $\partial_t \tilde{\rho}_{\beta \alpha}$:
+\begin{equation*}
+    i \hbar\, \partial_t \tilde{\rho}_{\beta \alpha} = \hbar (\omega_{\beta \alpha}-\omega) \tilde{\rho}_{\beta \alpha} + \sum_j \left(H^I_{\beta j} \tilde{\rho}_{j \alpha} - \tilde{\rho}_{\beta j} H^{I}_{j \alpha}\right).
+\end{equation*}
+% тут важно заметить, что + f rho -> + f rho e^{i \omega t} = + f \tilde{rho}.
+
