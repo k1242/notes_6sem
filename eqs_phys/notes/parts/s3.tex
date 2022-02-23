@@ -1,0 +1,41 @@
+\subsection*{Нелинейные полевые уравнения}
+
+В линейных уравнениях обычно ищем функцию Грина.
+
+Рассмотрим уравнение Хопфа
+\begin{equation*}
+    \partial)t u + u \partial_x u = 0,
+\end{equation*}
+которое описывает динамику плотности частиц газа.
+
+\textbf{Метод характеристик}. 
+Рассмотрим уравнение переноса
+\begin{equation*}
+    \partial_t  + \vc{v} \partial_t \varphi = f(t, \vc{r}), 
+    \hspace{5 mm} 
+    \vc{v} = \const.
+\end{equation*}
+Пока считаем $f = 0$. Заметим, что
+\begin{equation*}
+    \frac{d \varphi}{d t} = \frac{\partial \varphi}{\partial t}  + \frac{d \vc{r}}{d t} \frac{\partial \varphi}{\partial \vc{r}} = 0.
+\end{equation*}
+Заметим, что $\frac{d \smallvc{t}}{d t} = \vc{v}$ даст решение:
+\begin{equation*}
+    \frac{d \varphi}{d t} =0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+    \varphi(t, \vc{r}(t)) = \const.
+\end{equation*}
+Давайте продолжать, пусть при $t=0$ есть задача Коши $\varphi(t=0,\, \vc{r}) = \varphi_0(\vc{r})$. Тогда
+\begin{equation*}
+    \varphi(0,\, \vc{r}(0)) = \varphi_0 (\vc{r}(0)),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \vc{r}(t) = \vc{v} t + \vc{r}_0.
+\end{equation*}
+Таким образом на характеристиках
+\begin{equation*}
+    \varphi(t,\, \vc{r}(t)) = \varphi_0 (\vc{r}_0) = \varphi_0(\vc{r}(t)-\vc{v} t).
+\end{equation*}
+% задачки про давление
+% 
+
+

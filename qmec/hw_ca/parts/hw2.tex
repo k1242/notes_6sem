@@ -1,0 +1,108 @@
+\section{Неделя №2}
+
+\subsection*{Задача 1}
+
+\textbf{Рекуррентный путь}. 
+Для $\hat{F} = \hat{S} + \hat{I}$ найдём базис собственных функций в терминах 
+$\ket{S, m_S}\ket{I, m_I} \overset{\mathrm{def}}{=} \ket{m_S, m_I}_{SI}$.
+Всего векторов будет $(2 S + 1)(2 I + 1) = 6$. 
+ Два вектора нам известны из однозначного соответствия
+\begin{equation*}
+    \hat{F}_\pm = \hat{S}_\pm + \hat{I}_\pm, 
+    \hspace{5 mm} 
+    (\hat{S}_+ + \hat{I}_+) \ket{\tfrac{1}{2}, 1}_{SI} = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \ket{\tfrac{3}{2}, \tfrac{3}{2}}_F = \ket{\tfrac{1}{2}, 1}_{SI}.
+\end{equation*}
+Аналогично находим
+\begin{equation*}
+    \ket{\tfrac{3}{2}, -\tfrac{3}{2}}_F = \ket{-\tfrac{1}{2}, -1}_{SI}.
+\end{equation*}
+Далее понижающим оператором $\hat{F}_-$ 
+\begin{equation*}
+    \hat{J}_\pm \ket{j,m} = \sqrt{j (j + 1) - m (m \pm 1)} \ket{j, m\pm 1},
+\end{equation*}
+находим
+\begin{equation*}
+    F_- \ket{\tfrac{3}{2}, \tfrac{3}{2}}_F = \sqrt{3} \ket{\tfrac{3}{2}, \tfrac{1}{2}}_F = \ket{-\tfrac{1}{2},1}_{SI} + \sqrt{2} \ket{\tfrac{1}{2},0}_{SI},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \ket{\tfrac{3}{2},\tfrac{1}{2}}_F = \tfrac{1}{\sqrt{3}} \ket{- \tfrac{1}{2}, 1}_{SI} + \sqrt{\tfrac{2}{3}} \ket{\tfrac{1}{2},0}_{SI}.
+\end{equation*}
+Единственный ортогональный вектор $\ket{a}$: $\hat{F}_+ \ket{a} = 0$, а значит соответствует $\ket{\tfrac{1}{2}, \tfrac{1}{2}}_F$:
+\begin{equation*}
+    \ket{\tfrac{1}{2}, \tfrac{1}{2}}_F = - \sqrt{\tfrac{2}{3}}\ket{-\tfrac{1}{2}, 1}_{SI} + \tfrac{1}{\sqrt{3}} \ket{\tfrac{1}{2},0}.
+\end{equation*}
+Осталось найти остальные векторы через $F_-$:
+\begin{align*}
+    \ket{\tfrac{3}{2}, -\tfrac{1}{2}}_F &= \tfrac{1}{\sqrt{3}} \ket{\tfrac{1}{2},-1}_{SI} + \sqrt{\tfrac{2}{3}} \ket{-\tfrac{1}{2}, 0}_{SI}, \\
+    \ket{\tfrac{1}{2}, -\tfrac{1}{2}}_F &= -\sqrt{\tfrac{2}{3}} \ket{\tfrac{1}{2}, -1}_{SI} + \tfrac{1}{\sqrt{3}}\ket{-\tfrac{1}{2},0}_{SI}.
+\end{align*}
+
+\textbf{Явный вид}. Вообще можем написать явное выражение для определения коэффициентов разложения:
+\begin{equation*}
+    \ket{J, M} = \sum_{m_A, m_B} \ket{j_A, m_A} \ket{j_B, m_B} C^{JM}_{j_A,m_A; j_B, m_B},
+\end{equation*}
+где $C^{JM}_{j_A,m_A; j_B, m_B}$ -- коэффициенты Клебша-Гордана. Можем выразить их в виде
+\begin{equation*}
+    C^{JM}_{j_A,m_A; j_B, m_B} = \bk{j_A, m_A; j_B; m_B}{J, M} = (-1)^{j_A + j_B + m} \sqrt{2 J + 1} \begin{pmatrix}
+        j_A & j_B & J \\
+        m_A & m_B & -M
+    \end{pmatrix},
+\end{equation*}
+где последний множитель -- $3j$-символы Вигнера. Явный вид:
+\begin{align*}
+    C^{JM}_{j_A,m_A; j_B, m_B} &= {\sqrt {2J+1}}{\sqrt {\Delta _{j_A j_B J}}}{\sqrt {\dfrac {(j_A +m_A)!(J-M)!}{(j_A -m_A)!(j_B +m_B)!(j_B -m_B)!(J+M)!}}} \times  \\
+    &\times \sum _{s}^{J}{\dfrac {(-1)^{j_A +m_B-s}(J+s)!(j_B +s-m_A)!}{(J-s)!(s-m_A-m_B)!(s-j_A +j_B )!(j_A +j_B +s+1)!}}, 
+\end{align*}
+где суммирование идёт по $s =\max(m_A+m_B,\;j_A -j_B )$,  а $\Delta _{j_A j_B j}$:
+\begin{equation*}
+     \Delta _{j_A j_B J}={\frac {(j_A +j_B -J)!(j_B +J-j_A )!(J+j_A +j_B +1)!}{(j_A -j_B +J)!}},
+\end{equation*}
+что при вычисление даёт то же самое, например:
+\begin{equation*}
+    C^{\frac{1}{2}, \frac{1}{2}}_{\frac{1}{2},-\frac{1}{2}; 1, 1} = - \sqrt{\tfrac{2}{3}}, \hspace{5 mm} 
+    C^{\frac{1}{2}, \frac{1}{2}}_{\frac{1}{2},\frac{1}{2}; 1, 0} = \tfrac{1}{\sqrt{3}},
+\end{equation*}
+что восстанавливает $\ket{\tfrac{1}{2}, \tfrac{1}{2}}_F$.
+
+\textbf{Энергетические сдвиги}. Найдём добавку спин-спинового взаимодействия:
+\begin{equation*}
+    \hat{H}_{SI} = \hbar \sub{\omega}{hf} \hat{\vc{S}} \cdot \hat{\vc{I}} = 
+    \frac{\hbar \sub{\omega}{hf}}{2} \left(F^2 - S^2 - I^2\right) = \frac{\hbar \sub{\omega}{hf}}{2}\left(F(F+1)-\frac{11}{4}\right).
+\end{equation*}
+Значит состояния $\ket{\tfrac{3}{2},\ldots}_F$ сдвинуты на $\tfrac{1}{2} \hbar \sub{\omega}{SI}$, а состояния $\ket{\tfrac{1}{2},\ldots}_{F}$ сдвинуты на $- \hbar \sub{\omega}{hf}$ относительно невозмущенного состояния.
+
+
+% \newpage
+
+
+
+\subsection*{Задача 2}
+
+Знаем, что
+\begin{equation*}
+    \hat{H} = \hbar \sub{\omega}{hf} \hat{\vc{S}} \cdot \hat{\vc{I}} + \hbar  \sub{\omega}{L} \hat{S}_z.
+\end{equation*}
+Найдём коммутаторы $[\hat{H}, \hat{F}^2]$ и $[\hat{H},\, \hat{F}_z]$:
+\begin{equation*}
+    \hat{F}^2 = S^2 + I^2 + 2\, \hat{\vc{S}} \cdot \hat{\vc{I}},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    [\hat{\vc{S}} \cdot \hat{\vc{I}}, \hat{F}^2] = 0.
+\end{equation*}
+Ненулевой вклад даст только $\hat{S}_z$:
+\begin{equation*}
+    [\hat{S}_z, \hat{F}^2] = 2 [\hat{S}_z,\, \hat{\vc{S}} \cdot \hat{\vc{I}}] = 2 i\hbar \left(\hat{I}_x \hat{S}_y - \hat{I}_y \hat{S}_x\right),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    [\hat{H},\, \hat{F}^2] = 2 i \hbar^2 \sub{\omega}{L} \left(
+        \hat{I}_x \hat{S}_y - \hat{I}_y \hat{S}_x
+    \right).
+\end{equation*}
+Для второго комутатора ненулевой вклад может быть только от $\hat{\vc{S}} \cdot \hat{\vc{I}}$:
+\begin{equation*}
+    [\hat{\vc{S}} \cdot \hat{\vc{I}}, \hat{S}_z + \hat{I}_z] = 
+    [\hat{S}_x \hat{I}_x + \hat{S}_y \hat{I}_y, \hat{S}_z + \hat{I}_z]
+     = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    [\hat{H},\, \hat{F}_z] = 0,
+\end{equation*}
+где мы воспользовались коммутационным соотношением $[j_i, j_j] = i \hbar \varepsilon_{ijk} j_k$.

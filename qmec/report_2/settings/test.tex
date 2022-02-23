@@ -1,0 +1,38 @@
+Хочется научиться переходить от уравнений вида
+\begin{equation*}
+    \partial_t \vc{v} = M(t) \vc{v},
+\end{equation*}
+к уравнениям вида
+\begin{equation*}
+    \partial_t \vc{v} = \tilde{M} \vc{v}.
+\end{equation*}
+А именно систему
+\begin{equation*}
+    \begin{pmatrix}
+        \dot{x} \\ \dot{y} \\ \dot{z}
+    \end{pmatrix} = \begin{pmatrix}
+        0 & 1 & 2 \cos(\omega t) \\
+        0 & -1 & -2 \cos(\omega t) \\
+        -\cos(\omega t) & \cos(\omega t) & -1/2 \\
+    \end{pmatrix} \begin{pmatrix}
+        x \\ y \\ z
+    \end{pmatrix},
+\end{equation*}
+хочется представить в виде
+\begin{equation*}
+    \begin{pmatrix}
+        \dot{x} \\ \dot{y} \\ \dot{z}
+    \end{pmatrix} = \begin{pmatrix}
+        0 & 1 & 2 \sigma(\omega) \\
+        0 & -1 & -2 \sigma(\omega) \\
+        \ldots & \ldots & \ldots \\
+    \end{pmatrix} \begin{pmatrix}
+        x \\ y \\ z
+    \end{pmatrix}.
+\end{equation*}
+Нас интересует только предельные значения $\vc{v}$ при $t \to \infty$.
+По идее $\sigma(\omega)$ должна получиться в виде резонансного контура Лоренца.
+
+\begin{equation*}
+    \sigma(\omega) = \frac{1}{1 + \omega^2}
+\end{equation*}
