@@ -1,0 +1,98 @@
+\section*{Лекция №3. Когерентные состояния}
+\addcontentsline{toc}{section}{Лекция №3. Когерентные состояния}
+
+
+
+% 1963 год: когерентные состояния
+% нобелевка 2005 года
+% Глаубер -- нобелевская лекция
+
+
+Нужны новые квантовые состояния. Можно задать $\ket{x} = \sum_n c_n \ket{n}$, собственное состояние оператора $\hat{A} \ket{x} = \alpha \ket{x}$, с помощью оператора сдвига $\ket{x} = \hat{S} \ket{0}$. 
+
+Когерентные состояния осциллятора ЭМ поля -- собственные состояния полевого оператора $\hat{a}$:
+\begin{equation*}
+    \hat{a} \ket{\alpha} = \alpha \ket{\alpha}.
+\end{equation*}
+Также как и с осциллятором
+\begin{equation*}
+    \hat{a} \sum_n c_n \ket{n} = \sum_n c_n \sqrt{n} \ket{n-1} = \alpha \sum_{n'} c_{n'} \ket{n'},
+\end{equation*}
+так получаем рекуррентное соотношение:
+\begin{equation*}
+    c_{n+1} \sqrt{n+1} = \alpha c_n,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    c_n = \frac{\alpha^n}{\sqrt{n!}} c_0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \ket{\alpha} = e^{-|\alpha|^2/2} \sum_n \frac{\alpha^n}{\sqrt{n!}} \ket{n},
+\end{equation*}
+где $\alpha \in \mathbb{C}$.
+
+\textbf{Свойства когерентных состояний}. Для начала заметим, что
+\begin{equation*}
+    \ket{n} = \bk{\alpha}[\hat{a}\D \hat{a}]{\alpha} = |\alpha|^2.
+\end{equation*}
+Можем также посчтать дисперсию
+\begin{equation*}
+    \langle \Delta n^2\rangle = \bk{\alpha}[\hat{a}\D \hat{a} \hat{a}\D \hat{a}]{\alpha} - \langle n\rangle^2 = |\alpha|^2.
+\end{equation*}
+Найдём распределение по $n$-фотонным состояниям:
+\begin{equation*}
+    p_n = |c_n|^2 = e^{-|\alpha|^2} \frac{|\alpha|^{2n}}{n!},
+\end{equation*}
+что соответствует пуассоновскому распределению.
+
+
+
+\textbf{Поле}. Для поля $\hat{E}$ (в единицах численного размерного коэффициента):
+\begin{equation*}
+    \langle E\rangle  = \bk{\alpha}[ \tfrac{1}{2}(\hat{a} e^{- i \omega t} + \hat{a}\D e^{i \omega t})]{\alpha} = \tfrac{1}{2}\left(\alpha e^{- i \omega t} + \bar{\alpha} e^{i \omega t}\right).
+\end{equation*}
+Также флуктуации поля
+\begin{equation*}
+    \langle \Delta E^2\rangle = \frac{1}{4} = \const.
+\end{equation*}
+Также квантовая характеристическая функция $\chi(u)$:
+\begin{equation*}
+    \chi(u) = \langle e^{i u \hat{E}}\rangle = e^{- u^2/8} \bk{\alpha}[\exp\left( \tfrac{i u}{2} \hat{a}\D e^{i \omega t}\right) \times \exp\left(
+        \tfrac{i u}{2} \hat{a} e^{- i \omega t}
+    \right)]{\alpha} = 
+    e^{-u^2/8} \exp\left(
+        \frac{iu}{2} \left(a e^{- i \omega t} + \bar{\alpha} e^{i\omega t}\right)
+    \right)
+    ,
+\end{equation*}
+где мы воспользовались соотношением Бейкера-Хаусдорфа. Так находим
+\begin{equation*}
+    p(E) = \frac{1}{2\pi} \int \xi(u) e^{-i u E} \d u = \sqrt{\frac{2}{\pi}} \exp\left(
+        - 2 \left(E - \frac{1}{2}\left(\alpha e^{- i \omega t} + \bar{\alpha} e^{i \omega t}\right)\right)
+    \right).
+\end{equation*}
+
+
+ % "Излучение и шумы в квантовой электронике" (Люиселл Уильям)
+
+
+\textbf{Оператор сдвига}. Составим оператор сдвига по $n$-фотонным состояниям:
+\begin{equation*}
+    \ket{n} = \frac{\hat{a}\D}{\sqrt{n}} \ket{n-1} = \frac{\hat{a}\D}{\sqrt{n}} \frac{\hat{a}\D}{\sqrt{n-1}} = \ldots = \frac{(\hat{a}\D)^n}{\sqrt{n!}} \ket{0},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \hat{S}_n = \frac{(\hat{a}\D)^n}{\sqrt{n!}}.
+\end{equation*}
+На данный момент нет источников $n$-фотонных состояний.
+Таким образом находим
+\begin{equation*}
+    \ket{\alpha} = e^{-|\alpha|^2/2} e^{\alpha \hat{a}\D} \ket{0},
+\end{equation*}
+но нюанс в том что когерентные состояния не ортогональны
+\begin{equation*}
+    |\bk{\alpha_2}{\alpha_1}|^2 = \exp\left(-|\alpha_2-\alpha_1|^2\right).
+\end{equation*}
+Можем сделать замену, точнее ввести
+\begin{equation*}
+    \hat{S}_c = e^{\alpha \hat{a}\D - \bar{\alpha} \hat{a}},
+\end{equation*}
+который действует на $\ket{0}$ точно также.
+
+
+
