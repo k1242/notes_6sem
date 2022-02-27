@@ -1,0 +1,117 @@
+\section{Неделя III}
+
+
+\subsection*{№1. 7.1.2}
+
+Найдём решение уравнения Хопфа с начальными условиями $u = 0$ при $x < 0$ и $u = -c_1 x + c_2 x^2$ при $x > 0$. Для начала считаем
+\begin{equation*}
+    \left\{\begin{aligned}
+        c(x_0) &= - c_1 x_0 + c_2 x_0^2  \\
+        x(t) &= x_0 (c) + c t
+    \end{aligned}\right.
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    x_0 (c) = \frac{c_1 \pm \sqrt{c_1^2 + 4 c c_1}}{2 c_2},
+\end{equation*}
+где выбор знака не принципиален. Подставляя $x_0$ в уравнение на $x(t)$, выражаем $c$:
+\begin{equation*}
+    c = \frac{c_1}{2 c_2^3 t^2} \left(
+        \pm \sqrt{c_1 \left(c_1 (c_2 t-1)^2+4 c_2^2 t x\right)}-c_1 c_2 t+c_1+2 c_2^2 t x
+    \right),
+\end{equation*}
+где $+$ не удоволетворяет $c(t=0, x) = u_0 (x)$, а значит
+\begin{equation*}
+    u(x, t) = \frac{c_1}{2 c_2^3 t^2} \left(
+        - \sqrt{c_1 \left(c_1 (c_2 t-1)^2+4 c_2^2 t x\right)}-c_1 c_2 t+c_1+2 c_2^2 t x
+    \right)
+\end{equation*}
+где, возможно, потерялся множитель $c_2/c_1$. 
+Стоит заметить, что до точки $x^* = c_1/c_2$ верно $u_0'(x) < 0$, а значит решение существует только до некоторого $t^*$. 
+
+
+\subsection*{№2. 7.1.3}
+
+Теперь решим уравнение Хопфа с накачкой:
+\begin{equation*}
+    \partial_t u + u \partial_x u = f,
+    \hspace{10 mm} 
+    f = \alpha^2 x,
+    \hspace{5 mm} 
+    u_0(x) = 0,
+\end{equation*}
+где сделали замену $\varphi = \alpha^2$.
+Сначала находим
+\begin{equation*}
+    \ddot{x} - \alpha^2 x = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+    x = x_0 \ch(\alpha t) + \frac{\dot{x}_0}{\alpha} \sh(\alpha t).
+\end{equation*}
+Находим, что $\dot{x}_0 = u_0(x_0) =0$, а значит
+\begin{equation*}
+    \dot{x} = \alpha x_0 \sh(\alpha t) = \alpha x \th(\alpha t).
+\end{equation*}
+При $\varphi = -\alpha^2$ уравнение изменится на $\dot{x} = - \alpha x \tg(\alpha t)$. Итого, окончательный ответ
+\begin{equation*}
+    u(t, x) = \sqrt{|\varphi|} \sign(\varphi)\ x  \cdot \left\{\begin{aligned}
+        &\th(\sqrt{|\varphi|} \ t),  &\varphi > 0; \\
+        &\tan(\sqrt{|\varphi|} \ t),  &\varphi < 0. \\
+    \end{aligned}\right.
+\end{equation*}
+
+
+\subsection*{№3. 7.1.4}
+
+Аналогично решаем уравнение Хопфа с накачкой:
+\begin{equation*}
+    \partial_t u + u \partial_x u = f,
+    \hspace{10 mm} 
+    f = f_0,
+    \hspace{5 mm} 
+    u_0(x) = x.
+\end{equation*}
+Сначала находим
+\begin{equation*}
+    \ddot{x} = f_0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    x(t) = \frac{1}{2} f_0 t^2 + \dot{x}_0 t + x_0,
+\end{equation*}
+где $\dot{x}_0 = u_0 (x_0) = x_0$, а значит
+\begin{equation*}
+    x_0 = \frac{x - f_0 t^2/2}{t+1},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \dot{x} = f_0 t + \dot{x}_0 = \frac{\frac{1}{2} f_0 t^2 + f_0 t + x}{t+1},
+\end{equation*}
+таким образом искомый ответ
+\begin{equation*}
+    u(t, x) = \frac{\frac{1}{2} f_0 t^2 + f_0 t + x}{t+1}.
+\end{equation*}
+
+
+
+\subsection*{№4. 7.1.5}
+
+Найдём решение уравнения Бюргерса с начальным условием
+\begin{equation*}
+    \psi_0 = \ch(a x) + B \ch(bx),
+\end{equation*}
+где $a < b$ и $B \ll 1$.
+
+Для начала находим $\psi$, как решение диффузного уравнения:
+\begin{equation*}
+    \psi(t, x) = \int_{\mathbb{R}} \frac{1}{\sqrt{4 \pi t}} \exp\left(
+        - \frac{(x-y)^2}{4t}
+    \right) \psi_0(y) \d  y = e^{a^2 t} \ch(a x) + B e^{b^2 t} \ch(bx).
+\end{equation*}
+Теперь находим $u$
+\begin{equation*}
+    u = -2 \partial_x \ln \psi = -\frac{2 \left(a e^{a^2 t} \sh (a x)+b B e^{b^2 t} \sh (b x)\right)}{e^{a^2 t} \ch (a x)+B e^{b^2 t} \ch (b x)}.
+\end{equation*}
+Заметим, что при $x \to -0$ и $t \to \infty$, система будет определяться большим шоком:
+\begin{align*}
+    u(x, t)  &\approx - 2 b^2 x, \hspace{5 mm} t \to \infty,\,  x \to 0; \\
+    u(x, t)  &\approx - 2 b, \ \ \, \hspace{5 mm} x \to 0,\,  t \to \infty.\\
+\end{align*}
+
+
+
+
+

@@ -49,6 +49,17 @@ c законом дисперсии $\varpi = cq$.
 где асимтотики имеют место при $t \gg l^2$, $l$ -- масштаб на котором локализовано поле.
 
 
+\textbf{Уравнение диффузии (с накачкой)}.  При наличии правой части:
+\begin{equation*}
+    (\partial_t - \nabla^2) u = \varphi,
+\end{equation*}
+можем найти функцию Грина для оператора $\partial_t - \nabla^2$
+\begin{equation*}
+    u(t, \vc{x}) =  \int G(t-\tau, \vc{x}-\vc{y}) \varphi(t, \vc{y}) \d \tau \d^d \vc{y},
+    \hspace{10 mm} 
+    G(t, \vc{r}) = \frac{\theta(t)}{(4 \pi t)^{d/2}} \exp\left(- \frac{r^2}{4 t}\right).
+\end{equation*}
+
 \textbf{Меленные переменные}. Рассмотрим прозвольное возмущение гармонического осциллятора:
 \begin{equation}
     \left(\partial_t^2 + \omega_0^2\right) x(t) = \varepsilon f(t, x, \dot{x}).
@@ -69,7 +80,65 @@ c законом дисперсии $\varpi = cq$.
     \label{slowphi}
 \end{align}
 
-\textbf{Огибающая}. Уравнение на огибающую может быть найдено в виде решения уравнения
+% \textbf{Огибающая}. Уравнение на огибающую может быть найдено в виде решения уравнения
+% \begin{equation*}
+%     \partial_t \psi + \vc{v} \cdot \nabla \psi = \frac{i \varepsilon}{\omega} e^{i \theta} \int_{0}^{2\pi} \frac{d \varphi}{2 \pi} e^{-i \varphi} f.
+% \end{equation*}
+
+
+\textbf{Уравнение Хопфа}.  В акустике естественно возникает уравнение Хопфа:
 \begin{equation*}
-    \partial_t \psi + \vc{v} \cdot \nabla \psi = \frac{i \varepsilon}{\omega} e^{i \theta} \int_{0}^{2\pi} \frac{d \varphi}{2 \pi} e^{-i \varphi} f.
+    \partial_t u + u\, \partial_x u = 0.
 \end{equation*}
+Решение может быть найдено в виде
+\begin{equation*}
+    x(t) = x_0 + u_0 (x_0) t, \hspace{5 mm} 
+    u(x(t), t) = c(x_0) = u_0 (x_0).
+\end{equation*}
+где сначала разрешаем уравнение $c = u_0 (x_0)$ относительно $c = c(x_0)$, а потом разрешаем уравнение на $x(t)$ относительно $c = c(x(t), t)$. 
+Зная, что $u(x(t), t) = c(x(t), t)$, находим $u(x, t) = c(x, t)$. 
+
+\textbf{Уравнение Хопфа (с накачкой)}. Добавим к уравнению накачку:
+\begin{equation*}
+    \partial_t u + u\, \partial_x u = f(x, t).
+\end{equation*}
+Система может быть сведена к
+\begin{equation*}
+    \left\{\begin{aligned}
+        \dot{u} &= f(t, x(t)) \\
+        \dot{x} &= u(t, x(t))
+    \end{aligned}\right.
+    \hspace{5 mm} \Leftrightarrow \hspace{5 mm} 
+    \ddot{x} = f(x, t),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    x(t) = x(t, x_0, \dot{x}_0),
+\end{equation*}
+где $\dot{x}_0 = u_0(x_0)$. Сначала разрешаем уравнение $x(t)$ относительно $x_0 = x_0(t, x)$, а потом подставляем этот $x_0$ в $u(t, x) = \dot{x}(t, x_0(t,x))$, что и является решением исходной задачи.
+
+
+
+\textbf{Уравнение Бюргерса}. Добавим диссипацию в уравнение Хопфа:
+\begin{equation*}
+    \partial_t u + u\, \partial_x u = \partial_x^2 u,
+\end{equation*}
+так получим уравнение Бюргерса.
+
+Заметим, что преобразование Коула-Хопфа
+\begin{equation*}
+    \psi = \exp\left(- \tfrac{1}{2}h\right),
+    \hspace{5 mm} 
+    u = \partial_x h,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    (\partial_t - \partial_x^2)\psi = 0.
+\end{equation*}
+Имея начальные условия для $\psi_0(x)$, можем найти
+\begin{equation*}
+    \psi(t, x) = \int_{\mathbb{R}} \psi_0 (y) \frac{\theta(t)}{\sqrt{4 \pi t}} \exp\left(-\frac{(x-y)^2}{4t}\right) \d y,
+\end{equation*}
+откуда находим решение
+\begin{equation*}
+    u(t, x) =  -2 \partial_x \ln \psi(t, x).
+\end{equation*}
+
+
+
