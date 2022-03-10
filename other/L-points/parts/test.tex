@@ -1,0 +1,97 @@
+\textbf{Уравнения движения}.
+Рассмотрим ограниченную задачу трёх тел. Перейдём во вращающуюся систему отсчёта с координатами $u,\, v$, тогда функция Лагранжа перепишется в виде
+\begin{equation*}
+    L = T + V = \frac{1}{2} \sum_i m_i (\dot{x}_i^2 + \dot{y}_i^2) + \omega \sum_i m_i (x_i \dot{y}_i - \dot{x}_i y_i) + V_\omega,
+\end{equation*}
+где новая <<силовая функция>> имеет вид
+\begin{equation*}
+    V = V_G + \frac{ I \omega^2}{2},
+    \hspace{5 mm} 
+    V_G = G \sum_{k < j} \frac{m_k m_j}{r_{kj}},
+    \hspace{5 mm} 
+    I = \sum_i m_i r_i^2.
+\end{equation*}
+В частности, для трёх тел, $M_1 > M_2 \gg M_3 = m$:
+\begin{equation*}
+    L = \frac{m}{2}(\dot{x}^2 + \dot{y}^2) + \omega m (x \dot{y} - \dot{x} y) + \frac{G M_1 m}{r_{13}} + \frac{G M_2 m}{r_{23}} + \frac{m}{2} \omega^2 r_3^2 .
+\end{equation*}
+Далее будем считать 
+\begin{equation*}
+    \vc{r}_1 = \left(-\alpha R,\, 0\right),
+    \hspace{5 mm} 
+    \vc{r}_2 = \left(R,\, 0\right),
+    \hspace{5 mm} 
+    \alpha = M_2 / M_1,
+    \hspace{5 mm} 
+    R^3 = \frac{G M_1}{ (\alpha +1)^2 \omega ^2},
+\end{equation*}
+тогда
+\begin{equation*}
+    r_{13}^2 = (x+\alpha R)^2 + y^2,
+    \hspace{5 mm} 
+    r_{23}^2 = (x-R)^2 + y^2,
+    \hspace{5 mm} 
+    r_3^2 = x^2 + y^2.
+\end{equation*}
+Подставляя это всё в уравнений Эйлера-Лагранжа
+\begin{equation*}
+    \frac{d }{d t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q} = 0,
+\end{equation*}
+находим уравнения движения
+\begin{align*}
+    m \ddot{x} &= \phantom{-}2 m \dot{y} \omega + \partial_x V, \\
+    m \ddot{y} &= -2 m \dot{x} \omega + \partial_y V,
+\end{align*}
+
+
+
+\textbf{Область Хилла}. 
+Заметим, что уравнения движения имеют интеграл движения (сохранение энергии)
+\begin{equation*}
+    \frac{\dot{x}^2 + \dot{y}^2}{2} - V(x,\, y) = h,
+\end{equation*}
+который определяет \textit{область Хилла}: $\{(x,y) \mid V(x,y) + h \geq 0\}$.
+
+\textbf{Относительные равновесия}. Каждой критической точке $V$ соответствует решение $x(t) = x_0$ и $y(t) = y_0$. Всего критических точек будет пять (при $M_1  > M_2$) -- точки Лагранжа, которые соответствуют условию $\partial_x V = \partial_y V = 0$:
+\begin{equation*}
+    \left.\begin{aligned}
+    \partial_x V &= x \Phi -\frac{G m M_1}{r_{13}^3} \alpha R - \frac{G m M_2}{r_{23}^3} R, \\
+    \partial_y V &= y \Phi,
+    \end{aligned}\right.
+    \hspace{15 mm} 
+    \Phi = m  \omega^2 - \frac{G m M_1}{r_{13}^3}   - \frac{G m M_2}{r_{23}^3}.
+\end{equation*}
+Легко видеть, что при $y \neq 0$, $\Phi = 0$:
+\begin{equation*}
+    \frac{G M_1}{r_{13}^3} + \frac{G M_2}{r_{23}^3} = \omega^2,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \frac{1}{r_{13}^3} + \frac{\alpha}{r_{23}^3} = \frac{1}{R^3} \frac{1}{(\alpha + 1)^2},
+    \hspace{5 mm} 
+    \Leftrightarrow
+    \hspace{5 mm} 
+    \frac{1}{r_{13}^3} + \frac{\alpha}{r_{23}^3} = \frac{1 + \alpha}{[R(1 + \alpha)]^3},
+\end{equation*}
+а значит $r_{13} = r_{23} = r_{12} = R(1 + \alpha)$ -- точки $L_4$ и $L_5$, вершины равностороннего треугольника, со стороной $r_{12}$, они называются \textit{треугольными точками либрации}.
+
+\textbf{Коллинеарные точки либрации}.
+Теперь пусть $y=0$, так приходим к \textit{коллинеарным точкам либрации}:
+\begin{equation*}
+    \frac{x}{(\alpha+1)^2 R^3} - \alpha \frac{x-R}{|x-R|^3} - \frac{x + \alpha R}{|x + \alpha R|^3} = 0.
+\end{equation*}
+Считая $x = R \pm \alpha \rho$, получим уравнения
+\begin{align*}
+    -\frac{1}{\alpha  \rho ^2}+\frac{\alpha  \rho +R}{(\alpha +1)^2 R^3}-\frac{1}{(\alpha  \rho +\alpha  R+R)^2} &= 0 \\
+    \frac{1}{\alpha  \rho ^2}+\frac{R-\alpha  \rho }{(\alpha +1)^2 R^3}-\frac{1}{(-\alpha  \rho +\alpha  R+R)^2} &= 0.
+\end{align*}
+Раскладывая в ряд по $\alpha$, находим в приближении $o(\alpha)$
+\begin{equation*}
+    x_{L_{1,2}} = R\left(1 \mp \sqrt[3]{\frac{\alpha}{3}} \right) = r_{12}\left(1 \mp \sqrt[3]{\frac{\alpha}{3}} \right).
+\end{equation*}
+Теперь найдём $x_{L_3} = -R - \alpha \rho$. Тогда, аналогично с точностью до $o(\alpha)$:
+\begin{equation*}
+    x_{L_3} = -R\left(1 + \frac{17}{12}\alpha\right) = - r_{12} \left(1 + \frac{5}{12} \alpha\right),
+\end{equation*}
+где $r_{12} = R(1 + \alpha)$.
+
+
+
