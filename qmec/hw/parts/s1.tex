@@ -154,6 +154,11 @@
 
 \subsection*{Т4}
 
+Продолжаем работать с основным состоянием водорода, а значит
+\begin{equation*}
+    \bk{\vc{r}}{\psi} = \psi_{100} (r) = \frac{1}{\sqrt{\pi a^3}} e^{-r/a}.
+\end{equation*}
+
 \textbf{Электростатика}. Вспоминаем, что
 \begin{equation*}
     \Delta \varphi = - 4 \pi \rho_0,
@@ -186,7 +191,13 @@
     \varphi = \frac{e}{r_0^3} \frac{r^2}{2} - \frac{3}{2} \frac{e}{r_0}.
 \end{equation*}
 
-\textbf{Кванты}. Поправку можем найти, как
+\textbf{Кванты}. Поправку можем найти, считая
+\begin{equation*}
+    - \frac{e^2}{r} \mapsto U(r),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \sub{\varphi}{new} - \varphi = \frac{e^2 r^2}{2 r_0^3}  - \frac{3e}{2r_0} - \left(- \frac{e^2}{r}\right), \  \ \  r \leq r_0.
+\end{equation*}
+А значит, интегрируя, находим
 \begin{equation*}
     \Delta_1 = \bk{\psi}[\hat{V}]{\psi} = \int_{0}^{r_0} r^2 \d r \int_{-1}^{1} \d \cos \theta \int_{0}^{2\pi} \d \varphi \left(
         \frac{e^2 r^2}{2 r_0^3} - \frac{3}{2} \frac{e}{r_0} + \frac{e^2}{r}
