@@ -1,0 +1,47 @@
+	
+
+\subsection*{Задача №1. Частота Раби} 
+
+Рассмотрим переменное поле, вида
+\begin{equation*}
+	\vc{B}(t) = B_0 \vc{z}_0 + B_\bot \vc{x}_0 \cos(\omega t) + B_\bot \vc{y}_) \sin \omega t,
+\end{equation*}
+тогда гамильтониан взаимодействия
+\begin{equation*}
+	\hat{V} = - \hat{\vc{\mu}} \cdot \vc{B} = \bigg/
+		\hat{\vc{\mu}} = \frac{g |e| \hbar}{2 m_e c} \hat{\vc{s}}
+	\bigg/,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\gamma = - \frac{g}{2}\frac{e  B_\bot}{m_e c}.
+\end{equation*}
+
+\subsection*{Задача №2. Время жизни} 
+
+Рассмотрим состояние $\ket{\psi_{210}}$. Время жизни можем найти через $\Gamma$:
+\begin{equation*}
+	\Gamma = |\sub{\vc{d}}{eg}|^2 \frac{\omega^3}{\hbar c^3} \frac{4}{3} =
+	\frac{4}{3} \frac{\alpha \sub{E}{eg}^3}{\hbar^3 c^2} a^2 |\varkappa|^2,
+	\hspace{10mm}
+	\varkappa = \bk{\psi_{100}}[\tfrac{z}{a}]{\psi_{210}}.
+\end{equation*}
+так как для $x$ и для $y$ соответствующие матричные элементы равны нулю. 
+
+Знаем волновые функции состояний, тогда
+\begin{equation*}
+	\psi_{100} = \frac{\left(\frac{1}{a}\right)^{3/2} e^{-\frac{r}{a}}}{\sqrt{\pi }},
+	\hspace{5mm}
+	\psi_{210} = \frac{\left(\frac{1}{a}\right)^{3/2} e^{-\frac{r}{2 a}} \cos (\theta )}{4 \sqrt{2 \pi }},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varkappa = \iiint
+	\frac{r^3 e^{-\frac{3 r}{2 a}} \sin (\theta ) \cos ^2(\theta )}{4 \sqrt{2} \pi  a^4}
+	\d r \d \theta \d \varphi = 
+	\frac{16 \sqrt{2}}{81}.
+\end{equation*}
+Так как рассматриваем переход с $n=2$ к $n=1$, то $\sub{E}{eg} = -\text{Ry} \left(1 - \frac{1}{4}\right) = \hbar \omega = 10.2$ эВ, что и определяет длину волны перехода $\lambda = 121.6$ нм, серия Лаймана.
+
+
+Собирая всё вместе, находим
+\begin{equation*}
+	\frac{1}{2 \pi \Gamma} = 1.5 \text{ нс},
+\end{equation*}
+что и является временем жизни уровня.
