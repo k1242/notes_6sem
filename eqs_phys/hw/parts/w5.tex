@@ -1,0 +1,125 @@
+\section{Неделя V}
+
+\subsection*{№ 8.1.5}
+
+Найдём локализованное автомодельное решение уравнения
+\begin{equation*}
+	\partial_t u = \partial_x (u^{-1} \partial_x u) + \partial_x u.
+\end{equation*}
+Подстановкой \eqref{am}, получаем систему
+\begin{equation*}
+	-a -1 = -b-a = -2 b,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	a = b = 1,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	u(t, x) = \frac{1}{t} f\left(\tfrac{r}{t}\right).
+\end{equation*}
+Условие локализованности можем записать в виде
+\begin{equation*}
+	\int_{\mathbb{R}} u(t, x) \d x = \const, 
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	a = b,
+\end{equation*}
+так что можем говорить о существование локализованного автомодельного решения. 
+
+
+Подставновка предполагаемого вида $u$ в исходное уравнение даёт выражение, вида
+\begin{equation*}
+	f(\xi)^2 + (\xi + 1) f(\xi) f'(\xi) + f''(\xi) = \frac{f'(\xi)^2}{f(\xi)},
+\end{equation*}
+где заменили $\frac{r}{t} \overset{\mathrm{def}}{=}  \xi$.
+
+Вроде бы неплохой выглядит идея посмотреть на $f(x) = 1/g(x)$, тогда
+\begin{equation*}
+	g(x) g''(x)-g'(x)^2+x g'(x)+g'(x)-g(x) = 0.
+\end{equation*}
+Если внимательно на уравнение посмотреть, то можно предположить
+\begin{equation*}
+	g(x) = e^{\alpha x} + a x + b,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	a = - \frac{1}{\alpha},
+	\ \ 
+	b = - \frac{1 + \alpha}{\alpha},
+\end{equation*}
+но это не выглядит как что-то осмысленное.
+
+
+
+\subsection*{№ 9.1.2}
+
+На интервале $(0,\, \infty)$ найдём резольвенту ядра $K(t, s) = \exp(t-2s)$. 
+Пользуясь \eqref{FeqRI}, находим
+\begin{equation*}
+	\hat{K}^2 = \int_{0}^{\infty} K(t, p_1) K(p_1, s) \d p_1 = e^{t-2s} \int_{0}^{\infty} e^{-p_1}  = e^{t-2s},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	R(t, s) = e^{t-2s} + \lambda e^{t-2s} + \ldots = \frac{e^{t-2s}}{1-\lambda},
+\end{equation*}
+что вполне соответствует факторизуемому ядру.
+
+
+\subsection*{№ 9.1.4}
+
+Найдём решение \eqref{Feq2} для $K = \exp\left(-t^2-s^2\right)$ и $g(t) = t^2$. Для начала найдём резольвенту, как
+\begin{equation*}
+	\hat{R} = \hat{K} + \lambda \hat{K}^2 + \ldots = 
+	K(t, s) + \lambda K(t, s) \int_{-\infty}^{\infty} e^{-2 p_1^2} \d p_1  +
+	\ldots = \frac{K(t, s)}{1 - \lambda \sqrt{\frac{\pi}{2}}}.
+\end{equation*}
+Тогда $f$ можем найти в виде
+\begin{equation*}
+	f(t) = g(t) + \lambda \hat{R}\, g(t) = t^2 + \lambda \int_{-\infty}^{\infty} \frac{e^{-t^2 - s^2}}{1 - \lambda \sqrt{\frac{\pi}{2}}} s^2 \d s = 
+	t^2 + \frac{\lambda}{\sqrt{\frac{2}{\pi}}-\lambda} \frac{e^{-t^2}}{\sqrt{2}},
+\end{equation*}
+что и является искомым решением.
+
+
+
+
+
+
+
+
+\subsection*{№ 9.1.7}
+
+Найдём решение \eqref{Feq2} для $K = (1 + ts)e^{-2t -s}$ и $g(t) = e^{t/2}$. Для начала найдём резольвенту:
+\begin{equation*}
+	\int_{0}^{\infty} K(t, p_1) K(p_1, s) \d p_1 = 
+	\sum_i K_i(t,s) \int_{0}^{\infty} K_i (p_1, p_1) \d p_1 = 
+	\alpha\, e^{-2t -s} + \beta ts\, e^{-2t-s},
+\end{equation*}
+где $K(t,s) = e^{-2 t}e^{-s} + (t e^{-2t}) (s e^{-s})$ -- факторизуемо, и коэффициенты 
+\begin{equation*}
+	\alpha = \int_{0}^{\infty} e^{-3 p_1} \d p_1 = \frac{1}{3},
+	\hspace{10 mm} 
+	\beta = \int_{0}^{\infty} p_1^2 e^{-3 p_1} \d p_1 = \frac{2}{27}.
+\end{equation*}
+Аналогично последующие слагамые
+\begin{equation*}
+	\hat{K}^3 = \alpha^2\, e^{-2t-s} + \beta^2 ts\, e^{-2t-s}.
+\end{equation*}
+Суммируя, находим
+\begin{equation*}
+	R(t, s) = e^{-2t-s}\left(\frac{1}{1-\frac{1}{3}\lambda} + \frac{ts}{1 - \frac{2}{27}\lambda}\right).
+\end{equation*}
+Осталось найти $f$ в виде
+\begin{equation*}
+	f(t) = e^{t/2} + \int_{0}^{\infty} R(t,s) g(s) \d s = e^{t/2} + 6 \lambda e^{-2 t} \left(\frac{1}{3-\lambda }+\frac{18 t}{27-2 \lambda }\right).
+\end{equation*}
+
+
+
+
+
+\subsection*{№ 9.1.6}
+
+Найдём решение \eqref{Feq2} для $K = (1 + ts)e^{-2t -s}$ и $g(t) = e^{t/2}$. Для начала найдём резольвенту, аналогично двум предыдущим номерам
+\begin{equation*}
+	R(t, s) = \frac{1}{1-\lambda} + \frac{t^2 s^2}{1 - \frac{1}{5}\lambda}.
+\end{equation*}
+Теперь можем найти $f(t)$:
+\begin{equation*}
+	f(t) = g(t) + \lambda \int_{0}^{1} R(t,s) \d s = t^2 + \lambda \left(
+		\frac{1}{3}\frac{1}{1- \lambda }+\frac{t^2}{5-\lambda }
+	\right) =  \frac{t^2}{1-\frac{1}{5}\lambda} + \frac{\lambda/3}{1-\lambda},
+\end{equation*}
+где уже добавка не затухает со временем, в отличии от предыдущих задач.

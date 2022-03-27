@@ -1,0 +1,42 @@
+\section*{ТеорМин №2}
+\addcontentsline{toc}{section}{ТеорМин №2}
+
+
+\textbf{Автомодельные решения}. 
+Если уравнения вида $\hat{L}\, u(\vc{r}, t) = \ldots$ -- однородно и изотропно, то может помочь автомодельная подстановка:
+\begin{equation}
+	u(t, \vc{r}) = \frac{1}{t^a} f\left(\tfrac{r}{t^b}\right)
+	\hspace{5 mm} \colon \hspace{5 mm} 
+	t \to \lambda t
+	\hspace{0.25cm} \Rightarrow \hspace{0.25cm}
+	u \to \lambda^{-a} u, \ r \to \lambda^{b} r.
+	\label{am}
+\end{equation}
+Восстановить $a$ в общем виде нельзя, но требуя, например, локальности решения $\int_{\mathbb{R}^n} u \d V = \const$ можем иногда найти и $a$. 
+
+
+\textbf{Уравнение Фредгольма}. Есть уравнение Фредгольма I рода:
+\begin{equation*}
+	\int_{a}^{b} ds\ K(t, s) f(s) = g(t),
+\end{equation*}
+и уравнение Фредгольма II рода:
+\begin{equation}
+	f(t) = g(t) + \lambda \int_{a}^{b} K(t, s) f(s),
+	\hspace{5 mm} \Leftrightarrow \hspace{5 mm} 
+	f = g + \lambda \hat{K} f,
+	\label{Feq2}
+\end{equation}
+где мы ввели интегральный оператор $\hat{K} f = \int_{a}^{b} ds \ K(t, s) f(s)$. Решение можем найти в виде
+\begin{equation*}
+	f = \frac{1}{1-\lambda \hat{K}}\,  g = \left(\mathbbm{1} + \lambda \hat{R}\right) g,
+	\hspace{10 mm} 
+	\hat{R} \overset{\mathrm{def}}{=}  \hat{K} + \lambda \hat{K}^2 + \ldots
+\end{equation*}
+В терминах интегрирования резульвента $R (t, s)$ выражается, как
+\begin{equation}
+	R(t,s) = K(t, s) + \lambda \int_{a}^{b}d p_1\  K(t, p_1) K(p_1, s) + 
+	\lambda^2 \int_{a}^{b} d p_1 \int_{a}^{b} d p_2 \ K(t, p_1) K(p_1, p_2) K(p_2, s) + \ldots
+	\label{FeqRI}
+\end{equation}
+
+\newpage
