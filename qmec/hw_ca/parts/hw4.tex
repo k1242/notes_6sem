@@ -1,0 +1,42 @@
+\subsection*{Задача №3,4. Электродипольный переход}
+
+\textbf{Выбор состояния}.
+Снова посмотрим на $\psi(\vc{r})$ атома водорода:
+\begin{equation*}
+	\psi_{100} = \frac{\left(\frac{1}{a}\right)^{3/2} e^{-\frac{r}{a}}}{\sqrt{\pi }},
+	\hspace{5mm}
+	\psi_{21-1} = \frac{\left(\frac{1}{a}\right)^{3/2} \sin (\theta ) e^{-\frac{r}{2 a}-i \varphi }}{8 \sqrt{\pi }},
+	\hspace{5 mm} 
+	\psi_{210} = \frac{\left(\frac{1}{a}\right)^{3/2} e^{-\frac{r}{2 a}} \cos (\theta )}{4 \sqrt{2 \pi }},
+	\hspace{5 mm} 
+	\psi_{211} = \psi_{21-1}\D.
+\end{equation*}
+Найдём матричные элементы для возмущения
+$\sub{\hat{H}}{I} = - \hat{\vc{d}} \cdot \hat{\vc{\sigma}}_+ E_0 e^{-i \omega t}$, где
+$\hat{\vc{d}} = - |e| \hat{\vc{r}}$ и $\vc{\sigma}_+ = -\frac{1}{\sqrt{2}}\left(1,\, i,\, 0\right)$. Также воспользовались электродипольным приближением, считая $\vc{E}(z) \approx	\vc{E}(0)$. Тогда
+\begin{align*}
+	\bk{\psi_{100}}[\hat{\vc{d}} \cdot \vc{\sigma}_+]{\psi_{21-1}} &= \int_{0}^{\infty} dr\ \int_{0}^{\pi} d \theta\ \int_{0}^{2\pi} d \varphi \ 
+		\frac{r^3 e^{-\frac{3 r}{2 a}} \sin ^3(\theta )}{8 \sqrt{2} \pi  a^3} 
+		= \frac{16 \sqrt{2}}{81} a |e|, \\
+	\bk{\psi_{100}}[\hat{\vc{d}} \cdot \vc{\sigma}_+]{\psi_{210}} &= \int_{0}^{\infty} dr\ \int_{0}^{\pi} d \theta\ \int_{0}^{2\pi} d \varphi \ 
+		\frac{r^3 \sin ^2(\theta ) \cos (\theta ) e^{-\frac{3 r}{2 a}+i \varphi }}{8 \pi  a^3} 
+		= 0, \\
+	\bk{\psi_{100}}[\hat{\vc{d}} \cdot \vc{\sigma}_+]{\psi_{211}} &= \int_{0}^{\infty} dr\ \int_{0}^{\pi} d \theta\ \int_{0}^{2\pi} d \varphi \ 
+		-\frac{r^3 \sin ^3(\theta ) e^{-\frac{3 r}{2 a}+2 i \varphi }}{8 \sqrt{2} \pi  a^3} 
+		= 0,
+\end{align*}
+Таким образом переход происходит в $l_z = -1$. 
+
+\textbf{Частота Раби}. Теперь можем рассмотреть двухуровневую систему с $\ket{0} = \ket{\psi_{100}}$ и $\ket{1} = \ket{21-1}$, гамильтониан которой можем переписать в виде
+\begin{equation*}
+	\hat{H} = \hbar \omega \kb{1}{1} + \frac{\hbar \gamma}{2} \kb{1}{0} e^{-i \omega t} + \cc
+\end{equation*}
+где перемешивание уровней как раз и обусловлено электродипольным переходом:
+\begin{equation*}
+	\sub{\hat{H}}{I} = \sum_{k, j = 0, 1} \ket{k} \bk{k}[\hat{H}_I]{j} \bra{j},
+\end{equation*}
+откуда находим частоту Раби:
+\begin{equation*}
+	\gamma = -\frac{2^{11/2}}{3^{4}} \frac{a e E_0}{\hbar},
+\end{equation*}
+где $a$ -- радиус Бора.
