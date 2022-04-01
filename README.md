@@ -9,7 +9,8 @@
 ([*задание*](https://github.com/k1242/notes_6sem/blob/main/qmec/hw/qmec_hw.pdf));
 
 * **вычислительной математики**
-([*заметки*](https://github.com/k1242/notes_6sem/blob/main/calc_math/calc_math.pdf));
+([*задание*](https://github.com/k1242/notes_6sem/tree/main/calc_math/hw_code),
+[*заметки*](https://github.com/k1242/notes_6sem/blob/main/calc_math/notes/calc_math.pdf));
 
 * **ркц**
 ([*квантовая оптика*](https://github.com/k1242/notes_6sem/blob/main/qmec/notes_qo/notes_qo.pdf),
