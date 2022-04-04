@@ -1,0 +1,100 @@
+\section{С3. Численное интегрирование}
+
+
+\textbf{Постановка задачи}. Хотим найти
+\begin{equation*}
+	I = \int_{a}^{b} f(x) \d x,
+\end{equation*}
+где мы не факт, что знаем $f(x)$. 
+
+
+\textbf{Интуитивный подход}. Можем посчитать сумму Римана
+\begin{equation*}
+	S_N = \sum_{i=1}^{N} f(\xi_i) \Delta x_i.
+\end{equation*}
+Такой подход будет приводить к квадратурным формулам\footnote{
+	Кубатурным в двухмерии. 
+}. Формулы вида $f(\xi_i) \Delta x_i$ называют элементарными квадратурными формулами.
+
+
+\textbf{Полиномиальный подход}. Будем пользоваться полиномами в форме Лагража, тогда
+\begin{equation*}
+	\int_{a}^{b} f(x) \d x = \int_{a}^{b} P(x) \d x,
+	\hspace{5 mm} 
+	P_L(x) = \sum_{k=0}^{N} c_k (x) f(x_k) = \sum_{k=0}^{N} \left(
+		\prod_{i\neq k} \frac{x-x_i}{x_k-x_i}
+	\right) f_k. 
+\end{equation*}
+Переставляя интеграл и сумму, можем получить
+\begin{equation*}
+	I = \sum_{k=9}^{N} f_k \int_{a}^{b} c_k (x) \d x = \sum_{k=0}^{N} w_k f_k,
+	\hspace{10 mm} 
+	w_k = \int_{a}^{b} c_k(x) \d x.
+\end{equation*}
+
+\textbf{Предварительный расчёт}. Рассмотрим функцию
+\begin{equation*}
+	c^m_k (x) = \prod_{i\neq k} \frac{x-x_i}{x_k-x_i}.
+\end{equation*}
+Пусть $x \in [a, b]$, и хотим перейти к $\tilde{x} \in [-1, 1]$, тогда
+\begin{equation*}
+	x = \frac{a+ b}{2} + \tilde{x} \frac{b-a}{2} = \alpha_0 + \alpha_1 \tilde{x}.
+\end{equation*}
+Тогда
+\begin{equation*}
+	c_k^m (\tilde{x}) = \ldots = \prod_{i\neq k} \frac{\tilde{x}-\tilde{x}_i}{\tilde{x}_k-\tilde{x}_i},
+\end{equation*}
+% 22.77.jewrly
+таким образом все $c_k^m (\tilde{x}) \to w_k^m (m)$ не зависят от выбора интервала и могут быть вычислены заранее. 
+
+Например для линейного случая $m=1$ приходим к разбиению на трапеции
+\begin{equation*}
+	I \approx \sum_{i=1}^{N} \frac{f(x_{i-1})+f(x_i)}{2} \Delta x_i,
+	\hspace{5 mm} \Leftrightarrow \hspace{5 mm} 
+	w^1 = \frac{1}{2}.
+\end{equation*}
+Для $m=2$ можем аналогично найти
+\begin{equation*}
+	I \approx \sum_{i=1}^{N} \frac{f(x_{i-1}) + 4 f(x_i) + f(x_{i+1})}{6} \Delta x_i,
+	\hspace{0.5cm} \Leftrightarrow \hspace{0.5cm}
+	w_k^2 = \frac{1}{6}, \frac{2}{3},
+\end{equation*}
+% где инкремент в сумме происходит в соответствии с областями.
+
+
+% 58.43
+
+\textbf{Ошибка интегрирования}. Раскладывая всё по Фурье можем найти оценки для ошибки. Введем $E[f]$:
+\begin{equation*}
+	E[f] = \bigg|
+		\int_{x_{i-1}}^{x_i} R_N (x) \d x
+	\bigg| = \int_{x_{i-1}}^{x_i} \frac{\max_\xi f^{(N+1) (\xi)}}{(N+1)!} (x_i - x_{i-1})^{N+1} \d x.
+\end{equation*}
+В частности
+\begin{align*}
+	&m=0, \text{ средняя точка}, &E[f] = \frac{1}{24}(b-a)^3 f''(\xi), \\
+	&m=1, \text{ ф-ла трапеции}, &E[f] = \frac{1}{12}(b-a)^3 f''(\xi), \\
+	&m=2, \text{ ф-ла Симпсона}, &E[f] = \frac{1}{2880} (b-a)^5 f^{(4)}(\xi), \\
+	&m=3, &E[f] = \frac{1}{6480} (b-a)^5 f^{(4)}(\xi).
+\end{align*}
+
+
+
+\textbf{Нули Лежандра}. Располагая точки в нулях полиномов Лежандра повышаем степень до $2m+1$:
+\begin{equation*}
+	q_0 (x) = 1,
+	\hspace{5 mm} 
+	q_1 (x) = x,
+	\hspace{5 mm} 
+	q_2(x) = \frac{1}{3}(3x^2-1), \ldots
+\end{equation*}
+которые ортогональны в смысле $L_2[-1, 1]$ нормы.
+
+
+\textbf{Оценка точности}. Реально оценить точность можем по формуле
+\begin{equation*}
+	p = \log_2 \left(
+		\frac{I_{4h}-I_{2h}}{I_{2h}-I_h}
+	\right),
+\end{equation*}
+где $I^* = I_h + C h^p$.

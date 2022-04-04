@@ -1,0 +1,284 @@
+\section{Интегральные линейные уравнения типа свертка}
+
+\subsection*{Свёртка}
+
+
+\textbf{Свертка I}. Рассмотрим уравнение на $\varphi$, вида
+\begin{equation*}
+	\int_{-\infty}^{\infty} K(x-y) \varphi(y) = f(x),
+\end{equation*}
+то есть уравнение Фредгольма первого рода с $(a, b) = \mathbb{R}$
+ и $K(x,y) = K(x-y)$. 
+
+Решение можем найти через преобразование Фурье:
+\begin{equation*}
+	\tilde{f}(k) = \int_{\mathbb{R}} f(x) e^{-ikx} \d x,
+\end{equation*}
+тогда
+\begin{equation*}
+	\int_{\mathbb{R}} dx\ e^{-ikx} \int_{\mathbb{R}} dy\ K(x-y) \varphi(y) = \int_{\mathbb{R}} dy\ \varphi(y) \int_{\mathbb{R}} dx\ e^{-ik(x-y+y)} K(x-y) = \tilde{K} (k) \int_{\mathbb{R}} \int_{\mathbb{R}} \varphi(y) e^{-iky} \d y = \tilde{K}(k) \tilde{\varphi}(k),
+\end{equation*}
+а ззначит можем найти
+\begin{equation}
+	\tilde{\varphi}(k) = \frac{\tilde{f}(k)}{\tilde{K}(k)},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	 \varphi(x) = \int_{\mathbb{R}} \frac{dk}{2\pi} e^{ikx} \frac{\tilde{f}(k)}{\tilde{K}(k)}.
+\end{equation}
+
+\textbf{Свертка II}. Аналогично для уравнения Фредгольма второго рода
+\begin{equation*}
+	\varphi(x) = f(x) + \lambda \int_{\mathbb{R}} dy\ K(x-y) \varphi(y),
+\end{equation*}
+для которого также
+\begin{equation*}
+	\tilde{\varphi}(k) = \tilde{f}(k) + \lambda \tilde{K} (k) \tilde{\varphi}(k),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\tilde{\varphi}(k) = \tilde{f}(k) + \lambda \frac{\tilde{K}(k)}{1 - \lambda \tilde{K}(k)} \tilde{f}(k), 
+\end{equation*}
+и находим
+\begin{equation*}
+	\varphi(x) = f(x) + \lambda \int_{-\infty}^{+\infty} \frac{dk}{2\pi} e^{ikx} \frac{\tilde{K}(k)}{1 - \lambda \tilde{K}(k)} \tilde{f}(k).
+\end{equation*}
+Последний интеграл можно переписать в виде свёртки
+\begin{equation}
+	\varphi(x) = f(x) + \lambda \int_{\mathbb{R}} dy\ f(y) R(x-y),
+	\hspace{5 mm} 
+	R(x) = \int_{\mathbb{R}} \frac{dk}{2\pi} e^{ik x} \frac{\tilde{K}(k)}{1-\lambda \tilde{K}(k)},
+\end{equation}
+где мы как раз и переписали выражение для $\varphi(x)$, прямым выражением для ядра резовльвенты. 
+
+
+\begin{proof}[\textbf{Пример}]
+ Рассмотрим уравнение
+\begin{equation*}
+	\int_{\mathbb{R}}  ds\ e^{-|t-s|} \varphi(s) = f(t),
+\end{equation*}
+для которого
+\begin{equation*}
+	\tilde{\varphi}(\omega) = \frac{\tilde{f}(\omega)}{F\left[e^{-|t|}\right]} = \frac{\tilde{f}(\omega)}{2} (1 + \omega^2).
+\end{equation*}
+А значит искомая функция
+\begin{equation*}
+	\varphi(t) = \int_{\mathbb{R}}  \frac{d \omega}{2 \pi} \frac{e^{i \omega t}}{2} \left(\tilde{f}(\omega) + \omega^2 \tilde{f}(\omega)\right) = \frac{1}{2} \left(f(t) - \ddot{f}(t)\right),
+\end{equation*}
+что формально является обращением истории с функцией Грина.
+\end{proof}
+
+
+\begin{proof}[\textbf{Пример}] Найдём резольвенту для уравнения
+\begin{equation*}
+	\varphi(t) = f(t) + \lambda \int_{\mathbb{R}}  e^{-|t-s|} \varphi(s) \d s.
+\end{equation*}
+Как уже делали можем посчитать
+\begin{equation*}
+	R(\omega) = \frac{K(\omega)}{1-\lambda K(\omega)} = \frac{2}{1 + \omega^2 - 2 \lambda}.
+\end{equation*}
+Тогда резольвента уравнения
+\begin{equation*}
+	R(t) = \int_{\mathbb{R}} \frac{d \omega}{2\pi} e^{i \omega t} \frac{2}{\omega^2 + 1 - 2 \lambda}= \bigg/ a^2 = 1- 2\lambda > 0 \bigg/ = 2\frac{2 \pi i}{2\pi} \frac{e^{-at}}{2 i \omega}  = \frac{e^{-a |t|}}{a} = \frac{e^{-|t| \sqrt{1-2\lambda}}}{\sqrt{1-2\lambda}}.
+\end{equation*}
+\end{proof}
+
+
+\subsection*{Уравнение Вольтерра}
+
+
+\textbf{Уравнение Вольтерра I}. Рассмотрим интегральное уранвение Фредгольма I на $(a,b) = (0, t)$:
+\begin{equation*}
+	f(t) = \int_{0}^{t} ds\ K(t-s) \varphi(s).
+\end{equation*}
+Здесь хорошо работает преобразование Лапласа:
+\begin{equation*}
+	f(p) = \int_{0}^{\infty}  f(t) e^{-pt} \d t = \Lambda[f](p).
+\end{equation*}
+Получаем
+\begin{equation*}
+	\Lambda[f](p) = \int_{0}^{\infty} e^{-pt} \d t \int_{0}^{t} ds\ K(t-s) \varphi(s) = \int_{0}^{\infty} ds\ \varphi(s) \int_{s}^{\infty} dt\ e^{-p(t+s-s)} K(t-s) = \Lambda[\varphi](p) \Lambda[K](p),
+\end{equation*}
+откуда находим выражение для $\varphi(p) = f(p) / K(p)$, а значит
+\begin{equation}
+	\varphi(t)  = \int_{p_0 - i \infty}^{p_0 + i \infty} \frac{f(p)}{K(p)} e^{pt} \frac{dp}{2\pi i},
+\end{equation}
+где $p_0$ правее всех особенностей.
+
+\textbf{Уравнение Вольтерра II}.
+Аналогично для уравнения Фредгольма II:
+\begin{equation*}
+	\varphi(x) = f(x) + \lambda \int_{0}^{t} K(x-y) \varphi(y) \d y,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(p) = f(p) + \lambda K(p) \varphi(p),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(p) = \frac{f(p)}{1 - \lambda K(p)} = f(p) + \lambda \frac{K(p) f(p)}{1-\lambda K(p)},
+\end{equation*}
+а значит и сама функция $\varphi(x)$:
+\begin{equation*}
+	\varphi(x) = f(x) + \lambda \int_{p_0 - i \infty}^{p_0 + i \infty} \frac{dp}{2\pi i} e^{pt} \frac{K(p) f(p)}{1-\lambda K(p)} = f(x) + \lambda \int_{0}^{t} R(t-s) f(s) \d s,
+	\hspace{5 mm} 
+	R(t) = \int_{p_0 - i \infty}^{p_0 + i \infty} \frac{dp}{2\pi i} e^{pt} \frac{K(p)}{1-\lambda K(p)},
+\end{equation*}
+где $p_0$ аналогично правее всех особенностей. 
+
+\subsection*{Периодическое ядро}
+
+
+\textbf{Периодическое ядро I}. Рассмотрим $f(t)$ и $K(t)$ периодчиные с $T = b-a$, тогда и $\varphi(t)$ периодично по $T$. Решим уравнение, вида
+\begin{equation*}
+	\int_{a}^{b} K(t-s) \varphi(s) \d s = f(t).
+\end{equation*}
+Раскладывая всё в ряд Фурье (вводя $\omega = \frac{2\pi}{T}$):
+\begin{equation*}
+	K(t) = \sum_n K_n e^{-i n \omega t},
+	\hspace{5 mm} 
+	\varphi(t) = \sum_m \varphi_m e^{-i m \omega t},
+	\hspace{5 mm} 
+	f(t) = \sum_n f_n e^{-in \omega t},
+\end{equation*}
+где коэффициенты выражаются в виде
+\begin{equation*}
+	f(t) = \sum_{n \in \mathbb{Z}} e^{-in \omega t} f_n,
+	\hspace{5 mm} f_n = \frac{1}{T} \int_{-T/2}^{T/2} f(t) e^{i n \omega t} \d t.
+\end{equation*}
+Подставляя всё в уравнение, приходим к выржению на $f_n$:
+\begin{equation}
+	\varphi_n = \frac{f_n}{T K_n},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(t) = \sum_{n \in \mathbb{Z}} \frac{f_n}{T K_n} e^{-i n \omega t}.
+\end{equation}
+
+\textbf{Периодическое ядро II}. Аналогично можем найти резольвенту для уравнения Фредгольма второго рода:
+\begin{equation*}
+	\varphi(t) = f(t) +  \lambda \int_{a}^{b} ds\ K(t-s) \varphi(s).
+\end{equation*}
+Решение находим в виде
+\begin{equation*}
+	\varphi_n = f_n + \lambda T K_n \varphi_n,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi_n = = \frac{f_n}{1-\lambda T K_n} = f_n + \lambda \frac{T K_n}{1-\lambda T K_n} f_n.
+\end{equation*}
+А значит $\varphi(t)$
+\begin{equation}
+	\varphi(t) = f(t) + \lambda \int_{a}^{b} ds\ R(t-s) f(s),
+	\hspace{5 mm} 
+	R(t) = \sum_{n \in \mathbb{Z}} \frac{K_n}{1-\lambda T K_n} e^{-i n \omega t}.
+\end{equation}
+
+
+
+\section{Интегральные нелинейные уравнения}
+
+
+\textbf{Уравнение типа свёртки}. Рассмотрим уравнение вида
+\begin{equation*}
+	\int_{-\infty}^{+\infty} \varphi(t-s) \varphi(s) = f(t).
+\end{equation*}
+Аналогично смотрим на фурье-образ:
+\begin{equation*}
+	[\varphi(\omega)]^2 = f(\omega),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(\omega) = \pm \sqrt{f(\omega)},
+\end{equation*}
+откуда находим выражение для $\varphi(t)$:
+\begin{equation*}
+	\varphi(t) = \pm \int_{-\infty}^{+\infty} \sqrt{f(\omega)} e^{i \omega t} \frac{d \omega}{2\pi}.
+\end{equation*}
+
+
+\textbf{Обобщение}. 
+Обобщим происходящее:
+\begin{equation*}
+	L(s) = \sum_{n=0}^{N} a_n s^n,
+	\hspace{5 mm} 
+	F[s^n \varphi(s)] = \int_{-\infty}^{+\infty} t^n \varphi(t) e^{-i \omega t} \d t = i^n \frac{d^n }{d \omega^n}  \int_{-\infty}^{+\infty} \varphi(t) e^{-i \omega t},
+\end{equation*}
+тогда 
+\begin{equation*}
+	F[L(s) \varphi(s)] = L(i \partial_\omega) \varphi(\omega).
+\end{equation*}
+Значит уравнение вида
+\begin{equation*}
+	\int_{-\infty}^{+\infty} ds\ \varphi(t-s) L(s) \varphi(s) = f(t),
+\end{equation*}
+можем решить в виде
+\begin{equation*}
+	\varphi(\omega) L(i \partial_\omega) \varphi(\omega) = f(\omega),
+\end{equation*}
+то есть можем свести интегральное уравнение к дифференциальному.
+
+
+
+ 
+\subsection*{Преобразование Лапласа}
+	
+Теперь внимательно смотрим на уравнение вида
+\begin{equation*}
+	\int_{0}^{t} \varphi(t-s) L(s) \varphi(s) = f(t).
+\end{equation*}
+Смотрим на преобразование Лапласа:
+\begin{equation*}
+	f(p) = \int_{0}^{\infty} f(t) e^{-pt} \d t,
+\end{equation*}
+для которого верно, что
+\begin{equation*}
+	\int_{0}^{\infty} t^n \varphi(t) e^{-pt} \d t = 
+	(-1)^n \frac{d^n \varphi(p)}{d p^n},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\int_{0}^{\infty} L(s) \varphi(s) e^{-ps} \d s = L(-d_p) \varphi(p).
+\end{equation*}
+Таким образом исходное уравнение может быть сведено к дифференциальному уравнению
+\begin{equation*}
+	\varphi(p) L(- d_p) \varphi(p) = f(p).
+\end{equation*}
+
+% автомодельность
+% факторизуемое ядро
+% линейное уравнение типа свёртки
+% нелинейное интегральное уравнение
+% сингулярное уравнение типа свёртки
+
+
+\subsection*{Периодический случай}
+
+Рассмотрим теперь уравнение вида
+\begin{equation*}
+	\int_{-\pi}^{+\pi} ds\ \varphi(t-s) \varphi(s) = f(t).
+\end{equation*}
+Аналогично раскладываем всё по Фурье
+\begin{equation*}
+	\varphi(t) = \sum_{n \in \mathbb{Z}} \varphi_n e^{-i n t},
+	\hspace{5 mm} 
+	f(t) = \sum_{n \in \mathbb{Z}} 	f_n e^{-i n t},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}	
+	\sum_{n \in \mathbb{Z}} 2 \pi (\varphi_n)^2 e^{-i n t} = \sum_{n \in \mathbb{Z}} f_n e^{-i n t},
+\end{equation*}
+так приходим к уравнению вида
+\begin{equation*}
+	2 \pi (\varphi_n)^2 = f_n,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi_n = \pm \sqrt{\frac{f_n}{\alpha \pi}}. 
+\end{equation*}
+
+
+
+
+\subsection*{Факторизумое ядро}
+
+Рассмотрим уравнение вида
+\begin{equation*}
+	\varphi(t) = \int_{a}^{b} ds\ \varphi^n (s) x(t) y(s) + f(t).
+\end{equation*}
+Заметим, что $x(t)$ можем вынести, тогда
+\begin{equation*}
+	\varphi(t) = f(t) + \alpha x(t),
+	\hspace{5 mm} 
+	\alpha = \int_{a}^{b} \d s y(s) \varphi^n (s).
+\end{equation*}
+Найдём $\alpha$, составляя аналогичный интеграл
+\begin{equation*}
+	\alpha = \int_{a}^{b} dt\ y(t) \varphi^n(t) = \int_{a}^{b} dt\ y(t) \left(
+		\alpha x(t) + f(t)
+	\right)^n,
+\end{equation*}
+таким образом получилось алгебраическое уравнение на $\alpha$. Для суммы мы в факторизованном ядре мы получили бы алгебраическую систему нелинейных уравнений.
+
+
+
