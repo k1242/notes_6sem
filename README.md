@@ -9,7 +9,8 @@
 ([*задание*](https://github.com/k1242/notes_6sem/blob/main/qmec/hw/qmec_hw.pdf));
 
 * **вычислительной математики**
-([*задание*](https://github.com/k1242/notes_6sem/tree/main/calc_math/hw_code): [C1](https://github.com/k1242/notes_6sem/blob/main/calc_math/hw_code/C1/C1_task_copy.ipynb), [C2](https://github.com/k1242/notes_6sem/blob/main/calc_math/hw_code/C2/С2_hw.ipynb),
+([*задание*](https://github.com/k1242/notes_6sem/tree/main/calc_math/hw_code): [C1](https://github.com/k1242/notes_6sem/blob/main/calc_math/hw_code/C1/C1_hw.ipynb), 
+[C2](https://github.com/k1242/notes_6sem/blob/main/calc_math/hw_code/C2/С2_hw.ipynb),
 [*заметки*](https://github.com/k1242/notes_6sem/blob/main/calc_math/notes/calc_math.pdf));
 
 * **ркц**
