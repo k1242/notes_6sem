@@ -1,0 +1,243 @@
+\section{D3. Численное решение уравнений Лапласа и Пуассона}
+
+\subsection*{Уравнение Лапласа}
+
+
+\textbf{Интерполяция}. Вспомним, что в 2D
+ для $u(x, y) \in \mathbb{R}^2$ 
+$\forall (x, y)$
+можем написать значение функции в терминах неопределенных коэффициентов:
+\begin{equation*}
+	u(x, y) = \sum_{i=1}^{I} \alpha_i u(x + \Delta x_i,\, y + \Delta y_i),
+	\hspace{10 mm} 
+	\Delta x_i = x_i-x,
+	\hspace{5 mm} 
+	\Delta y_i = y_i-y.
+\end{equation*}
+Коэффициенты находили рассматривая оператор
+\begin{equation*}
+	\left(dx \partial_x + dy \partial_y\right)^k = \left(\Delta x_i \partial_x |_x + \Delta y_i \partial_y |_y\right)^k.
+\end{equation*}
+Вспоминаем разложение в ряд Тейлора:
+\begin{align*}
+	u(x + \Delta x_i, y + \Delta y_i) = u(x, y) + &\Delta x_i \cdot u_x  + \Delta y_i u_y + \frac{1}{2}\left(
+		\Delta x_i^2 u_{xx} + 2 \Delta x_i \Delta y_i u_{xy} + \Delta y_i^2 u_{yy}
+	\right) + \\ &\frac{1}{6} \left(
+		\Delta x_i^3 u_{xxx} + 3 \Delta x_i^2 \Delta y_i u_{xxy} + 3 \Delta x_i \Delta y_i^2 u_{xyy} + \Delta y_i^3 u_{yyy}
+	\right) + \ldots
+\end{align*}
+Откуда и находим условие на наши коэффициенты:
+\begin{align*}
+	\sum_{i=1}^{I} \alpha_i = 1,
+	\hspace{10 mm} 
+	&\sum_{i=1}^{I} \Delta x_i \, \alpha_i = 0, 
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta y_i \, \alpha_i = 0, \\
+	&\sum_{i=1}^{I} \Delta x_i^2 \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta x_i \Delta y_i \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta y_i^2 \, \alpha_i = 0, \\
+	&\sum_{i=1}^{I} \Delta x_i^3 \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta x_i^2 \Delta y_i \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta x_i \Delta y_i^2 \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta y_i^3 \, \alpha_i = 0,
+\end{align*}
+воот. Коэффициентов получается $I = 10$. 
+
+
+\textbf{Решение уравнений}. Запишем уравнение Лапласа:
+\begin{equation*}
+	u_{xx} + u_{yy} = 0.
+\end{equation*}
+У него есть несколько удобных нам свойств:
+\begin{equation*}
+	u_{xx} = - u_{yy},
+	\hspace{5 mm} 
+	u_{xxx} = - u_{xyy},
+	\hspace{5 mm} 
+	u_{xxy} = - u_{yyy}.
+\end{equation*}
+То есть модифицируются уравнения интерполяции до $I = 7$ соседей:
+\begin{align*}
+	\sum_{i=1}^{I} \alpha_i = 1,
+	\hspace{10 mm} 
+	&\sum_{i=1}^{I} \Delta x_i \, \alpha_i = 0, 
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta y_i \, \alpha_i = 0, \\
+	&\sum_{i=1}^{I} (\Delta x_i^2-\Delta y_i^2) \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} \Delta x_i \Delta y_i \, \alpha_i = 0, \\
+	&\sum_{i=1}^{I} (\Delta x_i^3-\Delta x_i \Delta y_i^2) \, \alpha_i = 0,
+	\hspace{2.5 mm} 
+	\sum_{i=1}^{I} (\Delta y_i^3-\Delta x_i^2 \Delta y_i) \, \alpha_i = 0.
+\end{align*}
+
+
+\textbf{Крест}. 
+Допустим теперь будем рассматривать сетку с постоянным шагом с шаблном крест: $(x \zpm \Delta x_i, y \zpm \Delta y_i)$. Также перейдём к двойной индексации $\alpha_{i, j}$ стоящей перед $(x, y) + (i\, \Delta x,\, j\, \Delta y)$.
+
+Тогда система перепишется в виде
+\begin{equation*}
+	\alpha_{1,0} = \alpha_{-1,0},
+	\hspace{5 mm} 
+	\alpha_{0,1} = \alpha_{0, -1},
+	\hspace{5 mm} 
+	\alpha_{1,0} + \alpha_{0, 1} = \frac{1}{2},
+	\hspace{5 mm} 
+	\Delta x^2 \alpha_{1,0} = \Delta y^2 \alpha_{0,1},
+\end{equation*}
+а остальные уравнения оказываются вырожденными, так что можем остановиться. 
+
+
+Решая систему, находим
+\begin{align*}
+	\alpha_{1,0} = \alpha_{-1,0} = \frac{\Delta y^2}{2 (\Delta x^2 + \Delta y^2)} \overset{*}{=}  \frac{1}{4}, \\
+	\alpha_{0,1} = \alpha_{0,-1} = \frac{\Delta x^2}{2 (\Delta x^2 + \Delta y^2)}\overset{*}{=} \frac{1}{4},
+\end{align*}
+где $\overset{*}{=}$ верны при $\Delta x = \Delta y$. 
+
+Подставляя это в разностную схему, находим
+\begin{equation*}
+	u_{0,0} = u(x,y) = \frac{\Delta y^2}{2 (\Delta x^2 + \Delta y^2)}\left(u_{-1, 0} + u_{1,0}\right) + \frac{\Delta x^2}{2 (\Delta x^2 + \Delta y^2)} \left(u_{0,-1} + u_{0, 1}\right).
+\end{equation*}
+Или можем переписать в виде
+\begin{equation*}
+	 \frac{u_{-1,0} - 2 u_{0,0} + u_{1,0}}{\Delta x^2} + \frac{u_{0, -1} - 2 u_{0,0} + u_{0, 1}}{\Delta y^2} = 0,
+	 \hspace{0.5cm} \overset{*}{\Leftrightarrow}  \hspace{0.5cm}
+	 u_{0,0} = u(x,y) = \frac{1}{4}\left(
+	 	u_{-1, 0} + u_{1,0} + u_{0,-1} + u_{0, 1}
+	 \right),
+\end{equation*}
+который даёт решение уравнения Лапласа $\Delta u = 0$ со вторым порядком аппроксимации. 
+
+
+
+Вообще, говоря об устойчивости, верно, что
+\begin{equation}
+	|\alpha_{ij}| \leq 1 
+	\hspace{5 mm} 
+	\Leftrightarrow
+	\hspace{5 mm} 
+	\text{схема устойчива},
+\end{equation}
+так что наша схема устойчива, более того монотонна по Фридрихсу. 
+
+\begin{to_def}
+    \textit{Монотонной по Фридрихсу} схемой называется разностная схема с $0 \leq \alpha_{ij} \leq 1$. 
+\end{to_def}
+
+% теорема Годунова Рябенькова
+
+
+\textbf{Неравномерная сетка}. Пусть задана на некоторой плохой области уравнение Лапласа $\Delta u = 0$ с граничными условиями вида $u|_{\partial G} = \varphi(x, y)$ и неравномерной сеткой. 
+Тогда нужно для системы вида $u_{i} = \sum_{j=1}^{7} \alpha_{j,i} u_j$ найти 7 соседей. Верно, что $\Delta x_j = x_j - x_i$, $\Delta y_j = y_j - y_i$, $j = 1,\ldots,7$ для второго порядка аппроксимации. 
+
+\begin{to_lem}
+    Устойчивость схемы можно обеспечить выпуклостью выбранного многоугольника. 
+\end{to_lem}
+
+ 
+Индекс $i$ пробегает точки которые не попали на границу.  На каждый шаг можем взять 7 точек $\vc{u} = (u_1,\,  \ldots,\, u_I)$,  и получить систему линейных уравнений
+\begin{equation*}
+	A \vc{u} = \vc{f},
+	\hspace{10 mm} 
+	\vc{f} = (f_1,\, \ldots, f_I).
+\end{equation*}
+В принципе мы знаем матрицу $A$:
+\begin{equation*}
+	u_i - \sum_{j=1}^{7} \alpha_{i,j} u_j = 0,
+	\hspace{5 mm} i = 1,\ldots,I,
+\end{equation*}
+а значит матрица $A$ будем с единицами на диагонали, а дальше как-то раскидаются $\alpha_{i,j}$. Она неплотная с высокой разреженности, так что лучше вводить равномерную сетку, тогда $A$ будет иметь ленточный вид. 
+
+
+\subsection*{Уравнение Пуассона}
+
+Теперь рассмотрим уравнение, вида
+\begin{equation*}
+	\Delta u(x, y) = f(x, y),
+	\hspace{5 mm} 
+	u|_G = \varphi(x, y).
+\end{equation*}
+Не конкретезируя разностную схему, будем обознать её за $\Delta_h$, тогда
+\begin{equation*}
+	\Delta_h u_{m,n} = f_{m,n}.
+\end{equation*}
+Решение здорово искать через разложение в ряд Фурье в аналитическом случае. 
+
+При использовании схемы крест матрица $A$ для систем $A \vc{u} = \vc{f}$, верно что матрица $A$ симметрична. Значит существует ОНБ базис. 
+
+Тогда раскладывая $\vc{u}$ по этому базису, нахожим
+\begin{equation*}
+	\vc{u} = \sum_{i=1}^{(M-1)^2}  c_i \vc{q}_i,
+	\hspace{5 mm} 
+	C_i = \bk{\vc{u}}{\vc{q}_i},
+	\hspace{10 mm} 
+	\vc{f} = \sum_{i=1}^{(M-1)^2},
+	\hspace{5 mm} 
+	f_i = \bk{\vc{f}}{\vc{q}_i}.
+\end{equation*}
+Таким образом получаем систему, вида
+\begin{equation*}
+	\sum_i c_i \lambda_i \vc{q}_i = \sum_i f_i \vc{q}_i,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	c_i = \frac{f_i}{\lambda_i}.
+\end{equation*}
+
+
+
+\textbf{Проверка}. В терминах схемы крест решим уравнение Пуассона
+\begin{equation*}
+	\frac{u_{m-1,n} - 2 u_{m,n} + u_{m+1, n}}{h^2} + \frac{u_{m,n-1} - 2 u_{m,n} + u_{m, n+1}}{h^2} = f_{m,n},
+\end{equation*}
+где $h = \frac{1}{M}$ и $0 \leq x_m = m h \leq 1$, $0 \leq y_n = nh \leq 1$. Введем скалярное умножение в дискретном пространстве:
+\begin{equation*}
+	\bk{u}{v} = h^2 \sum_{m, n=0}^{M} u_{m,n} v_{m,n}.
+\end{equation*}
+Введем базисные функции
+\begin{equation*}
+	\psi^{(k,l)} = 2 \sin(\pi k x_m) \sin(l \pi y_n),
+\end{equation*}
+которые образуют ортонормированный базис. 
+
+Подставяя в разностную схему наши базисные функции, находим
+\begin{align*}
+	&\frac{\psi^{(k, l)}_{m-1,n} - 2 \psi^{(k, l)}_{m,n} + \psi^{(k, l)}_{m+1, n}}{h^2} + \frac{\psi^{(k, l)}_{m,n-1} - 2 \psi^{(k, l)}_{m,n} + \psi^{(k, l)}_{m, n+1}}{h^2} 
+	=
+	%  \\ =  &
+	% \frac{2}{h^2}\bigg[
+	% \left(
+	% 	\sin\left( k \pi \frac{m-1}{M}\right) + 
+	% 	\sin\left(k \pi \frac{m+1}{M}\right)
+	% \right) \sin\left( \frac{l \pi n}{M}\right) + \\ &+
+	% \left(
+	% 	\sin\left(\pi l \frac{n-1}{M}\right) + \sin\left(
+	% 		l \pi \frac{n+1}{M}
+	% 	\right)
+	% \right) \sin \left(\frac{k \pi m}{M}\right)  + \\ &+
+	% 4 \sin \left(\frac{k \pi m}{M}\right) \sin\left(\frac{l \pi n}{M}\right)
+	% \bigg] =
+	\lambda_{k,l}\,  \psi_{m,n}^{(k,l)},
+\end{align*}
+где собственные значения
+\begin{equation}
+	\lambda_{k, l} = - \frac{4}{h^2}\left[
+		\sin^2\left(\frac{k \pi}{2M}\right) + \sin^2 \left(\frac{l \pi}{2 M}\right)
+	\right].
+\end{equation}
+Таким образом теперь мы знаем решением
+\begin{equation}
+	u_{m,n} = 2 \sum \left(\frac{f_{k,l}}{\lambda_{k,l}}\right) 
+	\sin\left(k \pi x_m\right) \sin\left(l \pi y_n\right),
+\end{equation}
+где $m,n = 1, \ldots, M_1$, а также
+\begin{equation}
+	f_{k,l} = 2 h^2 \sum_{m,n=0}^{M} f(x_m, y_n) 
+	\sin(k \pi x_m) \sin(l \pi y_n).
+\end{equation}
+Кстати, если мы выбрали $M = 2^p$, то все $u_{m,n}$ вычисляются за $O(M^2 \ln M)$ операций. 
+
