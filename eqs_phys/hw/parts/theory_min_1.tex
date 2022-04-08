@@ -1,6 +1,17 @@
 \section*{ТеорМин №1}
 \addcontentsline{toc}{section}{ТеорМин №1}
 
+\textbf{Вычеты}. Интеграл по замкнутому контуру $C$ может быть найден, как
+\begin{align*}
+    \int_C f(z) \d z = 2 \pi i \sum_{z_j} \,\text{res}_{z_j} f(z),
+    \hspace{5 mm} 
+    \,\text{res}_{a} f(z) &= \lim_{\varepsilon \to 0} \varepsilon \int_0^{2\pi} \frac{\d \varphi}{2\pi} e^{i \varphi} f(a + \varepsilon e^{i \varphi}) \\ 
+    &= \frac{1}{(m-1)!} \lim_{z \to a} \left(
+        \frac{d^{m-1} }{d z^{m-1}} (z-a)^m f(z)
+    \right),
+\end{align*}
+где $m$ -- степень полюса. 
+
 \textbf{Излучение}. Волновое уравнение с источником:
 \begin{equation}
     (\partial_t^2 - c^2 \nabla^2) u = \chi,
