@@ -128,6 +128,23 @@
 	R(t) = \sum_{n \in \mathbb{Z}} \frac{K_n}{1-\lambda T K_n} e^{-i n \omega t}.
 \end{equation}
 
+
+\textbf{Факторизуемое ядро}. Рассмотрим случай, когда ядро вырожденное: $K(t, s) = \sum_i A_i (t) B_i (s)$.  Тогда интегральное уравнение перепишется в виде
+\begin{equation*}
+	\varphi(t) = f(t) + \lambda  \sum A_i(t)  \int_{a}^{b} B_i (s) \varphi(s) \d s.
+\end{equation*}
+Решение уравнения можем найти в виде
+\begin{equation*}
+	\varphi(t) = f(t) + \lambda \sum_i C_i A_i (t),
+	\hspace{10 mm} 
+	(\mathbbm{1} - \lambda \hat{M}) \vc{C} = \vc{\Phi},
+	\hspace{5 mm} 
+	\Phi_i = \int_{a}^{b} B_i (t) f(t) \d t,
+	\hspace{5 mm} 
+	M_{ij} = \int_{a}^{b} B_i(t) A_j(t) \d t.
+\end{equation*}
+
+
 \subsection*{Нелинейные интегральные уравнения}
 
 \textbf{Уравнение типа свёртки}. Рассмотрим уравнение вида

@@ -1,0 +1,55 @@
+\section{Неделя VI}
+
+\subsection*{9.2.4}
+
+Решим уравнение, вида
+\begin{equation*}
+	\int_{0}^{t} \varphi(t-s) s \varphi(s) = f(t) = t,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(p) (-\partial_p) \varphi(p) = f(p).
+\end{equation*}
+Найдём некоторое решение (хотелось бы чтобы образ затухал к 0 на $\infty$)
+\begin{equation*}
+	- \varphi \varphi' = - \frac{1}{2} (\varphi^2)' = \frac{1}{p^2},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi^2 = - 2 \int \frac{1}{p^2} = \frac{2}{p},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(p) = \pm \sqrt{\frac{2}{p} + C},
+\end{equation*}
+где выбираем $C=0$. Тогда
+\begin{equation*}
+	\varphi(t) = \pm \sqrt{\frac{2}{\pi t}}.
+\end{equation*}
+
+
+\subsection*{9.3.2}
+
+Рассмотрим сингулярное уравнение
+\begin{equation*}
+	\lambda \varphi(x) + \vpint_{-\infty}^{+\infty} \frac{\varphi(y) \d y}{y-x} = f(x) = \frac{1}{x^2 + 1}.
+\end{equation*}
+Решение уравнения знаем:
+\begin{equation*}
+	\varphi(x) = \frac{1}{\lambda + i \pi} f(x) - \frac{1}{\lambda^2 + \pi^2} \int_{-\infty}^{+\infty} \frac{f(y) \d y}{y-x + i \varepsilon}.
+\end{equation*}
+Замыкая в верхней полуплоскости дугу, находим
+\begin{equation*}
+	\varphi(x) = \frac{\pi x + \lambda}{(1 + x^2) (\pi^2 + \lambda^2)}.
+\end{equation*}
+
+
+
+\subsection*{9.3.3}
+
+Рассмотрим сингулярное уравнение
+\begin{equation*}
+	\vpint_{-1}^{1} \frac{\varphi(y)}{y-x} \d y = f(x) = x,
+\end{equation*}
+для которого выполняется свойство ортогональности $\int_{-1}^{1} \frac{x}{\sqrt{1-x^2}} \d x = 0$. Тогда можем записать ответ
+\begin{equation*}
+	\varphi(x) = \frac{1}{\pi i} \left(
+		f(x) + \frac{\sqrt{1-x^2}}{\pi i} \int_{-1}^{1} \frac{f(y) \d y}{\sqrt{1-y^2} (y-x + i \varepsilon)}
+	\right) = - \frac{\sqrt{1-x^2}}{\pi},
+\end{equation*}
+что подходит.
+

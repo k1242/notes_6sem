@@ -10,50 +10,21 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[    179855,       4312]
-NotebookOptionsPosition[    177894,       4249]
-NotebookOutlinePosition[    178289,       4266]
-CellTagsIndexPosition[    178246,       4263]
+NotebookDataLength[    191831,       4502]
+NotebookOptionsPosition[    189153,       4442]
+NotebookOutlinePosition[    189685,       4461]
+CellTagsIndexPosition[    189642,       4458]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 
 Cell[CellGroupData[{
-Cell[TextData[StyleBox["Detect platform and establish link to computational \
-module", "Subsubtitle",
- Editable->True]], "Input",
- Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10000.}],
-
-Cell[BoxData[
- RowBox[{
-  RowBox[{"Check", "[", 
-   RowBox[{
-    RowBox[{"Install", "[", 
-     RowBox[{
-      RowBox[{"NotebookDirectory", "[", "]"}], "<>", " ", "$OperatingSystem", 
-      "<>", "\"\<_\>\"", "<>", "$ProcessorType", "<>", "$PathnameSeparator", 
-      "<>", "\"\<GasLink.exe\>\""}], "]"}], ",", "\[IndentingNewLine]", 
-    RowBox[{
-     RowBox[{"MessageDialog", "[", 
-      RowBox[{
-       RowBox[{
-       "\"\<No GasLink module was loaded for your platform (\>\"", "<>", 
-        "$OperatingSystem", "<>", "\"\< and \>\"", "<>", "$ProcessorType", 
-        "<>", "\"\<)\>\""}], ",", 
-       RowBox[{"WindowTitle", "\[Rule]", "\"\<Error\>\""}]}], "]"}], ";", " ",
-      "\[IndentingNewLine]", 
-     RowBox[{"Abort", "[", "]"}]}]}], "]"}], ";"}]], "Input",
- CellGroupingRules->{GroupTogetherGrouping, 10000.}]
-}, Closed]],
-
-Cell[CellGroupData[{
-
 Cell[TextData[StyleBox["Utility functions", "Subsubtitle"]], "Input",
  Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10001.},
- FormatType->"TextForm"],
+ CellGroupingRules->{
+  GroupTogetherGrouping, 
+   10001.},ExpressionUUID->"6a7d0822-7f5d-491a-817e-9b68f657fd65"],
 
 Cell[BoxData[{
  RowBox[{
@@ -587,7 +558,8 @@ Cell[BoxData[{
       RowBox[{"Return", "[", "deltas", "]"}], ";"}]}], "\[IndentingNewLine]", 
     "]"}]}], ";"}]}], "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10001.},
- FontFamily->"DejaVu Sans Mono"]
+ FontFamily->"DejaVu Sans Mono",
+ CellLabel->"In[1]:=",ExpressionUUID->"1f3841ec-006a-4e1e-ae77-5cab50a5431a"]
 }, Closed]],
 
 Cell[CellGroupData[{
@@ -595,7 +567,9 @@ Cell[CellGroupData[{
 Cell[TextData[StyleBox["Calculate scheme coefficients", "Subsubtitle"]], \
 "Input",
  Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10002.}],
+ CellGroupingRules->{
+  GroupTogetherGrouping, 
+   10002.},ExpressionUUID->"2ca06d60-0d8e-4a1f-9eb2-29308a47da67"],
 
 Cell[BoxData[{
  RowBox[{
@@ -1700,15 +1674,17 @@ Cell[BoxData[{
         "\[IndentingNewLine]", "}"}], "]"}]}]}], "\[IndentingNewLine]", 
     "]"}]}], ";"}]}], "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10002.},
- FontFamily->"DejaVu Sans Mono"]
+ FontFamily->"DejaVu Sans Mono",
+ CellLabel->"In[4]:=",ExpressionUUID->"cdca86f1-2ba3-40ea-ac6b-e25838b77b64"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
 Cell[TextData[StyleBox["Inspect scheme properties", "Subsubtitle"]], "Input",
  Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10003.},
- FormatType->"TextForm"],
+ CellGroupingRules->{
+  GroupTogetherGrouping, 
+   10003.},ExpressionUUID->"ca77e221-b784-464c-8a37-05c37517fcea"],
 
 Cell[BoxData[{
  RowBox[{
@@ -2144,15 +2120,17 @@ Cell[BoxData[{
          RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}]}]}]}], 
     "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10003.},
- FontFamily->"DejaVu Sans Mono"]
+ FontFamily->"DejaVu Sans Mono",
+ CellLabel->"In[6]:=",ExpressionUUID->"ffb5b180-2aed-4d44-85e1-d4978ef3f13d"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
 Cell[TextData[StyleBox["User interface utilities", "Subsubtitle"]], "Input",
  Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10004.},
- FormatType->"TextForm"],
+ CellGroupingRules->{
+  GroupTogetherGrouping, 
+   10004.},ExpressionUUID->"04ea022c-aeff-4a00-b9b0-213bb2b24b58"],
 
 Cell[BoxData[{
  RowBox[{
@@ -2964,14 +2942,17 @@ step\>\"", ",",
          RowBox[{"2", "/", "3"}]}]}], "]"}]}]}], "\[IndentingNewLine]", 
     "]"}]}], ";"}]}], "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10004.},
- FontFamily->"DejaVu Sans Mono"]
+ FontFamily->"DejaVu Sans Mono",
+ CellLabel->"In[8]:=",ExpressionUUID->"bafff166-67da-4633-9009-6af913c5fc92"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
 Cell[TextData[StyleBox["Solver interfaces", "Subsubtitle"]], "Input",
  Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10005.}],
+ CellGroupingRules->{
+  GroupTogetherGrouping, 
+   10005.},ExpressionUUID->"51fb6f0d-4b04-431d-aaa7-3a53592747c1"],
 
 Cell[BoxData[{
  RowBox[{
@@ -3842,15 +3823,17 @@ Cell[BoxData[{
        "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
   ";"}]}], "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10005.},
- FontFamily->"DejaVu Sans Mono"]
+ FontFamily->"DejaVu Sans Mono",
+ CellLabel->"In[15]:=",ExpressionUUID->"74b31e42-a733-4133-b35e-9c96ae155472"]
 }, Closed]],
 
 Cell[CellGroupData[{
 
 Cell[TextData[StyleBox["Main window", "Subsubtitle"]], "Input",
  Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10006.},
- FormatType->"TextForm"],
+ CellGroupingRules->{
+  GroupTogetherGrouping, 
+   10006.},ExpressionUUID->"0e586e3b-1ecc-4bca-99c4-679b0e11da3d"],
 
 Cell[BoxData[
  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
@@ -4244,15 +4227,227 @@ Cell[BoxData[
           ",", "\[Tau]", ",", "T"}], "]"}], "]"}]}], "\[IndentingNewLine]", 
      "}"}], "]"}]}], "\[IndentingNewLine]", "]"}]], "Input",
  CellGroupingRules->{GroupTogetherGrouping, 10006.},
- FontFamily->"DejaVu Sans Mono"]
-}, Closed]]
+ FontFamily->"DejaVu Sans Mono",
+ CellLabel->"In[17]:=",ExpressionUUID->"9beaaf15-59a4-4dd0-aaca-94d996736b5e"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`As$$ = {
+    Null, Null, Null, Null, Null, Null}, $CellContext`B2$$ = 
+    Null, $CellContext`B3$$ = Null, $CellContext`B5$$ = 
+    Null, $CellContext`C3$$ = Null, $CellContext`fOrd$$ = 
+    Null, $CellContext`frame$$ = 1, $CellContext`h$$ = 
+    0.01, $CellContext`iprint$$ = 
+    10, $CellContext`localStencil$$ = {{False, False, False, False, False}, {
+     3, 1, 2, 4, False}, {
+     False, False, False, False, False}}, $CellContext`M$$ = 
+    100, $CellContext`mono$$ = Null, $CellContext`problem$$ = 
+    "Contact", $CellContext`progress$$ = 
+    0, $CellContext`schm0$$ = {#, 1 - #, 0, 0}& , $CellContext`schm1$$ = 
+    Null, $CellContext`schm2$$ = Null, $CellContext`schm3$$ = 
+    Null, $CellContext`schm4$$ = 
+    Null, $CellContext`sol$$ = {}, $CellContext`solver$$ = 
+    "Linear", $CellContext`sOrd$$ = Null, $CellContext`stencil$$ = 
+    Null, $CellContext`steps$$ = {}, $CellContext`T$$ = 
+    1, $CellContext`tabn$$ = 1, $CellContext`time$$ = {}, $CellContext`uL$$ = 
+    1., $CellContext`uR$$ = 1., $CellContext`\[Gamma]$$ = 
+    1.4, $CellContext`\[CurlyEpsilon]L$$ = 
+    2.5, $CellContext`\[CurlyEpsilon]R$$ = 5., $CellContext`\[Rho]L$$ = 
+    1., $CellContext`\[Rho]R$$ = 0.5, $CellContext`\[Sigma]$$ = 
+    0.5, $CellContext`\[Tau]$$ = 0.005, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`localStencil$$], {{
+        False, False, False, False, False}, {3, 1, 2, 4, False}, {
+        False, False, False, False, False}}}}, {{
+       Hold[$CellContext`stencil$$], Null}}, {{
+       Hold[$CellContext`As$$], {Null, Null, Null, Null, Null, Null}}}, {{
+       Hold[$CellContext`mono$$], Null}}, {{
+       Hold[$CellContext`B2$$], Null}}, {{
+       Hold[$CellContext`B3$$], Null}}, {{
+       Hold[$CellContext`B5$$], Null}}, {{
+       Hold[$CellContext`C3$$], Null}}, {{
+       Hold[$CellContext`schm0$$], {#, 1 - #, 0, 0}& }}, {{
+       Hold[$CellContext`schm1$$], Null}}, {{
+       Hold[$CellContext`schm2$$], Null}}, {{
+       Hold[$CellContext`schm3$$], Null}}, {{
+       Hold[$CellContext`schm4$$], Null}}, {{
+       Hold[$CellContext`fOrd$$], Null}}, {{
+       Hold[$CellContext`sOrd$$], Null}}, {{
+       Hold[$CellContext`M$$], 100}}, {{
+       Hold[$CellContext`h$$], 0.01}}, {{
+       Hold[$CellContext`\[Tau]$$], 0.005}}, {{
+       Hold[$CellContext`T$$], 1}}, {{
+       Hold[$CellContext`\[Sigma]$$], 0.5}}, {{
+       Hold[$CellContext`tabn$$], 1}}, {{
+       Hold[$CellContext`solver$$], "Linear"}}, {{
+       Hold[$CellContext`problem$$], "Contact"}}, {{
+       Hold[$CellContext`\[Gamma]$$], 1.4}}, {{
+       Hold[$CellContext`\[Rho]L$$], 1.}}, {{
+       Hold[$CellContext`uL$$], 1.}}, {{
+       Hold[$CellContext`\[CurlyEpsilon]L$$], 2.5}}, {{
+       Hold[$CellContext`\[Rho]R$$], 0.5}}, {{
+       Hold[$CellContext`uR$$], 1.}}, {{
+       Hold[$CellContext`\[CurlyEpsilon]R$$], 5.}}, {{
+       Hold[$CellContext`progress$$], 0}}, {{
+       Hold[$CellContext`iprint$$], 10}}, {{
+       Hold[$CellContext`sol$$], {}}}, {{
+       Hold[$CellContext`time$$], {}}}, {{
+       Hold[$CellContext`steps$$], {}}}, {{
+       Hold[$CellContext`frame$$], 1}}, {
+      Hold[
+       Row[{
+         Dynamic[
+          $CellContext`StencilBox[$CellContext`stencil$$, \
+$CellContext`localStencil$$, $CellContext`\[Sigma]$$]], 
+         Spacer[10], 
+         Dynamic[
+          $CellContext`StepsBox[{0, 
+           1}, $CellContext`M$$, $CellContext`h$$, $CellContext`\[Sigma]$$, \
+$CellContext`\[Tau]$$, $CellContext`T$$]]}]], 
+      Manipulate`Dump`ThisIsNotAControl}}, Typeset`size$$ = Automatic, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`As$$ = {
+         Null, Null, Null, Null, Null, Null}, $CellContext`B2$$ = 
+        Null, $CellContext`B3$$ = Null, $CellContext`B5$$ = 
+        Null, $CellContext`C3$$ = Null, $CellContext`fOrd$$ = 
+        Null, $CellContext`frame$$ = 1, $CellContext`h$$ = 
+        0.01, $CellContext`iprint$$ = 
+        10, $CellContext`localStencil$$ = {{
+          False, False, False, False, False}, {3, 1, 2, 4, False}, {
+          False, False, False, False, False}}, $CellContext`M$$ = 
+        100, $CellContext`mono$$ = Null, $CellContext`problem$$ = 
+        "Contact", $CellContext`progress$$ = 
+        0, $CellContext`schm0$$ = {#, 1 - #, 0, 0}& , $CellContext`schm1$$ = 
+        Null, $CellContext`schm2$$ = Null, $CellContext`schm3$$ = 
+        Null, $CellContext`schm4$$ = 
+        Null, $CellContext`sol$$ = {}, $CellContext`solver$$ = 
+        "Linear", $CellContext`sOrd$$ = Null, $CellContext`stencil$$ = 
+        Null, $CellContext`steps$$ = {}, $CellContext`T$$ = 
+        1, $CellContext`tabn$$ = 
+        1, $CellContext`time$$ = {}, $CellContext`uL$$ = 
+        1., $CellContext`uR$$ = 1., $CellContext`\[Gamma]$$ = 
+        1.4, $CellContext`\[CurlyEpsilon]L$$ = 
+        2.5, $CellContext`\[CurlyEpsilon]R$$ = 5., $CellContext`\[Rho]L$$ = 
+        1., $CellContext`\[Rho]R$$ = 0.5, $CellContext`\[Sigma]$$ = 
+        0.5, $CellContext`\[Tau]$$ = 0.005}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      TabView[{"Coefficient space" -> \
+$CellContext`CalculateSchemes[{$CellContext`stencil$$, \
+$CellContext`\[Sigma]$$}, $CellContext`fOrd$$, $CellContext`sOrd$$, \
+$CellContext`mono$$, $CellContext`As$$, $CellContext`schm0$$, \
+$CellContext`B2$$, $CellContext`B3$$, $CellContext`B5$$, $CellContext`C3$$], 
+         "Scheme info" -> $CellContext`AnalyzeScheme[$CellContext`schm0$$, {
+           Part[$CellContext`As$$, 1] -> "\!\(\*SubscriptBox[\(A\), \(0\)]\)",
+             Part[$CellContext`As$$, 2] -> 
+            "\!\(\*SubscriptBox[\(A\), \(1\)]\)", Part[$CellContext`As$$, 3] -> 
+            "\!\(\*SubscriptBox[\(A\), \(2\)]\)", Part[$CellContext`As$$, 4] -> 
+            "\!\(\*SubscriptBox[\(A\), \(3\)]\)", Part[$CellContext`As$$, 5] -> 
+            "\!\(\*SubscriptBox[\(A\), \(4\)]\)", Part[$CellContext`As$$, 6] -> 
+            "\!\(\*SubscriptBox[\(A\), \(5\)]\)", $CellContext`B2$$ -> 
+            "\!\(\*SubscriptBox[\(B\), \(2\)]\)", $CellContext`B3$$ -> 
+            "\!\(\*SubscriptBox[\(B\), \(3\)]\)", $CellContext`B5$$ -> 
+            "\!\(\*SubscriptBox[\(B\), \(5\)]\)", $CellContext`C3$$ -> 
+            "C"}, $CellContext`stencil$$, $CellContext`\[Sigma]$$], 
+         "Solver" -> $CellContext`Solver[$CellContext`schm1$$, \
+$CellContext`schm2$$, $CellContext`schm3$$, $CellContext`schm4$$, {
+           Part[$CellContext`As$$, 1] -> "\!\(\*SubscriptBox[\(A\), \(0\)]\)",
+             Part[$CellContext`As$$, 2] -> 
+            "\!\(\*SubscriptBox[\(A\), \(1\)]\)", Part[$CellContext`As$$, 3] -> 
+            "\!\(\*SubscriptBox[\(A\), \(2\)]\)", Part[$CellContext`As$$, 4] -> 
+            "\!\(\*SubscriptBox[\(A\), \(3\)]\)", Part[$CellContext`As$$, 5] -> 
+            "\!\(\*SubscriptBox[\(A\), \(4\)]\)", Part[$CellContext`As$$, 6] -> 
+            "\!\(\*SubscriptBox[\(A\), \(5\)]\)", $CellContext`B2$$ -> 
+            "\!\(\*SubscriptBox[\(B\), \(2\)]\)", $CellContext`B3$$ -> 
+            "\!\(\*SubscriptBox[\(B\), \(3\)]\)", $CellContext`B5$$ -> 
+            "\!\(\*SubscriptBox[\(B\), \(5\)]\)", $CellContext`C3$$ -> "C", 
+            Null -> "None"}, $CellContext`stencil$$, $CellContext`M$$, \
+$CellContext`\[Sigma]$$, $CellContext`solver$$, $CellContext`problem$$, \
+$CellContext`T$$, $CellContext`\[Gamma]$$, $CellContext`\[Rho]L$$, \
+$CellContext`uL$$, $CellContext`\[CurlyEpsilon]L$$, $CellContext`\[Rho]R$$, \
+$CellContext`uR$$, $CellContext`\[CurlyEpsilon]R$$, $CellContext`progress$$, \
+$CellContext`iprint$$, $CellContext`sol$$, $CellContext`frame$$, \
+$CellContext`time$$, $CellContext`steps$$]}, 
+        Dynamic[$CellContext`tabn$$]], 
+      "Specifications" :> {{{$CellContext`localStencil$$, {{
+           False, False, False, False, False}, {3, 1, 2, 4, False}, {
+           False, False, False, False, False}}}, ControlType -> 
+         None}, {{$CellContext`stencil$$, Null}, ControlType -> 
+         None}, {{$CellContext`As$$, {Null, Null, Null, Null, Null, Null}}, 
+         ControlType -> None}, {{$CellContext`mono$$, Null}, ControlType -> 
+         None}, {{$CellContext`B2$$, Null}, ControlType -> 
+         None}, {{$CellContext`B3$$, Null}, ControlType -> 
+         None}, {{$CellContext`B5$$, Null}, ControlType -> 
+         None}, {{$CellContext`C3$$, Null}, ControlType -> 
+         None}, {{$CellContext`schm0$$, {#, 1 - #, 0, 0}& }, ControlType -> 
+         None}, {{$CellContext`schm1$$, Null}, ControlType -> 
+         None}, {{$CellContext`schm2$$, Null}, ControlType -> 
+         None}, {{$CellContext`schm3$$, Null}, ControlType -> 
+         None}, {{$CellContext`schm4$$, Null}, ControlType -> 
+         None}, {{$CellContext`fOrd$$, Null}, ControlType -> 
+         None}, {{$CellContext`sOrd$$, Null}, ControlType -> 
+         None}, {{$CellContext`M$$, 100}, ControlType -> 
+         None}, {{$CellContext`h$$, 0.01}, ControlType -> 
+         None}, {{$CellContext`\[Tau]$$, 0.005}, ControlType -> 
+         None}, {{$CellContext`T$$, 1}, ControlType -> 
+         None}, {{$CellContext`\[Sigma]$$, 0.5}, ControlType -> 
+         None}, {{$CellContext`tabn$$, 1}, ControlType -> 
+         None}, {{$CellContext`solver$$, "Linear"}, ControlType -> 
+         None}, {{$CellContext`problem$$, "Contact"}, ControlType -> 
+         None}, {{$CellContext`\[Gamma]$$, 1.4}, ControlType -> 
+         None}, {{$CellContext`\[Rho]L$$, 1.}, ControlType -> 
+         None}, {{$CellContext`uL$$, 1.}, ControlType -> 
+         None}, {{$CellContext`\[CurlyEpsilon]L$$, 2.5}, ControlType -> 
+         None}, {{$CellContext`\[Rho]R$$, 0.5}, ControlType -> 
+         None}, {{$CellContext`uR$$, 1.}, ControlType -> 
+         None}, {{$CellContext`\[CurlyEpsilon]R$$, 5.}, ControlType -> 
+         None}, {{$CellContext`progress$$, 0}, ControlType -> 
+         None}, {{$CellContext`iprint$$, 10}, ControlType -> 
+         None}, {{$CellContext`sol$$, {}}, ControlType -> 
+         None}, {{$CellContext`time$$, {}}, ControlType -> 
+         None}, {{$CellContext`steps$$, {}}, ControlType -> 
+         None}, {{$CellContext`frame$$, 1}, ControlType -> None}, 
+        Row[{
+          Dynamic[
+           $CellContext`StencilBox[$CellContext`stencil$$, \
+$CellContext`localStencil$$, $CellContext`\[Sigma]$$]], 
+          Spacer[10], 
+          Dynamic[
+           $CellContext`StepsBox[{0, 
+            1}, $CellContext`M$$, $CellContext`h$$, $CellContext`\[Sigma]$$, \
+$CellContext`\[Tau]$$, $CellContext`T$$]]}]}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellGroupingRules->{"GroupTogetherGrouping", 10006.},
+ CellLabel->"Out[17]=",ExpressionUUID->"908afe06-d835-4465-926d-d726139c1164"]
+}, Open  ]]
 },
-WindowSize->{1337, 696},
-WindowMargins->{{40, Automatic}, {Automatic, 3}},
+WindowSize->{1141.2, 604.8},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+PrivateNotebookOptions->{"VersionedStylesheet"->{"Default.nb"[8.] -> False}},
 ShowSelection->True,
 TrackCellChangeTimes->False,
-FrontEndVersion->"8.0 for Microsoft Windows (32-bit) (February 23, 2011)",
-StyleDefinitions->"Default.nb"
+FrontEndVersion->"13.0 for Microsoft Windows (64-bit) (December 2, 2021)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"7d5bce59-3c18-4133-91b6-476a296eeb71"
 ]
 (* End of Notebook Content *)
 
@@ -4266,56 +4461,50 @@ CellTagsIndex->{}
 (*NotebookFileOutline
 Notebook[{
 Cell[CellGroupData[{
-Cell[579, 22, 203, 4, 34, "Input",
- Evaluatable->False,
- CellGroupingRules->{GroupTogetherGrouping, 10000.}],
-Cell[785, 28, 822, 19, 66, "Input",
- CellGroupingRules->{GroupTogetherGrouping, 10000.}]
-}, Closed]],
-Cell[CellGroupData[{
-Cell[1644, 52, 168, 3, 28, "Input",
+Cell[579, 22, 205, 4, 34, "Input",ExpressionUUID->"6a7d0822-7f5d-491a-817e-9b68f657fd65",
  Evaluatable->False,
  CellGroupingRules->{GroupTogetherGrouping, 10001.}],
-Cell[1815, 57, 21151, 532, 1782, "Input",
+Cell[787, 28, 21229, 533, 1690, "Input",ExpressionUUID->"1f3841ec-006a-4e1e-ae77-5cab50a5431a",
  CellGroupingRules->{GroupTogetherGrouping, 10001.}]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[23003, 594, 157, 3, 28, "Input",
+Cell[22053, 566, 219, 5, 30, "Input",ExpressionUUID->"2ca06d60-0d8e-4a1f-9eb2-29308a47da67",
  Evaluatable->False,
  CellGroupingRules->{GroupTogetherGrouping, 10002.}],
-Cell[23163, 599, 46600, 1103, 3250, "Input",
+Cell[22275, 573, 46678, 1104, 2945, "Input",ExpressionUUID->"cdca86f1-2ba3-40ea-ac6b-e25838b77b64",
  CellGroupingRules->{GroupTogetherGrouping, 10002.}]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[69800, 1707, 176, 3, 28, "Input",
+Cell[68990, 1682, 213, 4, 30, "Input",ExpressionUUID->"ca77e221-b784-464c-8a37-05c37517fcea",
  Evaluatable->False,
  CellGroupingRules->{GroupTogetherGrouping, 10003.}],
-Cell[69979, 1712, 18286, 434, 1048, "Input",
+Cell[69206, 1688, 18364, 435, 950, "Input",ExpressionUUID->"ffb5b180-2aed-4d44-85e1-d4978ef3f13d",
  CellGroupingRules->{GroupTogetherGrouping, 10003.}]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[88302, 2151, 175, 3, 28, "Input",
+Cell[87607, 2128, 212, 4, 30, "Input",ExpressionUUID->"04ea022c-aeff-4a00-b9b0-213bb2b24b58",
  Evaluatable->False,
  CellGroupingRules->{GroupTogetherGrouping, 10004.}],
-Cell[88480, 2156, 32868, 810, 2538, "Input",
+Cell[87822, 2134, 32946, 811, 2298, "Input",ExpressionUUID->"bafff166-67da-4633-9009-6af913c5fc92",
  CellGroupingRules->{GroupTogetherGrouping, 10004.}]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[121385, 2971, 143, 2, 28, "Input",
+Cell[120805, 2950, 205, 4, 30, "Input",ExpressionUUID->"51fb6f0d-4b04-431d-aaa7-3a53592747c1",
  Evaluatable->False,
  CellGroupingRules->{GroupTogetherGrouping, 10005.}],
-Cell[121531, 2975, 41495, 869, 3129, "Input",
+Cell[121013, 2956, 41574, 870, 2960, "Input",ExpressionUUID->"74b31e42-a733-4133-b35e-9c96ae155472",
  CellGroupingRules->{GroupTogetherGrouping, 10005.}]
 }, Closed]],
 Cell[CellGroupData[{
-Cell[163063, 3849, 162, 3, 28, "Input",
+Cell[162624, 3831, 199, 4, 30, "Input",ExpressionUUID->"0e586e3b-1ecc-4bca-99c4-679b0e11da3d",
  Evaluatable->False,
  CellGroupingRules->{GroupTogetherGrouping, 10006.}],
-Cell[163228, 3854, 14650, 392, 1432, "Input",
- CellGroupingRules->{GroupTogetherGrouping, 10006.}]
-}, Closed]]
+Cell[162826, 3837, 14729, 393, 1399, "Input",ExpressionUUID->"9beaaf15-59a4-4dd0-aaca-94d996736b5e",
+ CellGroupingRules->{GroupTogetherGrouping, 10006.}],
+Cell[177558, 4232, 11579, 207, 45, "Output",ExpressionUUID->"908afe06-d835-4465-926d-d726139c1164",
+ CellGroupingRules->{"GroupTogetherGrouping", 10006.}]
+}, Open  ]]
 }
 ]
 *)
 
-(* End of internal cache information *)

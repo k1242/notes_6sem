@@ -59,7 +59,8 @@
 
 \subsection*{№ 9.1.4}
 
-Найдём решение \eqref{Feq2} для $K = \exp\left(-t^2-s^2\right)$ и $g(t) = t^2$. Для начала найдём резольвенту, как
+Найдём решение \eqref{Feq2} для $K = \exp\left(-t^2-s^2\right)$ и $g(t) = t^2$. 
+Для начала найдём резольвенту, как
 \begin{equation*}
 	\hat{R} = \hat{K} + \lambda \hat{K}^2 + \ldots = 
 	K(t, s) + \lambda K(t, s) \int_{-\infty}^{\infty} e^{-2 p_1^2} \d p_1  +
@@ -81,30 +82,58 @@
 
 \subsection*{№ 9.1.7}
 
-Найдём решение \eqref{Feq2} для $K = (1 + ts)e^{-2t -s}$ и $g(t) = e^{t/2}$. Для начала найдём резольвенту:
+Найдём решение \eqref{Feq2} для $K = (1 + ts)e^{-2t -s}$ и $g(t) = e^{t/2}$. 
+% Найдём решение \eqref{Feq2} для $K = \exp\left(-t^2-s^2\right)$ и $g(t) = t^2$. 
+Для этого находим
 \begin{equation*}
-	\int_{0}^{\infty} K(t, p_1) K(p_1, s) \d p_1 = 
-	\sum_i K_i(t,s) \int_{0}^{\infty} K_i (p_1, p_1) \d p_1 = 
-	\alpha\, e^{-2t -s} + \beta ts\, e^{-2t-s},
+	M = \left(
+\begin{array}{cc}
+ \frac{1}{3} & \frac{1}{9} \\
+ \frac{1}{9} & \frac{2}{27} \\
+\end{array}
+\right),
+\hspace{5 mm} 
+\Phi = \{2,4\},
+\hspace{5 mm} 
+(\mathbbm{1} - \lambda \hat{M})^{-1} = \frac{1}{(\lambda -33) \lambda +81}\left(
+\begin{array}{cc}
+81-6 \lambda  & 9 \lambda  \\
+ 9 \lambda  & -27 (\lambda -3) \\
+\end{array}
+\right),
 \end{equation*}
-где $K(t,s) = e^{-2 t}e^{-s} + (t e^{-2t}) (s e^{-s})$ -- факторизуемо, и коэффициенты 
+а значит
 \begin{equation*}
-	\alpha = \int_{0}^{\infty} e^{-3 p_1} \d p_1 = \frac{1}{3},
-	\hspace{10 mm} 
-	\beta = \int_{0}^{\infty} p_1^2 e^{-3 p_1} \d p_1 = \frac{2}{27}.
+	\vc{C} = \frac{1}{(\lambda -33) \lambda +81}\left\{6 (4 \lambda +27),324-90 \lambda \right\},
 \end{equation*}
-Аналогично последующие слагамые
+откуда находим выражение для $\varphi(t)$:
 \begin{equation*}
-	\hat{K}^3 = \alpha^2\, e^{-2t-s} + \beta^2 ts\, e^{-2t-s}.
+	\varphi(t) = e^{t/2} + 6 \lambda  \frac{4 \lambda +(54-15 \lambda ) t+27}{(\lambda -33) \lambda +81} e^{-2 t}.
 \end{equation*}
-Суммируя, находим
-\begin{equation*}
-	R(t, s) = e^{-2t-s}\left(\frac{1}{1-\frac{1}{3}\lambda} + \frac{ts}{1 - \frac{2}{27}\lambda}\right).
-\end{equation*}
-Осталось найти $f$ в виде
-\begin{equation*}
-	f(t) = e^{t/2} + \int_{0}^{\infty} R(t,s) g(s) \d s = e^{t/2} + 6 \lambda e^{-2 t} \left(\frac{1}{3-\lambda }+\frac{18 t}{27-2 \lambda }\right).
-\end{equation*}
+% Для начала найдём резольвенту:
+% \begin{equation*}
+% 	\int_{0}^{\infty} K(t, p_1) K(p_1, s) \d p_1 = 
+% 	\sum_i K_i(t,s) \int_{0}^{\infty} K_i (p_1, p_1) \d p_1 = 
+% 	\alpha\, e^{-2t -s} + \beta ts\, e^{-2t-s},
+% \end{equation*}
+% где $K(t,s) = e^{-2 t}e^{-s} + (t e^{-2t}) (s e^{-s})$ -- факторизуемо, и коэффициенты 
+% \begin{equation*}
+% 	\alpha = \int_{0}^{\infty} e^{-3 p_1} \d p_1 = \frac{1}{3},
+% 	\hspace{10 mm} 
+% 	\beta = \int_{0}^{\infty} p_1^2 e^{-3 p_1} \d p_1 = \frac{2}{27}.
+% \end{equation*}
+% Аналогично последующие слагамые
+% \begin{equation*}
+% 	\hat{K}^3 = \alpha^2\, e^{-2t-s} + \beta^2 ts\, e^{-2t-s}.
+% \end{equation*}
+% Cчитая обратную матрицу, находим
+% \begin{equation*}
+% 	R(t, s) = e^{-2t-s}\left(\frac{1}{1-\frac{1}{3}\lambda} + \frac{ts}{1 - \frac{2}{27}\lambda}\right).
+% \end{equation*}
+% Осталось найти $f$ в виде
+% \begin{equation*}
+% 	f(t) = e^{t/2} + \int_{0}^{\infty} R(t,s) g(s) \d s = e^{t/2} + 6 \lambda e^{-2 t} \left(\frac{1}{3-\lambda }+\frac{18 t}{27-2 \lambda }\right).
+% \end{equation*}
 
 
 
@@ -112,14 +141,44 @@
 
 \subsection*{№ 9.1.6}
 
-Найдём решение \eqref{Feq2} для $K = (1 + ts)e^{-2t -s}$ и $g(t) = e^{t/2}$. Для начала найдём резольвенту, аналогично двум предыдущим номерам
+Найдём решение \eqref{Feq2} для $K = (1 + ts)$ и $g(t) = t^2$. 
+% Для начала найдём резольвенту, аналогично двум предыдущим номерам
+% \begin{equation*}
+% 	R(t, s) = \frac{1}{1-\lambda} + \frac{t^2 s^2}{1 - \frac{1}{5}\lambda}.
+% \end{equation*}
+% Теперь можем найти $f(t)$:
+% \begin{equation*}
+% 	f(t) = g(t) + \lambda \int_{0}^{1} R(t,s) \d s = t^2 + \lambda \left(
+% 		\frac{1}{3}\frac{1}{1- \lambda }+\frac{t^2}{5-\lambda }
+% 	\right) =  \frac{t^2}{1-\frac{1}{5}\lambda} + \frac{\lambda/3}{1-\lambda},
+% \end{equation*}
+% где уже добавка не затухает со временем, в отличии от предыдущих задач.
+Для этого находим
 \begin{equation*}
-	R(t, s) = \frac{1}{1-\lambda} + \frac{t^2 s^2}{1 - \frac{1}{5}\lambda}.
+	M = \left(
+\begin{array}{cc}
+ 1 & \frac{1}{2} \\
+ \frac{1}{2} & \frac{1}{3} \\
+\end{array}
+\right),
+\hspace{5 mm} 
+\Phi = \{1/3, 1/4\},
+\hspace{5 mm} 
+(\mathbbm{1} - \lambda \hat{M})^{-1} = 
+\frac{1}{12 + \lambda (\lambda-16)}
+\left(
+\begin{array}{cc}
+ -4 (\lambda -3) & 6 \lambda  \\
+ 6 \lambda  & -12 (\lambda -1) \\
+\end{array}
+\right)
+,
 \end{equation*}
-Теперь можем найти $f(t)$:
+а значит
 \begin{equation*}
-	f(t) = g(t) + \lambda \int_{0}^{1} R(t,s) \d s = t^2 + \lambda \left(
-		\frac{1}{3}\frac{1}{1- \lambda }+\frac{t^2}{5-\lambda }
-	\right) =  \frac{t^2}{1-\frac{1}{5}\lambda} + \frac{\lambda/3}{1-\lambda},
+	\vc{C} = \frac{1}{12 + \lambda (\lambda-16)}\left\{\frac{\lambda }{6}+4,3-\lambda \right\},
 \end{equation*}
-где уже добавка не затухает со временем, в отличии от предыдущих задач.
+откуда находим выражение для $\varphi(t)$:
+\begin{equation*}
+	\varphi(t) = t^2 + \lambda \left(\frac{\lambda +24}{6 (\lambda -16) \lambda +72}- t \frac{\lambda -3}{(\lambda -16) \lambda +12}\right).
+\end{equation*}
