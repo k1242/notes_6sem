@@ -1,0 +1,91 @@
+\section{Неделя IX}
+
+\subsection*{№1}
+Найдём обратное преобразование Меллина от функции, вида
+\begin{equation*}
+	\Gamma(\lambda - \beta) \Gamma(\lambda).
+\end{equation*}
+Можем замкнуть дугу налево, так как $\Gamma(\lambda) \to 0$ при $\Re \lambda \to - \infty$, а также с учетом $\Gamma(\lambda) \to 0$ при $\Im \lambda \to \pm \infty$.
+
+Тогда интеграл
+\begin{equation*}
+	I = \int_{c-i \infty}^{c + i \infty} \Gamma(\lambda - \beta) \Gamma(\lambda) x^{-\lambda}\frac{\d  \lambda}{2 \pi i} = 
+	\frac{2 \pi i}{2 \pi i} \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \left(
+		x^n \Gamma(-n-\beta) + x^n x^{-\beta} \Gamma(-n + \beta)
+	\right),
+\end{equation*}
+сведется к сумме вычетов для $\Gamma(\lambda)$ и $\Gamma(\lambda-\beta)$, где мы учли, что 
+\begin{equation*}
+	\res_{-n} \Gamma(x) = \frac{(-1)^n}{n!},
+\end{equation*}
+это полюса первого порядка.
+
+Немного переписывая сумму и пристально в нее вглядываясь, находим
+\begin{equation*}
+	I = \sum_{n=0}^{\infty}
+	\frac{(-1)^n x^{\beta /2} \left(\Gamma (\beta -n) x^{\frac{\beta }{2}+n}+\Gamma (-n-\beta ) x^{n-\frac{\beta }{2}}\right)}{n!} = 2 x^{-\frac{\beta }{2}} K_{\beta }\left(2 \sqrt{x}\right),
+\end{equation*}
+что при малых $\beta$ и достаточно больших $x$ можно переписать в виде $ \frac{2 \beta}{\sqrt[4]{x}} \exp \left(-\sqrt{x}\right)$.
+
+
+\subsection*{№2}
+
+Рассмотрим обратное преобразование Меллина от функции 
+\begin{equation*}
+	\frac{\Gamma(\beta) \Gamma(\lambda)}{\Gamma(\lambda + \beta)}.
+\end{equation*}
+При $\lambda \to \pm i\infty$ всё хорошо, осталось понять в какую сторону замыкать квадратик.
+\begin{equation*}
+	I = \int_{c - i \infty}^{c + i \infty} \frac{\Gamma(\beta) \Gamma(\lambda)}{\Gamma(\lambda + \beta)} x^{-\lambda} \frac{\d \lambda}{2 \pi i}.
+\end{equation*}
+При $\lambda \to  + \infty$ можем оценить выражение, как $\Gamma(\lambda + \beta) \sim \Gamma(\lambda) \lambda^\beta$, а значит необходимо рассмотреть 
+\begin{equation*}
+	\frac{1}{\lambda^\beta} \frac{1}{x^\lambda} = \exp\left(
+		- \lambda \ln x - \beta \ln \lambda
+	\right).
+\end{equation*}
+При $x > 1$ получаем возможность замкнуть вправо, то есть вокруг области без вычетов, а значит $I = 0$ при $x > 1$. 
+
+При $x < 1$ $\ln x < 0$, а значит необходимо замыкать влево. Так получаем сумму, вида
+\begin{equation*}
+	I(x < 1) = \sum_{n=0}^{\infty} \frac{(-1)^n}{n!} \frac{\Gamma(\beta)}{\Gamma(-n + \beta)} x^{n} = \frac{1}{(1  -x)^{1-\beta}}.
+\end{equation*}
+
+\subsection*{№3}
+
+Найдём первые два члена в разложение по $u$ для интеграла
+\begin{equation*}
+	I(u) = \int_{u}^{\infty} \frac{\d x}{\sqrt{x^2 - u^2}} e^{-x}.
+\end{equation*}
+Сведем задачу к известной подстановкой $x \to x + u$, тогда
+\begin{equation*}
+	I(u) = e^{-u} \int_{0}^{\infty} \frac{\d x}{\sqrt{x^2 + 2 u x}} e^{-x} \approx (1 - u + \tfrac{1}{2} u^2)\int_{0}^{\infty} \frac{\d x}{\sqrt{x^2 + 2 u x}} e^{-x} + o(u^2).
+\end{equation*}
+Знаем преобразование Меллина от $e^{-x}$:
+\begin{equation*}
+	M[e^{-x}](\lambda) = \Gamma(\lambda).
+\end{equation*}
+Аналогично находим образ $(x^2 + 2 u x)^{-1/2}$:
+\begin{equation*}
+	M[(x^2 + 2 u x)^{-1/2}](\lambda) = \int_{0}^{\infty} 
+	\frac{x^{\lambda-1}\d x}{\sqrt{x^2 + 2 u x}}
+	= \frac{2^{\lambda -1} \Gamma (1-\lambda ) \Gamma \left(\lambda -\frac{1}{2}\right) u^{\lambda -1}}{\sqrt{\pi }},
+\end{equation*}
+для $\lambda \in [\tfrac{1}{2}, 1]$.
+
+Тогда искомое подинтегральное произведение сведется к интегралу, вида
+\begin{equation*}
+	e^u I(u) = \int_{c - i \infty}^{c + i \infty} \frac{2^{-\lambda }  \Gamma \left(\frac{1}{2}-\lambda \right) \Gamma (\lambda )^2 u^{-\lambda }}{\sqrt{\pi }} \frac{\d \lambda}{2 \pi i} \overset{\mathrm{def}}{=} \int_{c - i \infty}^{c + i \infty} F(\lambda) \frac{\d \lambda}{2 \pi i} ,
+\end{equation*}
+который сводится к сумме вычетов (полюса второго порядка) в $\lambda = -n,\ n \in \mathbb{Z}^+$. Каждый следущий вычет будет содержать фактор $u^n$, так что достаточно вычислить первые три вычета $n \in \{0,\,  1,\,  2\}$. 
+
+Таким образом находим 
+\begin{align*}
+	\res_0 F(\lambda) &= -\ln (u)-\gamma +\ln (2), \\
+	\res_{-1} F(\lambda) &= -u \left(\ln \left(\tfrac{1}{2}u\right)+\gamma \right), \\
+	\res_{-2} F(\lambda) &= -\frac{3}{4} u^2 \left(\ln \left(\tfrac{1}{2}u\right)-\frac{1}{3}+\gamma \right).
+\end{align*}
+Собирая все вместе получаем, что сокращается первый порядок по  $u$ и тогда первые два члена разложения, дают
+\begin{equation*}
+	I(u) = \ln\left(\tfrac{2}{u}\right)- \gamma + \frac{1}{4} u^2 (\ln\left(\tfrac{2}{u}\right)-\gamma +1 ) + o(u^2).
+\end{equation*}
