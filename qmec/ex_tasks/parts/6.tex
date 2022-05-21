@@ -1,0 +1,36 @@
+\Tsec{№6. Сумма по поляризациям спиноров Дирака}
+
+% киселев, 19.2.4
+
+Для покоящихся спиноров сумму по поляризациям 
+\begin{equation*}
+	\Pi(\0) = \sum_\lambda u_\lambda(\0) \bar{u}_\lambda(\0)
+\end{equation*}
+можем вычислить в явном виде, как прямое проивзедение
+\begin{equation*}
+	\Pi(\0) = mc \left(1,\, 0,\, 1,\, 0\right) \otimes \begin{pmatrix}
+		1 \\ 0 \\ 1 \\ 0
+	\end{pmatrix} + 
+	mc \left(0,\, 1,\, 0,\, 1\right) \otimes \begin{pmatrix}
+		0 \\ 1 \\ 0 \\ 1
+	\end{pmatrix} = 
+	mc \begin{pmatrix}
+		1 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 1 \\
+		1 & 0 & 1 & 0 \\
+		0 & 1 & 0 & 1
+	\end{pmatrix}.
+\end{equation*}
+В ковариантном виде
+\begin{equation*}
+	\Pi(\0) = mc \left(\gamma_0 + \mathbbm{1}\right) = (\not{\hspace{-1.2pt}k} + mc),
+	\hspace{5 mm} 
+	k_\mu = (mc,\, \0).
+\end{equation*}
+Можем посчитать  (\red{посчитать}), что $\Lambda \hspace{-1.2pt}\not{\hspace{-1.2pt}k}\hspace{1.2pt} \Lambda^{-1} \to \p$, откуда сразу находим
+\begin{equation*}
+	\Pi(\vc{p}) = (\p + mc),
+	\hspace{10 mm} 
+	\Pi^c (\vc{p}) = \sum_\lambda v_\lambda(\vc{p}) \bar{v}_\lambda (\vc{p}) = (\p - mc),
+\end{equation*}
+где $\p = p_\mu \gamma^\mu = p_0 \gamma_0 - \vc{\gamma} \cdot \vc{p}$.

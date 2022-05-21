@@ -1,0 +1,60 @@
+\Tsec{№1. Линейный эффект Штарка в атоме водорода}
+
+\red{Переписать интегралы в сферических гармониках}.
+Теперь рассмотрим возмущение, вила
+\begin{equation*}
+    \hat{H} = \frac{\hat{p}^2}{2m} - \frac{e^2}{r} + \hat{V},
+    \hspace{5 mm} 
+    \hat{V} = - e E \hat{z}
+\end{equation*}
+Известно, что $n=2$, тогда вырождение $n^2 = 4$. Можем явно выписать несколько функций
+\begin{align*}
+    \ket{200} &= \frac{2}{\sqrt{4 \pi}} \left(\frac{z}{2a}\right)^{3/2} e^{-r/2a} \left(
+        1 - \frac{r}{2a}
+    \right), \\
+    \ket{210} &= \sqrt{\frac{3}{4\pi}} \cos \theta \left(\frac{1}{2a}\right)^{3/2} e^{-r/2a} \frac{r}{\sqrt{3} a}, 
+\end{align*}
+а для $\ket{211}$ и $\ket{21-1}$ важно только что есть фактор $e^{im\varphi}$.
+
+Действительно,
+\begin{equation*}
+    \bk{21m}[\hat{V}]{21m'} = 0,
+    \hspace{5 mm} 
+    m,\, m' = \pm 1.
+\end{equation*}
+Осталось посчитать
+\begin{equation*}
+    \kappa \overset{\mathrm{def}}{=}  \bk{200}[\hat{V}]{210} = \int_{\mathbb{R}^3}
+        \ldots
+    d^3 \vc{r} = 3 e E \frac{a}{z}.
+\end{equation*}
+Получилось матрица  ненулевыми коэффициентами только в первом блоке 2 на 2:
+\begin{equation*}
+    \hat{V} = \begin{pmatrix}
+        0 & \kappa  \\
+        \kappa & 0  \\
+    \end{pmatrix},
+    \hspace{10 mm} 
+    \lambda_1 = \kappa, \hspace{5 mm} 
+    \lambda_2 = - \kappa,
+    \hspace{5 mm}   
+    \lambda_3 =  \lambda_4 = 0.
+\end{equation*}
+Решая секулярное уравнение, находим
+\begin{equation*}
+    E_2 =  - \frac{\text{Ry}}{2^2},
+    \hspace{5 mm} 
+    \left[\hat{H} + \hat{V} - (E_2 \pm \kappa) \mathbbm{1}\right] \ket{\psi} = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \vc{c}_+ = \frac{1}{\sqrt{2}} \left(1,\, 1,\, 0,\, 0\right),
+    \hspace{5 mm} 
+    \vc{c}_- = \frac{1}{\sqrt{2}} \left(1,\, -1,\, 0,\, 0\right).
+\end{equation*}
+Энергии расщепления
+\begin{equation*}
+    E^+ = E_2^{(0)} + \kappa,
+    \hspace{5 mm} 
+    E^- = E_{2}^{(0)} -\kappa.
+\end{equation*}
+
+

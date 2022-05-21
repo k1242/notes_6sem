@@ -4,6 +4,9 @@
 \renewcommand{\geq}{\geqslant}
 \renewcommand{\H}{\mathcal{H}}
 
+\newcommand{\0}{\mbox{\boldmath $0$}}
+\newcommand{\p}{\not{\hspace{-1.2pt}p}}
+
 \newcommand{\chain}[3]{#1\textnormal{#2}^{#3}\,}
 \newcommand{\term}[3]{{}^{#1}\textnormal{#2}_{#3}}
 \newcommand{\spin}[1]{\raisebox{-2.5pt}{\begin{modiagram}\atom{left}{#1}\end{modiagram}}\ }
@@ -59,6 +62,7 @@
 % }
 
 
+
 % специфично к квантам
 \newcommand{\ket}[1]{\left| #1 \right\rangle}
 \newcommand{\bra}[1]{\left\langle #1 \right|}
@@ -68,3 +72,6 @@
 \DeclareDocumentCommand{\bk}{m o m}{
     \IfNoValueTF{#2}{\langle #1 | #3 \rangle}{\langle #1 | #2 | #3 \rangle}
 }
+
+
+\newcommand{\Tsec}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}

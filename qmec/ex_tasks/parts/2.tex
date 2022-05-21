@@ -1,0 +1,69 @@
+\Tsec{№2. Матричный элемент оператора эволюции для свободной частицы}
+
+\textbf{Матричный элемент}.
+Найдём матричный элемент опратора эволюции для свободной частицы
+\begin{equation*}
+    Z[0] = \bk{q_N}[U(t'',t')]{q_0} = \int \mathcal D q\ \mathcal D p\
+    e^{\frac{i}{\hbar}S} = \lim_{N\to \infty}
+    \int \frac{\d p_N}{2\pi\hbar} \prod_{k=1}^{N-1}
+    \frac{d q_k\ d p_k}{2 \pi \hbar} \exp\left(
+        \frac{i}{\hbar} \sum_{k=1}^{N} \left(
+            p_k \dot{q}_k \d t - \frac{p_k^2}{2m}\d t
+        \right)
+    \right).
+\end{equation*}
+Перепишем аргумент экспоненты в виде
+\begin{equation*}
+    \sum_{k=1}^{N} p_k \dot{q}_k \d t - \frac{p_k^2}{2m}\d t =
+    \sum_{k=1}^{N-1} q_k (p_k-p_{k+1}) + q_N p_N - q_0 p_1 - \sum_{k=1}^{N} \frac{p_k^2}{2m}\d t
+\end{equation*}
+Вспоминая, что
+\begin{equation*}
+    \int_{\mathbb{R}} dt\ \delta(t) e^{i \omega t} = 1,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \int_{\mathbb{R}} \frac{\d \omega}{2\pi}e^{-i \omega t} = \delta(t),
+\end{equation*}
+можем проинтегрировать по всем координатам и получить
+\begin{equation*}
+    \int \exp\left(\frac{i}{\hbar} q_k (p_k - p_{k+1})\right) = 2 \pi \hbar \, \delta(p_k - p_{k+1}),
+    \hspace{5 mm} 
+    k = 1,\ldots, N-1.
+\end{equation*}
+Теперь интегрирование по импульсу тривиально:
+\begin{equation*}
+    Z[0] = \lim_{N \to \infty} \int \frac{d p_N}{2 \pi \hbar} \exp\bigg(
+        \frac{i}{\hbar} p_N (q_N-q_0) - \frac{p_N^2}{2m} \underbrace{ N \d t}_{t''-t'}
+    \bigg) = \sqrt{\frac{-i m}{2 \pi \hbar (t'' - t')}} \exp\left(
+        \frac{i}{\hbar} \frac{m}{2} \frac{(q'' - q')^2}{t''-t'}
+    \right),
+\end{equation*}
+где мы воспользовались 
+\begin{equation*}
+    \int_{\mathbb{R}} e^{-a x^2 + b x} \d x = \sqrt{\frac{\pi}{a}} e^{b^2/4a},
+    \hspace{5 mm} 
+    \int_{\mathbb{R}} e^{\pm i x^2} \d x = e^{\pm i \pi/4} \sqrt{\pi}.
+\end{equation*}
+
+
+\textbf{Уравнение Шрёдингера}. Убедимся, что $Z[0]=\bk{q}[U(t,t')]{q'}$ удовлетворяет уравнению Шредингера
+\begin{equation*}
+    i \hbar \partial_t Z = - \frac{\hbar^2}{2m} \partial_q^2 Z.
+\end{equation*}
+Введем для удобства
+\begin{equation*}
+    \sqrt{\frac{-i m}{2 \pi \hbar (t'' - t')}} \exp\left(
+        \frac{i}{\hbar} \frac{m}{2} \frac{(q'' - q')^2}{t''-t'}
+    \right) \overset{\mathrm{def}}{=}  \alpha e^{\beta}.
+\end{equation*}
+Тогда
+\begin{align*}
+    \partial_t Z = \alpha \left(- \frac{1}{2}\frac{1}{t-t'} - \frac{i m}{2 \hbar} \frac{(q-q')^2}{(t-t')^2} \right) e^\beta, 
+    \hspace{5 mm} 
+    \partial_q Z = \alpha \frac{i m}{\hbar} \frac{q-q'}{t-t'} e^\beta, 
+    \hspace{5 mm} 
+    \partial_q^2 Z = \frac{i \alpha m}{\hbar (t-t')} \left(
+        1 + \frac{i m}{\hbar} \frac{(q-q')^2}{t-t'}
+    \right)e^\beta,
+\end{align*}
+что и требовалось доказать.
+
