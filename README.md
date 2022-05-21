@@ -7,8 +7,7 @@
 
 * **квантовой механике II**
 ([*задание*](https://github.com/k1242/notes_6sem/blob/main/qmec/hw/qmec_hw.pdf),
-[*задачи к экзамену*](https://github.com/k1242/notes_6sem/blob/main/qmec/ex_tasks/qm_ex_tasks.pdf),
-);
+[*задачи к экзамену*](https://github.com/k1242/notes_6sem/blob/main/qmec/ex_tasks/qm_ex_tasks.pdf));
 
 * **вычислительной математики**
 ([*задание*](https://github.com/k1242/notes_6sem/tree/main/calc_math/hw_code): [C1](https://github.com/k1242/notes_6sem/blob/main/calc_math/hw_code/C1/%D0%A11_hw.ipynb), 
