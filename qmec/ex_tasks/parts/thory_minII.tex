@@ -1,0 +1,49 @@
+
+
+\textbf{Рассеяние}. Умеем решать задачу для свободной частицы
+\begin{equation*}
+	- \frac{h^2}{2m} \Delta \psi = \frac{\hbar^2 k^2}{2m}\psi.
+\end{equation*}
+Делаем подстановку, вида
+\begin{equation*}
+	\psi_{klm} = Y_{lm} (\theta, \varphi) R_{kl} (r).
+\end{equation*}
+Тогда получаем решение, вида
+\begin{equation*}
+	R_{kl} (r) = c_l \frac{r^l}{k^l} \left( \frac{1}{r} \frac{d }{d r} \right)^l \frac{1}{r} \left(
+		- e^{- ik r} + S_l e^{ikr}
+	\right).
+\end{equation*}
+Из асимптотики в $0$ можем восстановить $S_l^{(0)} = 1$ для $V \equiv 0$. Таким образом получаем выражение
+\begin{equation*}
+	R_{kl}^{(0)} = c_l^{(0)} (-1)^l \frac{r^l}{k^l} \left(
+		\frac{1}{r} \frac{d }{d r} 
+	\right)^l \frac{2i}{r} \sin(kr),
+\end{equation*}
+что при $r \to \infty$ переходит в 
+\begin{equation*}
+	R_{kl}^{(0)} \approx c_l^{(0)} \frac{2i}{r} \sin(kr - \tfrac{\pi l}{2}).
+\end{equation*}
+По физическому смыслу понимаем, что $e^{-ikr}$ отвечает за расходящиеся от центра волны, а $e^{ikr}$ за сходящиеся. Значит, при упругом рассеянии $|S_l| = 1$, тогда можем переписать $S_l = e^{2 i \delta_l}$:
+\begin{equation*}
+	R_{kl} \approx c_l^{(0)} \frac{2i}{r} e^{i \delta_l} \sin(kr - \tfrac{\pi l}{2} + \delta_l),
+	\hspace{10 mm} 
+	c_l^{(0)} = i^l \frac{1}{2ik}.
+\end{equation*}
+Можем найти сечение рассения для каждого значения $l$:
+\begin{equation*}
+	f_l = \frac{2l+1}{k} e^{i \delta_l} \sin(\delta_l),
+	\hspace{10 mm} 
+	f(\theta) = \sum_l f_l P_l(\cos \theta).
+\end{equation*}
+А также сразу находим
+\begin{equation*}
+	\sigma_l = \frac{4 \pi}{k^2} (2l + 1) \sin^2 \delta_l,
+	\hspace{10 mm} 
+	\sigma = \sum_l \sigma_l.
+\end{equation*}
+Для каждого парциального вклада можем записать оптическую теорему:
+\begin{equation*}
+	\sigma_l^{\text{tot}} = \frac{4 \pi}{k} \Im f_l.
+\end{equation*}
+

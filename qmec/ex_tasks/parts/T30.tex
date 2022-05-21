@@ -1,0 +1,65 @@
+\subsection*{Т30}
+
+
+Для потенциала, вида
+\begin{equation*}
+	V(r) = \frac{\beta}{r^2},
+	\hspace{5 mm} 
+	\beta > 0,
+\end{equation*}
+найдём фазы рассеняи $\delta_l$. 
+
+Запишем уравнение Шредингера для парциальной волны $u_l (r) = r R_l (r)$:
+\begin{equation*}
+	\left(
+		\frac{d^2 }{d r^2} + k^2 - \frac{1}{r^2}\left(
+			l(l+1) + \frac{2 m \beta}{\hbar^2}
+		\right)
+	\right) u_l (r) = 0.
+\end{equation*}
+Рассмотрим замену $u_l (r) = \sqrt{r} \varphi(r)$
+\begin{equation*}
+	\varphi'' + \frac{1}{r} \varphi' + \left(
+		k^2 - \frac{1}{r^2}\left(
+			\left(l +\frac{1}{2}\right)^2 + \frac{2 m \beta}{\hbar^2}
+		\right)
+	\right)\varphi = 0,
+\end{equation*}
+решения которого знаем в виде функций Бесселя $J_{\pm \nu} (kr)$, где
+\begin{equation*}
+	\nu = \sqrt{\left(l + \frac{1}{2}\right)^2 + \frac{2 m \beta}{\hbar^2}}.
+\end{equation*}
+Требуя $u_l (0) = 0$, находим решение в виде
+\begin{equation*}
+	u_l (r) = c \sqrt{\frac{\pi k r}{2}} J_\nu (kr).
+\end{equation*}
+Полезно посмотреть асмиптотику на бесконечности, для которой
+\begin{equation*}
+	u_l(r) \sim c \sin\left(kr - \frac{\pi \nu}{2} + \frac{\pi}{4}\right) = c \sin\left(kr - \frac{\pi l}{2} + \delta_l\right),
+\end{equation*}
+откуда находим искомые фазы рассеяния
+\begin{equation*}
+	\delta_l = - \frac{\pi}{2} \left(
+		\sqrt{\left(l + \frac{1}{2}\right)^2 + \frac{2 m \beta}{\hbar^2}} - \left(l + \frac{1}{2}\right)
+	\right).
+\end{equation*}
+
+\textbf{Предельный случай}. В пределе $2 m \beta / \hbar^2 \ll 1$ получаем
+\begin{equation*}
+	\delta_l \approx - \frac{\pi}{2} \frac{m \beta}{\hbar^2(l + \tfrac{1}{2})},
+\end{equation*}
+откуда также получаем $|\delta_l| \ll 1$. 
+
+В таком случае можем просуммировать ряд
+\begin{equation*}
+	f(\theta) = \frac{1}{2 ik} \sum_{l=0}^{\infty} (2l+1) \left(e^{2 i \delta_l}- 1\right) P_l  (\cos \theta) \approx \frac{1}{k} \sum_{l=0}^{\infty} (2l+1) \delta_l P_l(\cos \theta) \approx	
+	-\frac{\pi m \beta}{\hbar^2 k} \sum_{l=0}^{\infty} P_l(\cos \theta).
+\end{equation*}
+Суммируя полиному Лежанда, находим
+\begin{equation*}
+	f(\theta) \approx	 - \frac{\pi m \beta}{2 k \hbar^2 \sin(\theta/2)},
+\end{equation*}
+аналогично тому, что получили бы в борновском приближении.
+
+
+

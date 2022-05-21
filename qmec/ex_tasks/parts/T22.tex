@@ -1,0 +1,71 @@
+\subsection*{Т22}
+
+\textbf{Уровни Ландау}. 
+Для частицы в постоянном магнитном поле гамильтониан запишется в виде
+\begin{equation*}
+	\hat{H} = \frac{\hat{\vc{\mathcal{P}}}^2}{2m}-
+	\frac{\mu}{s} \hat{s}_z \H
+	+\cancel{e A_0} ,
+	\hspace{10 mm} 
+	\hat{\mathcal{P}}^\alpha = -i  \hbar \partial_\alpha - \frac{e}{c} A_\alpha.
+\end{equation*}
+Удобно зафиксировать калибровку в виде
+\begin{equation*}
+	A_x = - \H y, \hspace{5 mm} A_y = A_z = 0. 
+\end{equation*}
+Тогда гамильтониан можем записать в виде
+\begin{equation*}
+	\hat{H} = \frac{1}{2m}\left(
+		\hat{p}_x + \frac{e\H}{c}y
+	\right)^2 + \frac{\hat{p}^2_y + \hat{p}^2_z}{2m}.
+\end{equation*}
+Так как $[\hat{s}_z,\, H] = 0$, то может рассмотреть собственные состояния $\hat{s}_z$ и не думать про это:
+\begin{equation*}
+	\hat{H} \psi = E \psi,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\psi = e^{\frac{i}{\hbar}\left(p_x x + p_z z\right)} \chi(y),
+\end{equation*}
+так как $[\hat{p}_x,\, \hat{H}] = [\hat{p}_z,\, \hat{H}] = 0$. Движение вдоль поля <<не квантуется>>.
+
+Подставляя предполагаемые вид функции в уравнение Шредингера, получаем дифференциальное уравнение на $\chi$
+\begin{equation*}
+	\chi'' + \frac{2m}{\hbar^2} \bigg(
+		\underbrace{\left(E + \tfrac{\mu \sigma}{s}\H - \tfrac{1}{2m} p_z^2\right)}_{\sub{E}{osc} = \hbar \omega_\H (n +1/2)} - \tfrac{m}{2} \omega_\H^2 (y-y_0)^2
+	\bigg) \chi = 0,
+\end{equation*}
+где введены
+\begin{equation*}
+	y_0 \overset{\mathrm{def}}{=} - \frac{c p_x}{e \H},
+	\hspace{10 mm} 
+	\omega_\H \overset{\mathrm{def}}{=}  \frac{|e| \H}{m c}.
+\end{equation*}
+Таким образом для уровней энергии частицы находим
+\begin{equation*}
+	E = \left(n + \tfrac{1}{2}\right) \hbar \omega_\H + \frac{p_z^2}{2m} - \frac{\mu \sigma}{s}\H,
+\end{equation*}
+что и называют уровнями Ландау. Подставляя $\mu/s = -|e| \hbar / mc$, можем написать уровни в виде
+\begin{equation*}
+	E = \left(n + \tfrac{1}{2} + \sigma\right) \hbar \omega_\H + \frac{p_z^2}{2m}.
+\end{equation*}
+Собственные функции можем написать в терминах полиномов Эрмита:
+\begin{equation*}
+	\chi_n (y) = \frac{1}{\sqrt{a_H \sqrt{\pi} 2^n n!}} \exp\left(
+		- \frac{(y-y_0)^2}{2 a_H^2}
+	\right) H_n \left(\frac{y-y_0}{a_H}\right),
+	\hspace{5 mm} 
+	a_H = \sqrt{\frac{\hbar}{m \omega_\H}}.
+\end{equation*}
+
+
+\textbf{Кратность вырождения уровней}. Пусть движение в плоскости $xy$ ограничено большой, но конечной площадью $S = L_x L_y$. Тогда число различных дискретных значений $p_x$ в интервале $\Delta p_x$  можно найти в виде
+\begin{equation*}
+	N_{p_x}(\Delta p_x) = \frac{L_x}{2 \pi \hbar} \Delta p_x.
+\end{equation*}
+Считая $0 < y_0 < L_y$ можем найти связь $\Delta p_x = e H l_y / c$, а значит число состояний для заданных $n$ и $p_z$:
+\begin{equation*}
+	N_{n,p_z} = \frac{e \H S}{2\pi \hbar c}.
+\end{equation*}
+Добавляя ограничение по $z$ в размере $L_z$, получаем число состояний в интервале $\Delta p_z$:
+\begin{equation*}
+	N_n = \frac{e \H V}{4 \pi^2 \hbar^2 x} \Delta p_z.
+\end{equation*}

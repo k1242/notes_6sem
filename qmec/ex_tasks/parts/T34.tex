@@ -1,0 +1,122 @@
+\subsection*{Т34}
+
+Найдём сечение фотоэффекта для атома водорода. Рассмотрим реакцию
+\begin{equation*}
+	\gamma + H \longrightarrow p + e^-,
+\end{equation*}
+где считаем электрон свободной нерелятивистской частицей. По условию  энергия $\gamma$-кванта $\hbar \omega \gg \Ry$. Рассматриваем основное состояние атома водорода
+\begin{equation*}
+	\psi_{100} = \frac{1}{\sqrt{\pi a^3}} e^{-r/a}.
+\end{equation*}
+
+По определению
+\begin{equation*}
+	d \sigma = \frac{d w_{fi}}{\sub{j}{in}}.
+\end{equation*}
+С учётом нормировки
+\begin{equation*}
+	\bk{\lambda', \vc{k}'}{\lambda, \vc{k}} = (2 \pi)^3 \delta(\vc{k} - \vc{k}') \delta_{\lambda \lambda'} 2 \hbar \omega,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\sub{j}{in} = 2 \hbar \omega c.
+\end{equation*}
+Из правила Ферми:
+\begin{equation*}
+	d w_{fi} = \frac{2\pi}{\hbar} \delta\left(\textstyle \sum E\right) |V_{fi}|^2 \d \nu_\text{f},
+	\hspace{10 mm} 
+	d \nu_\text{f} = \frac{d^3 p_\text{f}}{(2 \pi \hbar)^3} = \frac{d^3 k_\text{f}}{(2 \pi)^3}.
+\end{equation*}
+Рассматриваем переход из $\ket{i} = \ket{\psi_{100}} \ket{\vc{k}\sbin,\, \lambda\sbin}$ в $\ket{f} = \ket{\vc{p}_\text{f}} \ket{0}$ (фотон поглотился), где $\lambda\sbin = \{1, 2\}$ -- возможные полярицации, по которым впоследствие усредним.
+
+\textbf{Квантованное поле}.
+Будем решать задачу в дипольном приближение:
+\begin{equation*}
+	\hat{V} = - \vc{d} \cdot \vc{E},
+	\hspace{5 mm} 
+	\vc{d} = - e \vc{r}.
+\end{equation*}
+Так как энергия поглощается из ЭМ поля, то рассматриваем
+\begin{equation*}
+	\hat{\vc{\mathcal A}}(t, \vc{r}) = \int \frac{\d^3 k}{(2\pi)^3} \frac{1}{2 k_0} \sum_{\lambda= 1, 2} \left(
+		\hat{a}_{\lambda, \smallvc{k}} \vc{\epsilon}_\lambda e^{- i \omega t + i \smallvc{k} \smallvc{r}} + \hat{a}\D_{\lambda, \smallvc{k}} \vc{\epsilon}^*_\lambda e^{i \omega t - i \smallvc{k} \smallvc{r}}
+	\right).
+\end{equation*}
+Для свободных полей
+\begin{equation*}
+	\hat{\vc{E}}(t, \vc{r}) = - \frac{1}{c} \frac{\partial }{\partial t} \hat{\vc{\mathcal A}} = \int \frac{d^3 k}{(2\pi)^3} \frac{i}{2} \left(
+		\hat{a} \vc{\epsilon} e^{i \omega t + i \smallvc{k} \smallvc{r}} - \hat{a}\D \vc{\epsilon}^* e^{i \omega t - i \smallvc{k} \smallvc{r}}
+	\right).
+\end{equation*}
+
+\textbf{Матричный элемент}.
+Таким образом можем найти матричный элемент
+\begin{equation*}
+	V_{fi} = \bk{f}[-\hat{\vc{d}} \cdot \hat{\vc{E}}]{i} = \int d^3 r\ e^{-i \smallvc{k}_\text{f} \smallvc{r}} (-e \vc{r}) \frac{1}{\sqrt{\pi a^3}} e^{-r/a} \cdot \bk{0}[\hat{\vc{E}}]{\vc{k}\sbin,\, \lambda\sbin}.
+\end{equation*}
+Так как для фотона итоговое состояние вакуум, то вклад будет только от $\hat{a}$:
+\begin{equation*}
+	\bk{0}[\hat{\vc{E}}]{\vc{k}\sbin,\, \lambda\sbin} = \int \frac{d^3 k}{(2\pi)^3} \frac{i}{2} \left(
+		\vc{\epsilon}_\lambda e^{-i \omega t  + i \smallvc{k} \smallvc{r}} \bk{0}[\hat{a}]{\vc{k}\sbin,\, \lambda\sbin} + 0
+	\right),
+\end{equation*}
+где подставляя условие нормировки
+\begin{equation*}
+		\bk{0}[\hat{a}]{\vc{k}\sbin,\, \lambda\sbin} = 
+	\bk{\vc{k},\lambda}{\vc{k}\sbin,\, \lambda\sbin} =
+	(2 \pi)^3 \delta_{\lambda \lambda\sbin} \delta(\vc{k} - \vc{k}\sbin) 2 \hbar \omega,
+\end{equation*}
+находим выражение для матричного элемента поля
+\begin{equation*}
+	\bk{0}[\hat{\vc{E}}]{\vc{k}\sbin,\, \lambda\sbin} = i \hbar \omega\sbin \vc{\epsilon}_{\lambda\sbin} e^{- i \omega\sbin t + i \smallvc{k}\sbin \smallvc{r}}.
+\end{equation*}
+Подставляя это в матричный элемент $V_{fi}$, наконец приходим к выражению, вида
+\begin{equation*}
+	V_{fi} = - i \hbar \omega\sbin e \frac{1}{\sqrt{\pi a^3}} \int d^3 r \ e^{i \smallvc{q} \smallvc{r} - r/a} (\vc{\epsilon}_{\lambda\sbin} \cdot \vc{r}) = - \frac{i e \hbar \omega\sbin}{\sqrt{\pi a^3}} \left(\vc{\epsilon}_{\lambda\sbin} \cdot \vc{q}\right) \frac{32 \pi a^5}{\left(
+		(qa)^2 + 1
+	\right)^3} 	\approx	
+	\frac{i e \hbar \omega\sbin}{\sqrt{\pi a^3}} \left(\vc{\epsilon}_{\lambda\sbin} \cdot \vc{k}_\text{f}\right) \frac{32 \pi a^5}{(k_\text{f} a)^6},
+\end{equation*}
+где ввели $\vc{q} \overset{\mathrm{def}}{=} \vc{k}\sbin - \vc{k}_\text{f}$ и воспользовались приближением
+\begin{equation*}
+	\frac{(\hbar k_\text{f})^2}{2m} = \hbar \omega + (-\sub{W}{ион}) \approx \hbar \omega,
+	\hspace{10 mm} 
+	k\sbin \ll k_\text{f},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\vc{q} \approx -\vc{k}_\text{f}.
+\end{equation*}
+
+\textbf{Усреднение}. Вычислим усредненное по поляризациям значение
+\begin{equation*}
+	|(\vc{\epsilon}_{\lambda\sbin} \cdot \vc{k}_\text{f})|^2 = \frac{1}{2} \sum_{\lambda=1}^{2} \left(\vc{\epsilon}_{\lambda\sbin} \cdot \vc{k}_\text{f}\right) \left(\vc{\epsilon}^*_{\lambda\sbin} \cdot \vc{k}_\text{f}\right) = \frac{1}{2} k_\text{f}^\alpha k_\text{f}^\beta \sum \epsilon^\alpha_\lambda \bar{\epsilon}^\beta_\lambda = \frac{1}{2} k_\text{f}^\alpha k_\text{f}^\beta \left(
+		\delta^{\alpha \beta} - \frac{k^\alpha\sbin k^\beta\sbin}{k^2\sbin}
+	\right) = \frac{1}{2} (k_\text{f}^2 - \frac{(\vc{k}_\text{f} \cdot \vc{k}\sbin)}{k^2\sbin}),
+\end{equation*}
+то есть просто часть, ортогональная $\vc{k}\sbin$, что можно было сказать с самого начала. Здесь воспользовались
+\begin{equation*}
+	\vc{\epsilon}_\lambda \vc{\epsilon}^*_\lambda  = 1,
+	\ \Rightarrow \ 
+	\epsilon^\alpha_\lambda \bar{\epsilon}^\alpha_\lambda = 2,
+	\hspace{10 mm} 
+	\vc{\epsilon}_\lambda \bot \vc{k}\sbin.
+\end{equation*}
+Вводя сферические координаты с осью $Oz$ вдоль $\vc{k}\sbin$, приходим к выражению
+\begin{equation*}
+	|(\vc{\epsilon}_{\lambda\sbin} \cdot \vc{k}_\text{f})|^2 = \frac{1}{2} k^2_\text{f} (1 - \cos^2 \theta).
+\end{equation*}
+
+
+\textbf{Сечение рассеяния}.  Теперь подставляем вычисленный выражения в формулу для полного сечения:
+\begin{equation*}
+	\int d\sigma = \int \frac{d w_{fi}}{2 \hbar \omega c} = \frac{1}{2 \pi \hbar \omega c} \frac{2 \pi}{\hbar} \int_{0}^{\infty} \frac{k_\text{f}^2 \d k_\text{f}}{(2\pi)^3} 2 \pi \int_{-1}^{1} d \cos \theta\  
+	\delta\left(\hbar \omega -\tfrac{\hbar^2 k_\text{f}^2}{2m}\right) \frac{k_\text{f}^2}{2} \left(1 - \cos^2 \theta\right) \left(
+		\frac{32 \pi a^5}{(k_\text{f} a)^6}
+	\right)^2 \frac{(e \hbar \omega)^2}{\pi a^3},
+\end{equation*}
+откуда получаем выражения для $\sub{\sigma}{tot}$:
+\begin{equation*}
+	\sub{\sigma}{tot} = \int d\sigma = \frac{2^8}{3} 4 \pi a^2 \left(\frac{\sub{W}{ион}}{\hbar \omega}\right)^{7/2},
+	\hspace{5 mm} 
+	\sub{W}{ион} = \Ry = \frac{e^2}{2a}.
+\end{equation*}
+
+
+

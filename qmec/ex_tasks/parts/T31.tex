@@ -1,0 +1,57 @@
+\subsection*{Т31}
+
+Найдём сечение рассеяния для $k a \ll 1$, а значит доминирует $s$-рассеяние и $p$-рассеяние. 
+Для потенциала
+\begin{equation*}
+	U(r) = \left\{\begin{aligned}
+	    -&U_0, &r \leq a, \\
+	    &0,  &r>a.
+	\end{aligned}\right.
+\end{equation*}
+Теперь
+\begin{equation*}
+	R_{k0} = \frac{1}{r} u(r),
+	\hspace{5 mm} 
+	u(0) = 0,
+	\hspace{10 mm} 
+	- \frac{\hbar^2}{2m} u'' + V u = E u.
+\end{equation*}
+Для $r > a$ $u'' + k^2 u = 0$, тогда
+\begin{equation*}
+	\sub{u}{II} = A \sin(kr + \delta_0).
+\end{equation*}
+Для $r\leq a$ 
+\begin{equation*}
+	u'' + (k^2 + \kappa^2) u = 0,
+	\hspace{5 mm} 
+	\tilde{k}^2 \overset{\mathrm{def}}{=} k^2 + \kappa^2,
+	\hspace{5 mm} 
+	U_0 = \frac{\hbar^2 \kappa^2}{2m},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\sub{U}{I} = B \sin(\tilde{k} r).
+\end{equation*}
+Сшиваем на границах:
+\begin{equation*}
+	\frac{\sub{U}{I}'}{\sub{U}{I}} = \frac{\sub{U}{II}'}{\sub{U}{II}},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\tg(ka + \delta_0) = \frac{k}{\tilde{k}} \tg(\tilde{k} a),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\delta_0 = - ka + \arctg\left(
+		\tfrac{k}{\tilde{k}} \tg(\tilde{k} a)
+	\right).
+\end{equation*}
+Рассмотрим случай $\frac{k}{\tilde{k}} \tg(\tilde{k} a) \ll ka \ll 1$, а тогда $\delta_0 \approx - ka$, а значит $f_0 = \frac{1}{k} e^{i \delta_0} \sin \delta_0 \approx - a$.
+
+
+Другой случай $\tg(\tilde{k} a) \to \infty$. Тогда $\delta_0 \approx \arctg(\infty) = \frac{\pi}{2}$, что ещё называют резонансным рассеянием, так как $\sin \delta_0 = 1$.
+
+Наконец, посмотрим на $\frac{\tg(\tilde{k} a)}{\tilde{k} a} \approx	1$, тогда $\delta_0 \approx	0$, и получается $\tilde{k} a \ll 1$ и $f_0 \to 0$ -- эффект Рамзаура.
+
+При барьере $\tilde{k} \to i \tilde{k}$, получим уравнения
+\begin{equation*}
+	\delta_0 = - ka + \arctg\left(
+		\frac{ka}{\tilde{k} a} \th(\tilde{k} a)
+	\right).
+\end{equation*}
+
+

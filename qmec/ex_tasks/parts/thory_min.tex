@@ -1,0 +1,33 @@
+\section*{Заметки с семинара}
+
+\textbf{Вырожденный случай}. Пусть теперь
+\begin{equation*}
+    \hat{H}_0 \ket{n^{(0)}, a} = E_n \ket{n^{(0)}, a},\hspace{5 mm} 
+    a = 1, \ldots, k.
+\end{equation*}
+Тогда
+\begin{equation*}
+    \ket{n} = \sum c_a \ket{n^{(0)}, a} + \sum_{p=1}^{\infty} \lambda^p \ket{n^{(p)}},
+    \hspace{5 mm} 
+    \hat{H} \ket{n} = E_n \ket{n}.
+\end{equation*}
+Дополнительно накладываем уловие
+\begin{equation*}
+    \bk{n^{(0)}, a}{n} = c_a,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \bk{n^{(0)}, a}{n^{(k)}} = 0,
+\end{equation*}
+при $k \geq 1$. При этом всё равно выполняется
+\begin{equation*}
+    \bk{n^{(0)}, a}{n^{(0)}, b} = \delta_{ab}.
+\end{equation*}
+Подставляя это всё в стацонарное уравнение Шрёдигера, группируя по $\lambda$, находим
+\begin{equation*}
+    \left(V - \varepsilon_1 \mathbbm{1}\right) \vc{c} = 0.
+\end{equation*}
+Накладывая дополнительное условие $\vc{c} \neq 0$, находим
+\begin{equation*}
+    \det(V - \varepsilon_1 \mathbbm{1}) = 0.
+    % \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    % \varepsilon_1 \mathbbm{1}.
+\end{equation*}
