@@ -1,0 +1,67 @@
+\Tsec{№15. Эффект Рамзауэра}
+
+Найдём сечение рассеяния медленных частиц на глубокой сферической яме радиуса $a_0$. Потеницал
+\begin{equation*}
+	U(r) = \left\{\begin{aligned}
+	    - &U_0, & r \leq a_0, \\
+	    &0, & r > a_0. 
+	\end{aligned}\right.
+\end{equation*}
+Теперь
+\begin{equation*}
+	R_{k0} = \frac{1}{r} u(r),
+	\hspace{5 mm} 
+	u(0) = 0,
+	\hspace{10 mm} 
+	- \frac{\hbar^2}{2m} u'' + V u = E u.
+\end{equation*}
+Для $r > a$ $u'' + k^2 u = 0$, тогда
+\begin{equation*}
+	\sub{u}{II} = A \sin(kr + \delta_0).
+\end{equation*}
+Для $r\leq a$ 
+\begin{equation*}
+	u'' + (k^2 + \kappa^2) u = 0,
+	\hspace{5 mm} 
+	k^2_u \overset{\mathrm{def}}{=} k^2 + \kappa^2,
+	\hspace{5 mm} 
+	U_0 = \frac{\hbar^2 \kappa^2}{2m},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\sub{u}{I} = B \sin(k_u r).
+\end{equation*}
+Решение для радиальной волновой функции при $l=0$ запишется в виде
+\begin{equation*}
+	R_{k0} (r) = \left\{\begin{aligned}
+	    &A \tfrac{1}{k_u r} \sin(k_u r),
+	    & k_u^2 = \tfrac{2m}{\hbar^2}(E+U_0),
+	    && r \leq a_0,
+	    \\
+	    & B \tfrac{1}{kr} \sin(k r + \delta_0)
+	    & k^2 = \tfrac{2m}{\hbar^2} E,
+	    && r > a_0,
+	\end{aligned}\right.
+\end{equation*}
+где $A,\, B$ определяются из непрерывности $R_{k0}(r)$. Фазу можем найти из
+\begin{equation*}
+	\frac{R'_{k0}(r)}{R_{k0}(t)} \bigg|_{r=a_0 - 0} = 
+	\frac{R'_{k0}(r)}{R_{k0}(t)} \bigg|_{r=a_0 + 0},
+\end{equation*}
+% причем для медленных частиц $k a_0 \ll 1$, тогда
+% \begin{equation*}
+% 	R'_{k0} (r) \sim \frac{1}{kr^2}\left(k r \cos(\ldots) - \sin(\ldots)\right), 
+% \end{equation*}
+% а при $r = a_0 - 0$ в глубокой яме $k_u a_0 \gg 1$:
+% \begin{equation*}
+% 	R'_{k0} (r) \sim \frac{1}{k_u r^2}\left(k_u r \cos(...) - \sin(...)\right).
+% \end{equation*}
+Из непрерывности лоагрифмической производной, находим
+\begin{equation*}
+	\tg(k a_0 + \delta_0) = \frac{k}{k_u} \tg(k_u a_0),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\delta_0 = - k a_0 + \arctg\left(
+		\frac{k}{k_u} \tg(k_u a_0)
+	\right).
+\end{equation*}
+% Рассмотрим случай $\frac{k}{\tilde{k}} \tg(\tilde{k} a) \ll ka \ll 1$, а тогда $\delta_0 \approx - ka$, а значит $f_0 = \frac{1}{k} e^{i \delta_0} \sin \delta_0 \approx - a$.
+Рассмотрим случай $\tg(k_u a) \to \pm \infty$. Тогда $\delta_0 \approx \arctg(\pm\infty) = \pm\frac{\pi}{2}$, что ещё называют резонансным рассеянием, так как $\sin \delta_0 = \pm 1$.
+Также посмотрим на $\frac{\tg(\tilde{k} a)}{\tilde{k} a} \approx	1$, тогда $\delta_0 \approx	0$, и получается $k_u a \ll 1$ и $f_0 \to 0$ -- эффект Рамзаура.
