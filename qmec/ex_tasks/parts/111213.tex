@@ -1,0 +1,49 @@
+\Tsec{№11, 12, 13. Правила отбора}
+
+\textbf{Спин}. Справедливы следующие соотношения
+\begin{equation*}
+	[s_\alpha,\, d_\beta] = 0,
+	\hspace{5 mm} 
+	[s^2,\, d_\beta] = 0.
+\end{equation*}
+А таком случае
+\begin{equation*}
+	\bk{f}[ [s^2, d_\alpha] ]{i} = \left[
+		s_f (s_f + 1) - s_i (s_i + 1)
+	\right] d_{fi} = 0.
+\end{equation*}
+Так как $d_{fi} \neq 0$, то $s_f = s_i$, а значит $\Delta s = 0$.
+
+Аналогично раскрываем
+\begin{equation*}
+	\bk{f}[ [s_z, \vc{d}] ]{i} = \left[
+		M_s'(M_s' + 1) - M_s (M_s + 1)
+	\right] \vc{d}_{fi} = 0,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\Delta M_s = 0.
+\end{equation*}
+А вообще помним про $J$ и $M_s$ по теореме Вигнера-Эккарта $\Delta J \leq 1$, $\Delta M_J \leq 1$, $1 \leq J_i + J_f$. 
+
+\textbf{Четность Е1}. Важно помнить, что
+\begin{equation*}
+	\mathbb{P} \vc{d} \ket{\psi} = - \vc{d} \mathbb{P} \ket{\psi},
+	\hspace{2.5 mm} 
+	\forall \psi,
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\mathbb{P} \vc{d} = - \vc{d} \mathbb{P}.
+\end{equation*}
+Говорим про состояния с заданной четностью, а значит $\mathbb{P} \ket{\psi} = \Pi \ket{\psi}$, $\Pi = \pm 1$. Тогда 
+\begin{equation*}
+	\bk{f}[\mathbb{P} \vc{d}]{i} = - \bk{f}[\vc{d} \mathbb{P}]{i},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\Pi_f = - \Pi_i,
+\end{equation*}
+а значит четность меняется. 
+
+\textbf{Четность M1}. Немного иначе для М1 перехода:
+\begin{equation*}
+	\vc{r} \overset{\mathbb{P}}{\to}  - \vc{r},
+	\hspace{5 mm} 
+	\vc{\mu} \overset{\mathbb{P}}{\to} \vc{\mu}, 
+\end{equation*}
+а значит для М1 перехода четность не меняется, возможны переходы в рамках одного терма. 
