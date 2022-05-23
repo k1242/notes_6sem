@@ -1,0 +1,59 @@
+\Tsec{№3. Функционал гармонического осциллятора}
+
+Рассмотрим действие, вида
+\begin{equation*}
+	S = \frac{1}{2} \int_{x'}^{x''} dt\ q(t) \hat{\Gamma} q(t) + 
+	\int_{x'}^{x''}  dt\ j(t) q(t),
+\end{equation*}
+где верно, что $\hat{\Gamma} = \hat{\Gamma}\D$. 
+
+
+Сделаем замену переменных в известном интеграле
+\begin{equation*}
+	Z[j] = \n \int \Dq \exp\left(\frac{i}{\hbar} S(t', t'', j)\right),
+	\hspace{10 mm} 
+	q(t) \to \tilde{q}(t) = q(t) - \G (t),
+	\hspace{5 mm} 
+	\hat{\Gamma} \G (t) = 0.
+\end{equation*}
+Нам поможет, что $\G(t) \hat{\Gamma} = \left(\hat{\Gamma} \G(t)\right)\D$, тогда
+\begin{equation*}
+	S = \frac{1}{2} \int dt\ \left(\tilde{q}(t) + \G(t)\right) \Gamma \left(\tilde{q}(t) + \G (t)\right) + \int dt\ j(t) \left(\tilde{q}(t) + \G(t)\right).
+\end{equation*}
+Подставляя в $Z$, находим
+\begin{equation*}
+	Z[j] = \n \int\Dq \exp\bigg(
+		\frac{i}{\hbar} \int_{t'}^{t''} dt\ \ldots
+	\bigg) = \n \exp\bigg(
+		\frac{i}{\hbar} \int_{t'}^{t''} dt\ j(t) \G(t)
+	\bigg) \int \mathcal{D} \tilde{q}\, 
+	\exp\bigg(
+		\frac{i}{\hbar} \int_{t'}^{t''} dt\ \bigg(
+			\frac{1}{2} \tilde{q}(t) \hat{\Gamma} \tilde{q}(t) + j(t) \tilde{q}(t)
+		\bigg)
+	\bigg).
+\end{equation*}
+Теперь делаем замену $\tilde{q} \to \bar{q} = \tilde{q} + \hat{\Gamma}^{-1} j(t)$.  Тогда
+\begin{equation*}
+	frac{1}{2} \tilde{q}(t) \hat{\Gamma} \tilde{q}(t) + j(t) \tilde{q}(t)  = 
+	\frac{1}{2} \bar{q} \hat{\Gamma} \bar{q} - \frac{1}{2} j(t) \hat{\Gamma}^{-1} j(t),
+\end{equation*}
+тогда для функционального интеграла получаем
+\begin{equation*}
+	Z[j] = \exp\bigg(
+		\frac{i}{\hbar} \int_{t'}^{t''} dt\ \bigg(
+			j(t) \G(t) - \frac{1}{2} j(t) \hat{\Gamma}^{-1} j(t)
+		\bigg)
+	\bigg) \times  \n \int \mathcal{D} \bar{q}\ \exp\bigg(
+		\frac{i}{\hbar} \int_{t'}^{t''} dt\ \frac{1}{2} \bar{q} \hat{\Gamma} \bar{q}
+	\bigg),
+\end{equation*}
+где последний множитель может быть представлен в виде $\exp\bigg(\frac{i}{\hbar} \mathcal{G}_0\bigg)$:
+\begin{equation*}
+	Z[j] =  \exp\bigg(
+		\frac{i}{\hbar} \bigg[
+			\mathcal{G}_0  + \ldots + \ldots
+		\bigg]
+	\bigg) = \exp\left(\frac{i}{\hbar} G[j]\right),
+\end{equation*}
+что и требовалось доказать. 
