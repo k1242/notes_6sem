@@ -1,0 +1,62 @@
+\section*{Оценка количества атомов}
+
+
+\textbf{Связь с количеством атомов}. 
+Если атом движется на скорости $v$, то доплеровское смещение приведет к резонансу на частоте
+\begin{equation*}
+	\nu(v) = \nu_0 \left(1 + \frac{v}{c}\right),
+\end{equation*}
+где $\nu_0$ -- резонансная частота.
+Допустим мощность детектируемого излучения $J(\nu) \d \nu$ связана с плотностью атомов $n(v) \d v$ через коэффициент $\kappa$:
+\begin{equation*}
+	J(\nu) = \kappa \cdot n(v),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	J(\nu) \d \nu = \kappa n(v) \nu_0 \frac{dv}{c}.
+\end{equation*}
+Тогда связь интеграла по мощности излучения $\mathcal I = \int J(\nu) \d \nu$ с количеством атомов $N = \int n(v) \d v$:
+\begin{equation*}
+	\mathcal I = \frac{\kappa \nu_0}{c} N.
+\end{equation*}
+
+\textbf{Интегральная мощность излучения}. По расстоянию между пиками сверхтонкой структуры для ${}^6$Li (228 МГц) отмасштабируем развёртку. Из калибровки ФЭУ знаем, что мощности излучения в 1 нВт, соответсвует $4.7$В, теперь можем найти $\mathcal I$, см. рис. \ref{fig:1}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.4\textwidth]{D:/workspace/python/count_atoms/3.pdf}
+    \caption{Численная оценка параметров пиков}
+    \label{fig:1}
+\end{figure}
+
+
+
+Считая пики гауссовыми, можем оценить их параметры (приведены в единицах в соответсвие с графиком):
+\begin{align*}
+	G(\nu) = A \exp\left(- \frac{(\nu-\nu_c)^2}{2 \sigma^2}\right),
+	\hspace{10 mm} 
+	&A_L = 0.0362,
+	\hspace{2.5 mm} 
+	\nu_R = 601, 
+	\hspace{2.5 mm} 
+	\sigma_L = 48.2, \\
+	&A_R = 0.0121,
+	\hspace{2.5 mm} 
+	\nu_L = 829,
+	\hspace{2.5 mm} 
+	\sigma_R = 64.3.
+\end{align*}
+Тогда находим $\mathcal I$ для левого пика
+\begin{equation*}
+	\mathcal{I} = A_L \sqrt{2 \pi} \sigma_L \approx 4.4 \ \text{нВт}\cdot\text{МГц}.
+\end{equation*}
+
+\textbf{Телесный угол}. Спонтанное излчение происходит в $4 \pi$, дектируем только некоторый телесный угол $\Omega$. 
+Расстояние $L$ от флюорисцирующих атомов до линзы равно $\ldots$, диаметр линзы $D$ равен $52$ мм.
+
+Телесный угол, выделяемый конусом с углом раствора $\alpha$, высоты $L$ и радиуса $D/2$, может быть найден, как
+\begin{equation*}
+	\Omega = 2 \pi \left(1 - \cos \frac{\alpha}{2}\right) = 2 \pi \left(1 - \frac{L}{\sqrt{L^2 + D^2/4}}\right) \approx	\ldots
+\end{equation*}
+откуда знаем связь детектируемого излучения $J$ с полным излучением $J_0(\nu)$:
+\begin{equation*}
+	J_0 (\nu) = \frac{4 \pi}{\Omega} J(\nu).
+\end{equation*}
