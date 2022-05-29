@@ -3,7 +3,8 @@
 
 * **уравнениям математической физики II**
 ([*задание*](https://github.com/k1242/notes_6sem/blob/main/eqs_phys/hw/eqs_phys_hw.pdf),
-[*заметки*](https://github.com/k1242/notes_6sem/blob/main/eqs_phys/notes/eqs_phys_notes.pdf));
+[*заметки*](https://github.com/k1242/notes_6sem/blob/main/eqs_phys/notes/eqs_phys_notes.pdf),
+[*spell book к экзамену*](https://github.com/k1242/notes_6sem/blob/main/eqs_phys/exam/eqs_phys_exam.pdf));
 
 * **квантовой механике II**
 ([*задание*](https://github.com/k1242/notes_6sem/blob/main/qmec/hw/qmec_hw.pdf),
