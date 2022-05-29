@@ -2,7 +2,7 @@
 
 \textbf{Постановка задачи}. 
 Задача Штурма-Лиувилля:
-\begin{equation*}
+\begin{equation}
     \hat{L} = \partial_x^2 + Q(x) \partial_x + U(x),
     \hspace{5 mm} 
     \hat{L} f(x) = \varphi(x),
@@ -11,7 +11,7 @@
         \alpha_1 f(a) + \beta_1 f'(a) &= 0 \\
         \alpha_2 f(b) + \beta_2 f'(b) &= 0,
     \end{aligned}\right.
-\end{equation*}
+\end{equation}
 где\footnote{
     Часто можно встретить нулевые граничные условия: $f(a) = f(b) = 0$. 
 }  $|\alpha_1| + |\beta_2| \neq 0$ и $|\alpha_2| + |\beta_2| \neq 0$.
@@ -38,18 +38,18 @@
     \end{aligned}\right.
 \end{equation*}
 Теперь можем выписать ответ
-\begin{equation*}
+\begin{equation}
     G(x, y) = \frac{1}{W(y)} \left\{\begin{aligned}
         &v(y) u(x), &x < y, \\
         &v(x) u(y), &x > y,
     \end{aligned}\right.
     \hspace{10 mm} 
     W[u, v](y) = \frac{v' (y) u(y) - v(y) u'(y)}{u(y)}.
-\end{equation*}
+\end{equation}
 Который существует и единственнен для $W \neq 0$. Для $W = \const $ $G(x, y) = G(y, x)$, а значит $\hat{L}^{-1}$ -- симметричный самосопряженный оператор, и у $\hat{L}$ есть ОНБ из собственных функций. 
 
 
-\textbf{Вронскиан}.  Бывает удобно найти $W(x)$, записав формулу Лиувилля-Остроградского
+\textit{Кстати}.  Бывает удобно найти $W(x)$, записав формулу Лиувилля-Остроградского
 \begin{equation*}
     W(x) = 
     \det \begin{pmatrix}
@@ -238,18 +238,19 @@
     \hspace{5 mm} 
     \delta(x-y) = \sum_n \delta_n ( y) e_n (x).
 \end{equation*}
-Находим коэффициенты Фурье: \red{нужен пример про собственные функции}
-\begin{equation*}
+Находим коэффициенты Фурье: 
+% \red{нужен пример про собственные функции}
+\begin{equation}
     \delta_n (y) = \frac{\bar{e}_n (y)}{\langle e_n | e_n\rangle},
     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
     g_n (y) = \frac{1}{\lambda_n} \frac{\bar{e}_n (y)}{\langle e_n | e_n\rangle}.
-\end{equation*}
+\end{equation}
 % где мы решали уравнение, вида $\hat{L} G = \delta(x-y)$. 
 Проблема возникает при $\lambda_n = 0$. 
 
 
 
-\textbf{Решение}. Наличие у оператора собственного числа $\lambda_n = 0$ называется нулевой модой. Рассмотрим оператор:
+Наличие у оператора собственного числа $\lambda_n = 0$ называется \textit{нулевой модой}. Рассмотрим оператор:
 \begin{equation*}
     \hat{L} = \partial_x^2,
 \end{equation*}
@@ -259,21 +260,20 @@
     \hspace{10 mm} 
     G(x) = \sum  g_n e_n (x). 
 \end{equation*}
-но для $\hat{L} G = \delta(x)$ оказывается нет решений (справа $e_0$ есть, а слева нет). То есть
-\begin{equation*}
-    \Ker \hat{L} \neq \{0\},
-    \hspace{10 mm} 
-    \Ker \hat{L} + \Im \hat{L} = \mathcal H,
-\end{equation*}
-поэтому всегда имеем ввиду, что $\hat{L} \hat{L}^{-1} = \mathbbm{1}$, но только для $\Im \hat{L}$. 
+но для $\hat{L} G = \delta(x)$ оказывается нет решений (справа $e_0$ есть, а слева нет). 
 
-В общем, проблему уйдёт, если рассмотрим уравнение, вида
+% То есть
+% \begin{equation*}
+%     \Ker \hat{L} \neq \{0\},
+%     \hspace{10 mm} 
+%     \Ker \hat{L} + \Im \hat{L} = \mathcal H,
+% \end{equation*}
+% поэтому всегда имеем ввиду, что $\hat{L} \hat{L}^{-1} = \mathbbm{1}$, но только для $\Im \hat{L}$. 
+
+В общем, проблема уйдёт, если рассмотрим уравнение, вида
 \begin{equation*}
     \hat{L} G(x) = \delta(x) - e_0(x) = \delta(x) - \frac{1}{2 \pi},
 \end{equation*}
 то есть справа единичный оператор только на образе $\Im \hat{L}$. 
-
-
-
 Если в источнике есть нулевая мода, то уравнение не имеет решений. 
 

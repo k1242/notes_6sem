@@ -92,3 +92,77 @@
     e_n = e^{i n x}, \hspace{5 mm} 
     e_{-n} = e^{- i nx}.
 \end{equation*} 
+
+
+\Tsec[]{Функция Грина для уравнения Пуассона в \texorpdfstring{$\mathbb{R}^3$}{R3}}
+
+Рассмотрим в $\mathbb{R}^3$ уравнение $\nabla^2 f = \varphi$, где все линейно, всё хорошо. Как обычно будем искать функцию, виде
+\begin{equation*}
+    f(\vc{r}) = \int_{\mathbb{R}^3} G(\vc{r}  - \vc{r}') \varphi(\vc{r}) \d^3 r. 
+\end{equation*}
+Функцию Грина найдём в виде
+\begin{equation*}
+    \nabla^2 G(\vc{r}) = \delta(x) \delta(y) \delta(z).
+\end{equation*}
+Можем свести уравнение Лапласа, к уравнению Дебая c $\kappa = 0$:
+\begin{equation*}
+    (\nabla^2 - \kappa^2) G(\vc{r}) = \delta(\vc{r}),
+\end{equation*} 
+которое очень удобно раскладывать по Фурье:
+\begin{equation*}
+    \tilde{G}(\vc{k}) = \int_{\mathbb{R}^3} G(\vc{r}) e^{- i \smallvc{k} \cdot \smallvc{r}} \d \vc{r}, 
+    \hspace{10 mm} 
+    G(\vc{r}) = \int_{\mathbb{R}^3} \tilde{G}(\vc{k}) e^{i \smallvc{k} \cdot \smallvc{r}} \frac{\d \vc{k}}{(2 \pi)^3}.
+\end{equation*}
+Подставляя $G(\vc{r})$ через Фурье образ $\tilde{G}(\vc{k})$:
+\begin{equation*}
+    (-k^2 - \kappa^2) G(\vc{k}) = 1,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    G(\vc{k})=- \frac{1}{k^2 + \kappa^2},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    G(\vc{r}) = \int_{\mathbb{R}^3} \frac{e^{i \smallvc{k} \cdot \smallvc{r}}}{k^2 + \kappa^2} \frac{\d \vc{k}}{(2 \pi)^3}.
+\end{equation*}
+Переходим в сферические координаты, получаем, что
+\begin{equation*}
+    G(\vc{r}) = - \frac{2 \pi}{(2 \pi)^3} \int_{0}^{\infty} \frac{k^2}{k^2 + \kappa^2} \int_{0}^{\pi} 
+    \sin \theta  e^{i k r \cos \theta}  \d \theta \d k = 
+    - \frac{e^{- \kappa r}}{4 \pi r}
+    .
+\end{equation*}
+Устремляя $\kappa \to 0$, находим
+\begin{equation*}
+     \nabla^2 G = \delta(\vc{r}),
+     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+     G = - \frac{1}{4 \pi r}.
+ \end{equation*} 
+
+
+\Tsec[]{Произведение Гамма-функций}
+
+Докажем выражение
+\begin{equation*}
+    \Gamma(z) \Gamma(1-z) = \frac{\pi}{\sin \pi z}.
+\end{equation*}
+Действительно,
+\begin{equation*}
+    B(z,\, 1-z) = \int_{0}^{1}  t^{z-1} (1-t)^{-z} \d t = \int_0^1 \left(\frac{t}{1-t}\right)^z \frac{\d t}{t}.
+\end{equation*}
+Тут логично ввести $x = \frac{t}{1-t} = -1 + \frac{1}{1-t}$, а значит
+\begin{equation*}
+    t = \frac{x}{x+1}, \hspace{5 mm} 
+    \d t = \frac{\d x}{(x+1)^2}.
+\end{equation*}
+Продолжая жонглировать переменными
+\begin{equation*}
+    B(z,\, 1-z) = \int_{0}^{\infty} x^z \frac{x+1}{x} \frac{\d x}{(x + 1)^2} = 
+    \int_{0}^{\infty} \frac{x^{z-1}}{x+1} \d x.
+\end{equation*}
+Который снова удобно посчитать через разрезы. 
+\begin{equation*}
+    B(z,\, 1-z) = \int_{\text{up}} \frac{x^{z-1}}{1+x} \d x =
+    \frac{1}{1-e^{2 \pi i z}} \int_C \frac{x^{z-1}}{1+x} \d x,
+\end{equation*}
+но тут уже можно замкнуть дугу на бесконечности, вклад от котрой нулевой.  Осталось найти вычет в точке $-1$, тогда
+\begin{equation*}
+    \int_{\text{up}} \frac{x^{z-1}}{1+x} \d x = \frac{1}{1-e^{2\pi i z}}    \res_{-1} = \frac{2 \pi i (-1) e^{\pi i z}}{1 - e^{2 \pi i z}} = \frac{2 \pi i}{e^{\pi i z} - e^{-i \pi z}} = \frac{\pi}{\sin \pi z}.
+\end{equation*}

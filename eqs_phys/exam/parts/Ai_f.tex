@@ -4,15 +4,15 @@
     \hspace{10 mm} 
     f(z) = \int_C \tilde{f} (p) e^{pz} \d p,
 \end{equation*}
-где $f(p) e^{pz} |_{\partial C}^{\forall  z} = 0$. Тогда
+где $f(p) e^{pz} |_{\partial C}^{\forall  z} = 0$. Тогда введем полиномы $A(p)$ и $B(p)$ такие, что
 \begin{equation*}
     - \partial_p \left[ A(p) f(p)\right] + B(p) f(p) = 0,
-    \hspace{5 mm} 
+    \hspace{2.5 mm} 
     A(p) = a_n p^n +\ldots + a_1 p + a_0,
-    \hspace{5 mm} 
+    \hspace{2.5 mm} 
     B(p) = b_n p^n + b_{n-1} p^{n-1} + \ldots + b_1 p + b_0.
 \end{equation*}
-Решая, находим
+Решая, находим образ Лапласа
 \begin{equation*}
     \tilde{f}(p) = \frac{1}{A(p)} \exp\left(
         \int_{p_0}^{p} \frac{B(t)}{A(t)}\d t
@@ -30,7 +30,6 @@
     \sqrt{\frac{2\pi}{|f''(x_0)}} e^{\pm i \pi/4},
 \end{equation*} 
 где $\pm$ согласован с $\sign f''$. 
-
 Для комплексного метода перевала
 \begin{equation*}
     I = \int_C e^{f(z)} g(z) \d z = g(z_0) e^{f(z_0)} e^{i \varphi} \sqrt{\frac{2\pi}{|f''|}},
@@ -43,9 +42,9 @@
 
 \textbf{Функция Эйри}. Решаем уравнение, вида
 \begin{equation*}
-    \partial_x^2 Y - x Y = 0,
+    \partial_x^2 f - x f = 0,
     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
-    Y(x) = \int_C e^{x t - t^3/3} \d t.
+    f(x) = \int_C e^{x t - t^3/3} \d t.
 \end{equation*}
 Так приходим к
 \begin{equation*}

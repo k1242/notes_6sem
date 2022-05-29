@@ -1,135 +1,64 @@
-\Tsec[]{Уравнение Лапласа  (черновик)}
+\Tsec[]{Уравнения Пуассона и Лапласа}
 
 
-\subsection*{Многомерие \texorpdfstring{$\mathbb{R}^3$}{R3}}
+Научимся решать \textit{уравнение Пуассона} $\nabla^2 f  = \varphi$, которое при $\varphi = 0$ переходит в \textit{уравнению Лапласа} $\nabla^2 f = 0$. 
+Функции, удовлетворяющие уравнение Лапласа называют \textit{гармоническими}, которые существуют только на некоторой ограниченной области. 
+Иногда бывает проще решать \textit{уравнение Дебая} $(\nabla^2 - \kappa^2) f = \varphi$.
 
-Рассмотрим $\mathbb{R}^3$:
+
+\textbf{Функция Грина}. Решение как обычно можем искать в виде
 \begin{equation*}
-    \nabla^2 f = \varphi,
+    f(\vc{r}) = \int_{\mathbb{R}^3} G(\vc{r}  - \vc{r}') \varphi(\vc{r}) \d^3 r.
 \end{equation*}
-где все линейно, всё хорошо. Как обычно будем искать функцию, виде
+В зависимости от размерности пространства $n$, функция Грина $G_n$ будет равна
+\begin{equation}
+    G_2(r) = \frac{\ln r}{2 \pi},
+    \hspace{5 mm} 
+    G_3(\vc{r}) = - \frac{1}{4 \pi r},
+    \hspace{5 mm} 
+    G_{n > 2}(x) = \frac{1}{\sigma_{n-1}} \frac{1}{r^{n-2}},
+\end{equation}
+где $S_n$ равно площади $n-1$ мерной единичной сферы.
+
+\textit{Кстати}. 
+Для уравнения Дебая в $\mathbb{R}^3$ функция Грина с $\hat{L} = \nabla^2 - \kappa^2$ будет равна
 \begin{equation*}
-    f(\vc{r}) = \int_{\mathbb{R}^3} G(\vc{r}  - \vc{r}') \varphi(\vc{r}) \d^3 r. 
+    G(\vc{r}) = - \frac{e^{- \kappa r}}{4 \pi r}.
 \end{equation*}
-Функцию Грина найдём в виде
+Для сферически симметричного потенциала $\varphi(\vc{r}) \equiv \varphi(r)$, решение уравнения Пуассона упростится до 
 \begin{equation*}
-    \nabla^2 G(\vc{r}) = \delta(r^3) = \delta(x) \delta(y) \delta(z),
-    \hspace{10 mm}  
-    \int f(\vc{r}) \delta(\vc{r}- \vc{r}') \d^3 \vc{r}' = f(\vc{r}').
+    f(\vc{r}) = \frac{1}{r} \int_{0}^{r} \varphi(\rho) \rho^2 \d \rho + \int_{r}^{\infty} \varphi(\rho) \rho \d \rho.
 \end{equation*}
-Можем свести уравнение Лапласа, к уравнению Дебая:
-\begin{equation*}
-    (\nabla^2 - \kappa^2) G(\vc{r}) = \delta(\vc{r}),
-\end{equation*} 
-которое очень удобно раскладывать по Фурье:
-\begin{align*}
-    &\text{ПФ}: 
-    &G(\vc{k}) &= \int_{\mathbb{R}^3} G(\vc{r}) e^{- i \smallvc{k} \cdot \smallvc{r}} \d \vc{r}, \\
-    &\text{ОПФ}: 
-    &G(\vc{r}) &= \int_{\mathbb{R}^3} G(\vc{r}) e^{i \smallvc{k} \cdot \smallvc{r}} \frac{\d \vc{k}}{(2 \pi)^3}.
-\end{align*}
-Также вспомним, что
-\begin{equation*}
-    \partial_m G(\vc{r}) e^{- i \smallvc{k} \cdot \smallvc{r}} \d \vc{r} = i k_m G(\vc{k}),
-\end{equation*}
-а значит
-\begin{equation*}
-    (-k^2 - \kappa^2) G(\vc{k}) = 1,
-    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
-    G(\vc{k})=- \frac{1}{k^2 + \kappa^2},
-    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
-    G(\vc{r}) = \int_{\mathbb{R}^3} \frac{e^{i \smallvc{k} \cdot \smallvc{r}}}{k^2 + \kappa^2} \frac{\d \vc{k}}{(2 \pi)^3}.
-\end{equation*}
-Переходим в сферические координаты, получаем, что
-\begin{equation*}
-    G(\vc{r}) = - \frac{2 \pi}{(2 \pi)^3} \int_{0}^{\infty} \frac{k^2}{k^2 + \kappa^2} \int_{0}^{\pi} 
-    \sin \theta  e^{i k r \cos \theta}  \d \theta \d k = 
-    - \frac{e^{- \kappa r}}{4 \pi r}
-    .
-\end{equation*}
-Устремляя $\kappa \to 0$, находим
-\begin{equation*}
-     \nabla^2 G = \delta(\vc{r}),
-     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
-     G = - \frac{1}{4 \pi r}.
- \end{equation*} 
+\red{(проверить)}
 
 
+\Tsec[]{Двумерные гармонические функции}
 
-
-
-% \textbf{Пример}. Пусть 
-
-\subsection*{Многомерие \texorpdfstring{$\mathbb{R}^2$}{R2}}
-
-Для Гаусса можно найти, что
-\begin{equation*}
-    G^{[\dim = n]}(x) = \frac{1}{\sigma_{n-1}} \frac{1}{r^{n-2}},
-\end{equation*}
-где $\sigma_{n-1}$ -- площадь $n-1$ мерной сферы. 
-
-
-
-Вообще часто задача формулируется в виде задачи Дирихле:
+Отдельно рассмотрим случай $n=2$. Часто задача формулируется в виде \textit{задачи Дирихле}:
 \begin{equation*}
     \nabla^2 f = 0, 
     \hspace{5 mm} 
-    f'_{\partial D} = f_0 (\vc{r}),
+    f|_{\partial D} = f_0 (\vc{r}),
 \end{equation*}
-то есть функция задана на границе некоторой области. Пусть
+то есть функция задана на границе некоторой области. Будем искать решение в виде
 \begin{equation*}
-    f(z) = u(z) = i v(z),
-    \hspace{5 mm} 
+    f(z) = u(z) + i v(z),
+    \hspace{10 mm} 
     \nabla^2 u = \nabla^2 v = 0.
 \end{equation*}
+Если знаем комплексную функцию $f(z)$ такую, что $\Re f |_{\partial D} = f_0$, тогда $\Re f(z)$ решает задачу Дирихле.
+Далее конформным преобразованием переводим любую область $D$ в круг/полуплоскость, где задача Дирихле решается, а дальше отображаем назад. 
 
-Пусть знаем комплексную функцию $f(z)$ такую, что $\Re f |_{\partial D} = f_0$, тогда $\Re f(z)$ решает задачу Дирихле.
-Далее конформным преобразованием переводим любое $D$ в круг, в круге задача Дирихле решается, а дальше отображаем назад. 
-
-
-Пусть задана функция $u_0 (x) = u(x, 0)$. Вообще можно было бы разложить по Фурье $u$, и записать
-\begin{equation*}
-    \nabla^2  u = 0,
-    \hspace{5 mm}   
-    u(x, 0) = u_0 (x).
-\end{equation*}
-Тогда
-\begin{equation*}
-    u(q, y)  = \int_{\mathbb{R}} e^{- i q x} u(x, y) \d x,
-    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
-    \nabla^2 u = - q^2 u(q, y) = 0.
-\end{equation*}
-Так приходим к
-\begin{equation*}
-    u(q, y) = \exp\left(- |q| y\right) u(q, 0),
-    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
-    u(x, y) = \int_{\mathbb{R}} \frac{\d q}{2\pi} e^{i q x} \underbrace{e^{- |q| y}}_{h(q)} u(q, 0).
-\end{equation*}
-Произведение Фурье образов -- свёртка:
-\begin{equation*}
-    u(x, y) = \int_{\mathbb{R}} \d \xi h(x - \xi,\,  y) u_0 (\xi).
-\end{equation*}
-Найдём, что
-\begin{equation*}
-    \int_{\mathbb{R}} \frac{\d q}{2 \pi} e^{i q x} e^{-|q| y} = \frac{y}{\pi (x^2 + y^2)}.
-\end{equation*}
-Подставляем, и находим:
-\begin{equation*}
-    u(x, y) = \int_{\mathbb{R}} d \xi \, \frac{y/\pi}{(x-\xi)^2 + y^2} u_0 (\xi),
-\end{equation*}
-где 
-\begin{equation*}
-    \frac{y/\pi}{(x-\xi)^2 + y^2} = \Im \frac{-1}{x + i y - \xi},
-    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
-    f(z) = - \frac{1}{\pi} \int_{\mathbb{R}} \frac{1}{z-\xi} u_0 (\xi),
-\end{equation*}
-что в некотором смысле привело нас к интегралу Коши, так что и $\nabla^2 f = 0$ и гран. условия удовлетворяются. 
+Рассмотрим полуплоскость $D= \{(x,y) \mid y > 0\}$, c заданным значением $f(x, 0) = f_0(x)$. Тогда решением будет
+\begin{equation}
+    f(x, y) = \int_{\mathbb{R}} \frac{d\xi}{\pi}\ \frac{y}{(x-\xi)^2 + y^2} f_0 (\xi).
+\end{equation}
+Для круга радиуса $R$ c заданным граничным условием, вида $f(R \cos t,\, R \sin t) = f_0 (t)$ решением будет
+\begin{equation}
+    f(r \cos \varphi,\, r \sin \varphi) = 
+    \int_{0}^{2\pi} \frac{dt}{2\pi}
+    \frac{R^2-r^2}{R^2 - 2 R r \cos(t-\varphi) + r^2} \, f_0 (t).
+\end{equation}
 
 
 
-\textbf{Пример}. Рассмотрим
-\begin{equation*}
-    u_0 (x) = \frac{1}{1 + x^2},
-    \hspace{5 mm} 
-    u(x, y) = \int_{\mathbb{R}} d \xi \frac{1}{\pi} \frac{y}{y^2 + (x-\xi)^2} \frac{1}{1+\xi^2} = \frac{1 + y}{x^2 + (1+y)^2}.
-\end{equation*}

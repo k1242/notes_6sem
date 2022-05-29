@@ -33,7 +33,7 @@
 \newcommand{\grad}{\mathop{\mathrm{grad}}\nolimits}
 \renewcommand{\div}{\mathop{\mathrm{div}}\nolimits}
 \newcommand{\rot}{\mathop{\mathrm{rot}}\nolimits}
-\newcommand{\Ker}{\mathop{\mathrm{ker}}\nolimits}
+\newcommand{\Ker}{\mathop{\mathrm{Ker}}\nolimits}
 \newcommand{\spec}{\mathop{\mathrm{spec}}\nolimits}
 \newcommand{\sign}{\mathop{\mathrm{sign}}\nolimits}
 \newcommand{\tr}{\mathop{\mathrm{tr}}\nolimits}
@@ -73,7 +73,7 @@
 
 \DeclareDocumentCommand{\Tsec}{o m}{
     \IfNoValueTF{#1}{
-        \newpage
+        % \newpage
         \section{\textsc{#2}} 
         % \addcontentsline{toc}{section}{#2}
     }{
