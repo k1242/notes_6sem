@@ -2,25 +2,46 @@
 \Tsec[]{Волновое уравнение}
 
 
-\red{(написать для дисперсии в общем виде, с. 53.)} 
-
-Волновое уравнение с источником:
-\begin{equation}
-    (\partial_t^2 - c^2 \nabla^2) u = \chi.
-    \label{field_eq}
-\end{equation}
-% c законом дисперсии $\varpi = cq$. 
-Функция Грина оператора $\partial_t^2 - c^2 \nabla^2$:
+\textbf{Общий подход}. Найдём функцию Грина для уравнения, вида
 \begin{equation*}
-    G(t, r) = \frac{\theta(t)}{4 \pi c r} \delta(r - ct),
+    \left(\partial)t^2 + \varpi^2[-i \nabla]\right) u = \chi.
 \end{equation*}
+Решение запишется в виде
+\begin{equation*}
+    \left(
+        \partial_t^2 + \varpi^2[-i \nabla]
+    \right) G = \delta(t) \delta(\vc{r}),
+    \hspace{5 mm} 
+    u(t,\, \vc{r}) = \int dt_1\, d^3 r_1\ 
+    G(t-t_1,\, \vc{r}- \vc{r}_1) \chi(t_1,\, \vc{r}_1).
+\end{equation*}
+Переходя к пространственному Фурье-образу, приходим у уравнению с известной функцией Грина:
+\begin{equation*}
+    \left(\partial_t^2 + \varpi^2[\vc{q}]\right) \tilde{G} = \delta(t),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+    \tilde{G}(t) = \theta(t) \frac{\sin(\varpi t)}{\varpi}.
+\end{equation*}
+Тогда через обратное Фурье-преобразование находим
+\begin{equation*}
+    G(t,\, \vc{r}) = \theta(t) \int_{\mathbb{R}^3} \frac{d^3 q}{(2\pi)^3} \frac{\sin(\varpi t)}{\varphi} \exp\left(i \vc{q} \cdot \vc{r}\right) \overset{*}{=} 
+    \frac{\theta(t)}{\pi r} \int_{0}^{\infty}  \frac{dq}{2\pi} q \frac{\sin(\varpi[q] t)}{\varpi[q]} \sin(qr)
+    ,
+\end{equation*}
+где $\overset{*}{=}$ верно для $\varpi[\vc{q}] \equiv \varpi[q]$. 
+
+
+
+Например, для $\varpi[\vc{q}] = qc$, волновое уравнение с источником:
+\begin{equation}
+    (\partial_t^2 - c^2 \nabla^2) u(t, \vc{r}) = \chi(t, \vc{r}),
+    \hspace{5 mm} 
+    G(t, r) = \frac{\theta(t)}{4 \pi c r} \delta(r - ct).
+\end{equation}
 а значит выражение для поля:
 \begin{equation}
-    u(t, \vc{r}) = \frac{1}{4 \pi c^2} \int \frac{d^3 r_1}{R} \ \chi(t-R/c, \vc{r}_1),
-    \label{field_sol}
+    u(t, \vc{r}) = \frac{1}{4 \pi c^2} \int d^3 r_1 \ \frac{\chi(t-|\vc{r} - \vc{r}_1|/c, \vc{r}_1)}{|\vc{r} - \vc{r}_1|},
 \end{equation}
-где $R = |\vc{r} - \vc{r}_1|$. 
-
+\red{перейти к сферически симметричному случаю}.
 
 
 
