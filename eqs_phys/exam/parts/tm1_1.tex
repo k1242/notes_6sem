@@ -1,0 +1,97 @@
+
+
+
+
+
+\textbf{Функция Грина}. Для уравнений вида $\hat{L} x = \varphi$, бывает удобно найти $G$, как решение уравнения $\hat{L} G = \delta$:
+\begin{equation}
+    \hat{L}\, x(t) = \varphi(t), 
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    x(t) = \int_{-\infty}^{t} G(t-s) \varphi(s) \d s,
+    \hspace{5 mm} 
+    \hat{L} G = \delta(t),
+\end{equation}
+если $\hat{L}$ -- линейный оператор. 
+И, если хочется добавить начальные условия, то для $\hat{L}$ второго порядка будет
+\begin{equation*}
+    x(t) = \dot{x}(0) G(t) + x(0) \dot{G}(t) + \int_{0}^{t} G(t-s) \varphi(s) \d s.
+\end{equation*}
+Для уравнений первого порядка $\hat{L} = \partial_t + \gamma$:
+\begin{equation*}
+    \hat{L} = \partial_t + \gamma,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    G(t) = \theta(t) \exp\left(- \gamma t\right).
+\end{equation*}
+Для осциллятора $\hat{L} = \partial_t^2 + \omega^2$, тогда
+\begin{equation*}
+    \hat{L} = \partial_t^2 + \omega^2,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    G(t) = \theta(t) \frac{\sin(\omega t)}{\omega}.
+\end{equation*}
+В общем случае подстановка причинной функции Грина $G(t) = \theta(t) g(t)$ для $\hat{L} \colon  L(z) = z^n + a_1 z^{n-1} + \ldots + a_n$ приводит к условиям 
+\begin{equation*}
+    \partial_t^{n-1} g(0) = 1,
+    \hspace{5 mm} 
+    \partial_t^m g(0) = 0, \  m = 0,\ldots,n-2,
+\end{equation*}
+который позволяют методом неопределенных коэффициентов найти $G$ из уравнения $\hat{L} G(t) = \delta(t)$. 
+\red{Проявляем аккуратность при наличии кратных корней у $L(z) = 0$, когда возникают секулярные члены. Нужен пример.}
+
+
+
+\textbf{Матричное уравнение}. Решение линейного уравнения для векторной величины $\vc{y}$
+\begin{equation*}
+    \frac{d \vc{y}}{d t} + \hat{\Gamma} \vc{y} = \vc{\chi},
+\end{equation*}
+может быть найдено, через функцию Грина, вида
+\begin{equation}
+    \hat{G} (t) = \theta(t) \exp\left(- \hat{\Gamma} t\right),
+    \hspace{10 mm} 
+    \vc{y}(t) = \int_{-\infty}^{t}  \hat{G}(t-s) \vc{\chi}(s) \d s.
+\end{equation}
+Удобно $\hat{\Gamma}$ привести к ЖНФ, а потом вспомнить, что матричная экспонента от жордановой клетки $\hat{J}$ имеет вид
+\begin{equation*}
+    \exp\left(- \hat{J} t\right) = e^{- \lambda t}
+    \left(
+    \begin{array}{ccc}
+     1 & -t & \frac{1}{2}t^2 \\
+     0 & 1 & -t \\
+     0 & 0 & 1 \\
+    \end{array}
+    \right).
+\end{equation*}
+
+% \textbf{Преобразование Фурье}. 
+
+
+
+\textbf{Функция Грина через преобразование Лапласа}. Преобразование Лапласа функциии $\Phi(t)$ определяется:
+\begin{equation*}
+    \tilde{\Phi}(p) = \int_{0}^{\infty}  \exp(-pt) \Phi(t) \d t,
+    \hspace{10 mm} 
+    \Phi(t) = \int_{c-i \infty}^{c+i \infty} \frac{\d p}{2 \pi i} \exp(pt) \tilde{\Phi}(p),
+\end{equation*}
+где далее $c$ выбираем правее всех особенностей для причинности. 
+
+Решение уравнения $L(\partial_t) G(t) = \delta(t)$ может быть найдено, как
+\begin{equation}
+    G(t) = \int_{c-i \infty}^{c+i \infty} \frac{\d p}{2 \pi i} \exp(p t) \tilde{G}(p),
+    \hspace{10 mm} \tilde{G} (p) = \frac{1}{L(p)},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    G(t) = \sum_i \res_i \frac{\exp(pt)}{L(p)},
+\end{equation}
+где суммирование идёт по полюсам $1/L(p)$. 
+
+Бывает удобно сделать функции маленькими
+\begin{equation*}
+    \int_{p_0 - i \infty}^{p_0 + i \omega} \tilde{f}(p) e^{pt} \frac{\d p}{2 \pi i} = 
+    \left(\frac{d }{d t} \right)^n \int_{p_0 - i \infty}^{p_0 + i \omega} \frac{\tilde{f}(p)}{p^n} e^{pt} \frac{\d p}{2 \pi i}.
+\end{equation*}
+
+
+
+
+
+
+% многомерная неоднородная релаксация
+

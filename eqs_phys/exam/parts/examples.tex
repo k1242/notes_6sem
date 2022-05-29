@@ -1,0 +1,94 @@
+\Tsec[]{Задача Штурма-Лиувилля}
+
+\textbf{Алгоритм (Фурье)}. Раскладываем 
+\begin{equation*}
+    G(x) = \sum_{n \neq 0} g_n e_n,
+    \hspace{10 mm} 
+    \delta(x) = \sum \frac{e_n (x)}{2 \pi},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    \hat{L} G = \delta(x) - \frac{1}{2\pi}.
+\end{equation*}
+Знаем, что $\lambda_n g_n = \frac{1}{2\pi}$, а значит
+\begin{equation*}
+    g_n(x) = \frac{1}{2\pi} \frac{1}{- n^2},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+    G(x) = \sum_{n \neq 0} \frac{1}{2\pi} \frac{1}{-n^2} e^{i n x},
+\end{equation*}
+и рассмотрим $0 < x < \pi$, суммирая это через вычеты, записываем
+\begin{equation*}
+    f(z) = \frac{e^{zx}}{2 \pi z^2}, 
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+    G(x) = \sum \oint_{in} \frac{\d z}{2 \pi i} f(z) g(z).
+\end{equation*}
+Соответственно, выберем
+\begin{align*}
+    g(z) = \frac{\pi e^{- \pi z}}{\sh (\pi z)}
+\end{align*}
+тогда
+\begin{equation*}
+    f(z) g(z) = \frac{\pi}{z^2} \frac{e^{(x-\pi)z}}{\sh \pi z},
+\end{equation*}
+получаем, что интеграл по душам вправо/влево  равен $0$, и остается только вычет в $z = 0$:
+\begin{equation*}
+    G(z) = - \res_0 f(z) g(z) = \ldots = - \frac{x^2}{4 \pi} + \frac{x}{2} - \frac{\pi}{6}.
+\end{equation*}
+
+
+
+\textbf{Алгоритм (сшивка)}. Решим задачу
+\begin{equation*}
+    \partial_x^2 G(x) = \delta(x) - \frac{1}{2\pi}.
+\end{equation*}
+Разбиваем $x < 0$ и $x > 0$:
+\begin{align*}
+    &x < 0, 
+    & G = -\tfrac{x^2}{4 \pi} + a x + b, \\
+    &x > 0, 
+    & G = -\tfrac{x^2}{4 \pi} + c x + \varpi, 
+\end{align*}
+учитываем граничные условия:
+\begin{equation*}
+    G(-0) = G(+0),
+    \hspace{5 mm} 
+    G'(+0) - G'(-0) = 1,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+    b = \varpi.
+\end{equation*}
+Также получаем, что $-a = b$.
+
+Учтём, что $e_0$ не входит в $G$:
+\begin{equation*}
+    \langle G | e_0\rangle = 0 = \int_{-\pi}^{+\pi}G(x) \d x = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    b = - \frac{\pi}{6},
+\end{equation*}
+так и получаем все необходиме условия на $G(x, y)$. 
+
+
+
+
+\textbf{Пример}. Рассмотрим снова задачу, вида
+\begin{equation*}
+    (\partial_x^2 + \kappa^2) G(x, y) = \delta(x-y)
+\end{equation*}
+и решим методом Фурье. Получим систему, вида
+\begin{equation*}
+    \left\{\begin{aligned}
+        \partial_x^2 e_n = \lambda_n e_n \\
+        e_n (-\pi) = e_n (\pi) \\ 
+        e_n'(-\pi) = e_n'(\pi) \\
+    \end{aligned}\right.
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    e = \alpha e^{i q x} + \beta e^{- i q x}, 
+    \hspace{5 mm} 
+    \alpha e^{i q \pi} + \beta e^{- i q \pi} = \alpha e^{- i q \pi} + \beta e^{i q \pi}.
+    \hspace{0.25cm} \Rightarrow \hspace{0.25cm}
+    \alpha \sin \pi q = \beta \sin \pi q,
+\end{equation*}
+а значит $q = n$, $n \in \mathbb{Z}$, вот и дискретность:
+\begin{equation*}
+    \lambda^2 = - n^2,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    e_n = e^{i n x}, \hspace{5 mm} 
+    e_{-n} = e^{- i nx}.
+\end{equation*} 

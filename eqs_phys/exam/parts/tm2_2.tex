@@ -1,0 +1,276 @@
+
+
+
+
+
+
+\textbf{Уравнение Фредгольма}. Есть уравнение Фредгольма I рода:
+\begin{equation*}
+	\int_{a}^{b} ds\ K(t, s) f(s) = g(t),
+\end{equation*}
+и уравнение Фредгольма II рода:
+\begin{equation}
+	f(t) = g(t) + \lambda \int_{a}^{b} K(t, s) f(s),
+	\hspace{5 mm} \Leftrightarrow \hspace{5 mm} 
+	f = g + \lambda \hat{K} f,
+	\label{Feq2}
+\end{equation}
+где мы ввели интегральный оператор $\hat{K} f = \int_{a}^{b} ds \ K(t, s) f(s)$. Решение можем найти в виде
+\begin{equation*}
+	f = \frac{1}{1-\lambda \hat{K}}\,  g = \left(\mathbbm{1} + \lambda \hat{R}\right) g,
+	\hspace{10 mm} 
+	\hat{R} \overset{\mathrm{def}}{=}  \hat{K} + \lambda \hat{K}^2 + \ldots
+\end{equation*}
+В терминах интегрирования резольвента $R (t, s)$ выражается, как
+\begin{equation}
+	R(t,s) = K(t, s) + \lambda \int_{a}^{b}d p_1\  K(t, p_1) K(p_1, s) + 
+	\lambda^2 \int_{a}^{b} d p_1 \int_{a}^{b} d p_2 \ K(t, p_1) K(p_1, p_2) K(p_2, s) + \ldots
+	\label{FeqRI}
+\end{equation}
+
+
+
+\Tsec[]{Линейные интегральные уравнения}
+
+
+\textbf{Свертка I}. Рассмотрим уравнение на $\varphi$, вида
+\begin{equation}
+	\int_{-\infty}^{\infty} K(x-y) \varphi(y) = f(x),
+\end{equation}
+то есть уравнение Фредгольма первого рода с $(a, b) = \mathbb{R}$
+ и $K(x,y) = K(x-y)$. 
+Решение можем найти через преобразование Фурье 
+\begin{equation*}
+	\tilde{f}(k) = \int_{\mathbb{R}} f(x) e^{-ikx} \d x,
+	\hspace{10 mm} 
+	f(x) = \frac{1}{2 \pi}\int_{\mathbb{R}} \tilde{f} (k) e^{i k x} \d x,
+\end{equation*}
+которое переводит свёртку в произведение:
+\begin{equation}
+	\tilde{\varphi}(k) = \frac{\tilde{f}(k)}{\tilde{K}(k)},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	 \varphi(x) = \int_{\mathbb{R}} \frac{dk}{2\pi} e^{ikx} \frac{\tilde{f}(k)}{\tilde{K}(k)}.
+\end{equation}
+
+\textbf{Свертка II}. Аналогично для уравнения Фредгольма второго рода
+\begin{equation}
+	\varphi(x) = f(x) + \lambda \int_{\mathbb{R}} dy\ K(x-y) \varphi(y),
+\end{equation}
+для которого также
+\begin{equation}
+	\varphi(x) = f(x) + \lambda \int_{\mathbb{R}} dy\ f(y) R(x-y),
+	\hspace{5 mm} 
+	R(x) = \int_{\mathbb{R}} \frac{dk}{2\pi} e^{ik x} \frac{\tilde{K}(k)}{1-\lambda \tilde{K}(k)}.
+\end{equation}
+
+\textbf{Уравнение Вольтерра I}. Рассмотрим интегральное уранвение Фредгольма I на $(a,b) = (0, t)$:
+\begin{equation*}
+	f(t) = \int_{0}^{t} ds\ K(t-s) \varphi(s).
+\end{equation*}
+Здесь хорошо работает преобразование Лапласа 
+\begin{equation*}
+	f(p) = \int_{0}^{\infty}  f(t) e^{-pt} \d t,
+	\hspace{10 mm} 
+	f(t) = \frac{1}{2 \pi i}\int_{p_0 - i \infty}^{p_0 + i \infty} f(p) e^{pt} \d p,
+\end{equation*}
+которое переводит свертку в произведение, а значит можем сразу написать решение
+\begin{equation}
+	\varphi(t)  = \int_{p_0 - i \infty}^{p_0 + i \infty} \frac{f(p)}{K(p)} e^{pt} \frac{dp}{2\pi i}.
+\end{equation}
+
+\textbf{Уравнение Вольтерра II}.
+Аналогично для уравнения Фредгольма II:
+\begin{equation}
+	\varphi(x) = f(x) + \lambda \int_{0}^{t} K(x-y) \varphi(y) \d y,
+\end{equation}
+находим решение
+\begin{equation*}
+	\varphi(x) = f(x) + \lambda \int_{0}^{t} R(t-s) f(s) \d s,
+	\hspace{10 mm} 
+	R(t) = \int_{p_0 - i \infty}^{p_0 + i \infty} \frac{dp}{2\pi i} e^{pt} \frac{K(p)}{1-\lambda K(p)}.
+\end{equation*}
+
+
+
+\textbf{Периодическое ядро I}. Рассмотрим $f(t)$ и $K(t)$ периодчиные с $T = b-a$, тогда и $\varphi(t)$ периодично по $T$. Решим уравнение, вида
+\begin{equation}
+	\int_{a}^{b} K(t-s) \varphi(s) \d s = f(t).
+\end{equation}
+Раскладывая всё в ряд Фурье (вводя $\omega = \frac{2\pi}{T}$):
+\begin{equation*}
+	f(t) = \sum_{n \in \mathbb{Z}} e^{-in \omega t} f_n,
+	\hspace{5 mm} f_n = \frac{1}{T} \int_{-T/2}^{T/2} f(t) e^{i n \omega t} \d t.
+\end{equation*}
+Решение находим в виде суммы
+\begin{equation}
+	\varphi_n = \frac{f_n}{T K_n},
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	\varphi(t) = \sum_{n \in \mathbb{Z}} \frac{f_n}{T K_n} e^{-i n \omega t}.
+\end{equation}
+
+\textbf{Периодическое ядро II}. Аналогично можем найти резольвенту для уравнения Фредгольма второго рода:
+\begin{equation*}
+	\varphi(t) = f(t) +  \lambda \int_{a}^{b} ds\ K(t-s) \varphi(s).
+\end{equation*}
+Реше $\varphi(t)$
+\begin{equation}
+	\varphi(t) = f(t) + \lambda \int_{a}^{b} ds\ R(t-s) f(s),
+	\hspace{5 mm} 
+	R(t) = \sum_{n \in \mathbb{Z}} \frac{K_n}{1-\lambda T K_n} e^{-i n \omega t}.
+\end{equation}
+
+
+\textbf{Факторизуемое ядро}. Рассмотрим случай, когда ядро вырожденное: $K(t, s) = \sum_i A_i (t) B_i (s)$.  Тогда интегральное уравнение перепишется в виде
+\begin{equation*}
+	\varphi(t) = f(t) + \lambda  \sum A_i(t)  \int_{a}^{b} B_i (s) \varphi(s) \d s.
+\end{equation*}
+Решение уравнения можем найти в виде
+\begin{equation*}
+	\varphi(t) = f(t) + \lambda \sum_i C_i A_i (t),
+	\hspace{10 mm} 
+	(\mathbbm{1} - \lambda \hat{M}) \vc{C} = \vc{\Phi},
+	\hspace{5 mm} 
+	\Phi_i = \int_{a}^{b} B_i (t) f(t) \d t,
+	\hspace{5 mm} 
+	M_{ij} = \int_{a}^{b} B_i(t) A_j(t) \d t.
+\end{equation*}
+
+
+\Tsec[]{Нелинейные интегральные уравнения}
+
+\textbf{Уравнение типа свёртки}. Рассмотрим уравнение вида
+\begin{equation}
+	\int_{-\infty}^{+\infty} \varphi(t-s) \varphi(s) = f(t).
+\end{equation}
+Аналогично смотрим на фурье-образ, откуда находим выражение для $\varphi(t)$:
+\begin{equation}
+	\varphi(t) = \pm \int_{-\infty}^{+\infty} \sqrt{f(\omega)} e^{i \omega t} \frac{d \omega}{2\pi}.
+\end{equation}
+
+\textbf{Обобщение}. 
+Обобщим происходящее, введя $L(s)$
+\begin{equation}
+	L(s) = \sum_{n=0}^{N} a_n s^n,
+	\hspace{5 mm} 
+\int_{-\infty}^{+\infty} ds\ \varphi(t-s) L(s) \varphi(s) = f(t),
+\end{equation}
+решим в виде
+\begin{equation}
+	\varphi(\omega) L(i \partial_\omega) \varphi(\omega) = f(\omega),
+\end{equation}
+то есть можем свести интегральное уравнение к дифференциальному.
+
+
+\textbf{Лаплас}. Рассмотрим уравнение вида
+\begin{equation*}
+	\int_{0}^{t} ds\ \varphi(t-s) L(s) \varphi(s) = f(t),
+\end{equation*}
+решение которого также находится в виде
+\begin{equation*}
+	\varphi(p) L(-\partial_p) \varphi(p) = f(p).
+\end{equation*}
+
+
+\textbf{Периодический сдучай}. Аналогично линейному случаю рассмотрим
+\begin{equation*}
+	\int_{-\pi}^{+\pi} ds\ \varphi(t-s) \varphi(s) = f(t),
+\end{equation*}
+периодичное с $T=2\pi$ и $\omega = 1$. Тогда решение находится в виде
+\begin{equation*}
+	\varphi(t) = \sum_{n \in \mathbb{Z}} (\pm) \sqrt{\frac{f_n}{2\pi}} e^{-int}.
+\end{equation*}
+
+
+\textbf{Факторизуемое ядро}. Для факторизуемого ядра уравнение примет вид
+\begin{equation*}
+	\varphi(t) =  x(t)\int_{a}^{b} ds\ \varphi^n (s) y(s) + f(t),
+\end{equation*}
+решение которого можем найти в виде
+\begin{equation*}
+	\varphi(t) = \alpha x(t) + f(t),
+	\hspace{10 mm} 
+	\alpha \colon  \alpha = \int_{a}^{b} dt\ y(t) \left(
+		\alpha x(t) + f(t)
+	\right)^n,
+\end{equation*}
+где $\alpha$ задан неявно алгебраическим уравнением.
+
+\textbf{Факторизуемое ядро на причинном интервале}. Для уравнения на интервале $[0, t]$ уравнение вида
+\begin{equation*}
+	\varphi(t) = f(t) + x(t) \int_{0}^{t} ds\ y(s) \varphi^n (s),
+\end{equation*}
+может быть сведено к дифференциальному уравнению по $z(t) \overset{\mathrm{def}}{=} \varphi(t) / x(t)$:
+\begin{equation*}
+	z'(t) = y(t) x^n (t) z^n (t) + \frac{d }{d t} \left(\frac{f(t)}{x(t)}\right),
+	\hspace{10 mm} 
+	z(0) = \frac{f(0)}{x(0)}.
+\end{equation*}
+
+
+\Tsec[]{Сингулярные интегральные уравнения}
+
+\textbf{Сингулярные интегральные уравнения}. Основой решения станет \textit{формула Сохоцкого}:
+\begin{equation}
+		\text{v. p.} \int_{a}^{b} \frac{f(x)}{x-x_0} \d x = 
+		\pm i \pi f(x_0) + \lim_{\varepsilon \to + 0} \int_{a}^{b} \frac{f(x)}{x-x_0 \pm i \varepsilon} \d x.
+\end{equation}
+Полезно ввести преобразование Гильберта $\hat{H}$:
+\begin{align*}
+	\hat{H} \varphi(x) 
+	=
+	%  \frac{1}{\pi} \vpint_{-\infty}^{+\infty} \frac{\varphi(y)}{y-x} \d y &=  \lim_{\varepsilon \to + 0} \int_{-\infty}^{+\infty} \frac{\varphi(y) \d y}{\pi}  \frac{y-x}{(y-x)^2 + \varepsilon^2} 
+	% = \\ &= 
+	\lim_{\varepsilon \to + 0} \int_{-\infty}^{+\infty} \frac{\varphi(y) \d y}{2\pi} \left(
+		\frac{1}{y-x + i \varepsilon} + \frac{1}{y-x-i \varepsilon}
+	\right),
+\end{align*}
+для которого верно, что $\hat{H}^2 = - \mathbbm{1}$.
+
+Тогда \textit{простейшее сингулярное уравнение} вида
+\begin{equation}
+	\pi \hat{H} \varphi(x)  + \lambda \varphi(x) = f(x)
+\end{equation}
+будет иметь решение относительно $\varphi(x)$:
+\begin{equation}
+	 \varphi(x) = \frac{\lambda}{\lambda^2 + \pi^2} f(x) - \frac{1}{\lambda^2 + \pi^2} \hat{H}[f](x) = \frac{1}{\lambda + i \pi} f(x) - \frac{1}{\lambda^2 + \pi^2} \int_{-\infty}^{+\infty}  dy\ \frac{f(y)}{y-x + i \varepsilon}.
+\end{equation}
+
+\textbf{Сингулярные интегральные уравнения с полиномильными коэффициентами}. Рассмотрим уравнение вида
+\begin{equation*}
+	\vpint_{-\infty}^{\infty} \frac{\varphi(y)}{y-x} \d y 
+	% = \int_{-\infty}^{+\infty} \frac{\varphi(y)}{y-z + i \varepsilon} \d y + i \pi \varphi(x) 
+	= x^2 \varphi(x) + f(x).
+\end{equation*}
+Применяя оператор $\int_{-\infty}^{+\infty} \frac{\d x}{x - z + i \varepsilon}$, приходим к уравнению
+\begin{equation*}
+	-  \pi i \int_{-\infty}^{+\infty} \frac{\varphi(y)}{y-z +  i \varepsilon} \d y = \int_{-\infty}^{+\infty} \frac{y^2 \varphi(y)}{y-z + i \varepsilon} \d y +  \int_{-\infty}^{+\infty}  \frac{f(y)}{y-z + i \varepsilon} \d y.
+\end{equation*}
+Здесь можем провести следующие рассуждения:
+\begin{align*}
+	\int_{-\infty}^{+\infty} \frac{y(y - z + i \varepsilon + z - i \varepsilon)}{y - z + i \varepsilon} \varphi(y) \d y &= \int_{-\infty}^{+\infty} y \varphi(y) \d y + z \int_{-\infty}^{+\infty} \frac{y - z + z}{y-z + i \varepsilon} \varphi(y) \d y 
+	= \\ &= 
+	\underbrace{\int_{-\infty}^{+\infty} y \varphi(y) \d y}_{C_1} + z \underbrace{\int_{-\infty}^{+\infty} \varphi(y) \d y }_{C_2}+ z^2 \int_{-\infty}^{+\infty} \frac{\varphi(y)}{y-z + i \varepsilon} \d y,
+\end{align*}
+а значит исходное уравнение переписывается в виде
+\begin{equation*}
+	\int_{-\infty}^{+\infty} \frac{\varphi(y)}{y-z + i \varepsilon} \d y = - \frac{-}{z^2 + i \pi} \int_{-\infty}^{+\infty} \frac{f(y)}{y-z + i \varepsilon} \d y - \frac{C_1 + C_2 z}{z^2 + i \pi},
+\end{equation*}
+решение которого мы уже знаем:
+\begin{equation*}
+	\varphi(x) = - \frac{C_1 + C_2 x}{x^4 + \pi^2} - \frac{f(x)}{x^2 - i \pi} - \frac{1}{x^4 + \pi^2} \int_{-\infty}^{+\infty} \frac{f(y)}{y-z + i \varepsilon} \d y.
+\end{equation*}
+
+\textbf{Сингулярные интегральные уравнения на отрезке}. Рассмотрим  уравнение на конечном отрезке
+\begin{equation*}
+	\vpint_{-1}^{1} \frac{\varphi(y)}{y-x} \d y = f(x).
+\end{equation*}
+Решение можем найти при условии на $f\colon \int_{-1}^{1} \frac{f(x)}{\sqrt{1-x^2}} \d x = 0$, тогда
+\begin{equation*}
+	\varphi(x) = \frac{1}{\pi i}\left(
+		f(x) + \frac{\sqrt{1-x^2}}{\pi i} \int_{-1}^{1} \frac{f(y) \d y}{\sqrt{1-y^2} (y-x+i \varepsilon)}
+	\right).
+\end{equation*}
+
+
+
+% \newpage

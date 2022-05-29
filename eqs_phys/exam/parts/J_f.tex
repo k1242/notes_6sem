@@ -1,0 +1,60 @@
+
+Уравнение Бесселя:
+\begin{equation*}
+    \partial_z^2 J_m + \frac{1}{z} J_m + \left(1 - \frac{m^2}{z^2}\right) J_m = 0,
+\end{equation*}
+где $J_m(0) \in \mathbb{R}$. Знаем, что
+\begin{equation*}
+    e^{i z \sin \varphi} = \sum_{m \in \mathbb{Z}} 
+    J_n (z) e^{i n \varphi},
+    \hspace{0.25cm} \Rightarrow \hspace{0.25cm}
+    J_m (z) = \frac{1}{2\pi} \int_{-\pi}^{+\pi}e^{i z \sin \varphi} e^{- i m \varphi} \d \varphi,
+    \hspace{2.5 mm} 
+    \Leftrightarrow
+    \hspace{2.5 mm} 
+    J_m (z) = \frac{1}{\pi} \int_{0}^{\pi} \cos(z \sin \varphi - m \varphi) \d \varphi.
+\end{equation*}
+Умеем дифференцировать:
+\begin{equation*}
+    \frac{d J_m}{d z} = \frac{J_{m-1} (z)}{2} - \frac{J_{m+1}(z)}{2},
+    \hspace{5 mm}
+    \frac{m}{z} J_m (z) = \frac{1}{2} \left(J_{m+1} (z) + J_{m-1}(z)\right),
+    \hspace{5 mm} 
+    \frac{d }{d z} \left(z^m J_m (z)\right) = J_{m-1} (z) z^m.
+\end{equation*}
+Откуда сразу находим
+\begin{equation*}
+    J_{-m} (z) = (-1)^m J_m (z).
+\end{equation*}
+Умеем раскладывать в ряд и уходить на бесконечность:
+\begin{equation*}
+    J_m (z) = \frac{z^m}{2^m} \sum_{k=0}^{\infty} \frac{(-1)^k z^{2k}}{4^k k! (m+k)!},
+    \hspace{5 mm} 
+    J_m (z \to \infty) = \sqrt{\frac{2 \pi}{z}} \cos\left(
+        z - \frac{\pi n }{2} - \frac{\pi}{4}
+    \right),
+\end{equation*}
+соответственно с нулями в $\frac{\pi}{2} + \pi m$. 
+
+Преобразование Фурье от функции:
+\begin{equation*}
+    F[J_m (z)] (k) = \int_{-\infty}^{+\infty} J_m (z) e^{-ikz} \d z 
+    % = \int_{-\infty}^{+\infty} \d z e^{i kz} \frac{1}{2\pi} \int_{-\pi}^{+\pi} e^{i z \sin \varphi} e^{-i m \varphi} \d \varphi 
+    = \frac{(-1)^m e^{i m \varphi_0} + e^{- i m \varphi_0}}{\sqrt{1 - k^2}}, \hspace{5 mm} 
+    \varphi_0 = \arcsin k.
+\end{equation*}
+В частности
+\begin{equation*}
+    F[J_0](k) = \frac{2}{\sqrt{1-k^2}} \theta(1-k^2), \hspace{10 mm} 
+    F[J_1](k) = \frac{2 i k}{\sqrt{1 - k^2}} \theta(1-k^2).
+\end{equation*}
+Преобразование Лапласа:
+\begin{equation*}
+    \Lambda[J_m] (p)=  \int_{0}^{\infty}  e^{- p z} J_m (z) \d z = 
+    \frac{1}{\sqrt{p^2 + 1} (p + \sqrt{p^2 + 1})^m}.
+\end{equation*}
+Например,
+\begin{equation*}
+    \int_{0}^{\infty} \frac{J_n (z)}{z^n} \d z = \frac{1}{(2n-1)!!}.
+\end{equation*}
+

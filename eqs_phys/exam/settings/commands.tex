@@ -2,11 +2,16 @@
 \renewcommand{\d}{\, d}
 \renewcommand{\leq}{\leqslant}
 \renewcommand{\geq}{\geqslant}
+\renewcommand{\kappa}{\varkappa}
+
 
 \newcommand{\1}{\mathbbm{1}}
 \newcommand{\2}{\,\raisebox{-1pt}{\scalebox{0.8}{\vdots}}\,}
 \newcommand{\vpint}{\,\textnormal{v.p.}\hspace{-2pt}\int}
-
+\newcommand{\res}{\mathop{\mathrm{res}}\nolimits}
+\newcommand{\arccot}{\mathop{\mathrm{arccot}}\nolimits}
+\newcommand{\Ai}{\textnormal{Ai}}
+\newcommand{\Bi}{\textnormal{Bi}}
 
 % авторские команды
 \newcommand{\vc}[1]{\mbox{\boldmath $#1$}}
@@ -19,14 +24,12 @@
 % операторы (просто прямой текст)
 \renewcommand{\Im}{\mathop{\mathrm{Im}}\nolimits}
 \renewcommand{\Re}{\mathop{\mathrm{Re}}\nolimits}
-\newcommand{\res}{\mathop{\mathrm{res}}\nolimits}
 % \renewcommand{\P}{\mathop{\mathrm{P}}\nolimits}
 % \newcommand{\E}{\mathop{\mathrm{E}}\nolimits}
 % \newcommand{\D}{\mathop{\mathrm{D}}\nolimits}
 % \newcommand{\cov}{\mathop{\mathrm{cov}}\nolimits}
 \newcommand{\diag}{\mathop{\mathrm{diag}}\nolimits}
 \newcommand{\card}{\mathop{\mathrm{card}}\nolimits}
-\newcommand{\arccot}{\mathop{\mathrm{arccot}}\nolimits}
 \newcommand{\grad}{\mathop{\mathrm{grad}}\nolimits}
 \renewcommand{\div}{\mathop{\mathrm{div}}\nolimits}
 \newcommand{\rot}{\mathop{\mathrm{rot}}\nolimits}
@@ -38,6 +41,7 @@
 \newcommand{\const}{\textnormal{const}}
 
 
+
 % цветной текст
 \newcommand{\red}[1]{\textcolor{red}{#1}}
 \newcommand{\green}[1]{\textcolor{urlcolor}{#1}}
@@ -47,8 +51,6 @@
 % символы
 \newcommand{\cmark}{\text{\ding{51}}}
 \newcommand{\xmark}{\text{\ding{55}}}
-
-
 
 
 % подгрузка pdf_tex картинок
@@ -67,3 +69,16 @@
 \DeclareDocumentCommand{\bk}{m o m}{
     \IfNoValueTF{#2}{\langle #1 | #3 \rangle}{\langle #1 | #2 | #3 \rangle}
 }
+
+
+\DeclareDocumentCommand{\Tsec}{o m}{
+    \IfNoValueTF{#1}{
+        \newpage
+        \section{\textsc{#2}} 
+        % \addcontentsline{toc}{section}{#2}
+    }{
+        \subsection*{\textsc{#2}} \addcontentsline{toc}{subsection}{#2}
+    }
+}
+
+

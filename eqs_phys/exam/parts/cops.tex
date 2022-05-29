@@ -1,0 +1,130 @@
+
+\textbf{Общий подход}. 
+Знаем, что
+\begin{equation*}
+    \left\{\begin{aligned}
+        (\sigma \rho f')' = - \lambda \rho f, \\
+        (\sigma \rho)' =  \tau \rho,
+    \end{aligned}\right.
+    \hspace{5 mm} 
+    \rho(x) = \frac{1}{\sigma(x)} \exp\left(
+        \int_{}^{x} \frac{\tau(y)}{\sigma(y)} \d y
+    \right),
+    \hspace{5 mm} 
+    \bk{f}{g} = \int_{a}^{b} \rho(x) f(x) g(x) \d x.
+\end{equation*}
+Для ортогональных полиномов обязательно $\deg \sigma \leq 2$, $\deg \tau \leq 1$, $|\sigma''|+ |\tau'| \neq 0$. Тогда
+\begin{equation*}
+    f_n (x) = \frac{\alpha_n}{\rho(x)} \partial_x^n \left(\sigma^n (x) \times \rho(x)\right), \hspace{5 mm}     
+    \alpha_n = (-1)^n a_n n! \prod_{k=0}^{n-1} \frac{1}{\lambda_n^{(k)}},
+\end{equation*}
+где 
+\begin{equation*}
+    \lambda_n = - n \tau' - \frac{n (n-1)}{2} \sigma'',
+    \hspace{5 mm} 
+    \lambda_n^{(k)} = \lambda_n + k \tau' + \frac{k (k-1)}{2} \sigma'',
+\end{equation*}
+что гордо именуется обобщенной формулой Родрига. 
+
+Важно помнить, что $\forall$ клоп $\deg n$ $\bot$ $x^m$ при $m < n$. Можем составить рекуррентное соотношение:
+\begin{equation*}
+    p_{n+1} (x) = (A_n x + B_n) p_n (x) + X_n p_{n-1} (x),
+    \hspace{5 mm} 
+    A_n = \frac{
+        \bk{p_{n+1}}{p_{n+1}}
+    }{
+        \bk{p_{n+1}}{x p_n}
+    },
+    \hspace{5 mm} 
+    B_n = -A_n \frac{\bk{x p_n}{p_n}}{\bk{p_n}{p_n}},
+    \hspace{5 mm} 
+    C_n = - \frac{A_n}{A_{n-1}} \frac{\|p_n\|^2}{\|p_{n-1}\|^2}.
+\end{equation*}
+Нормировка может быть найдена, как
+\begin{equation*}
+    \|p_n\|^2 = (-1)^n \alpha_n a_n n! \int_{a}^{b} \sigma^n (x) \rho(x) \d x.
+\end{equation*}
+Производящая функция может быть найдена, как
+\begin{equation*}
+    \Psi(x, z) = \sum_{n=0}^{\infty}  \frac{\tilde{p}_n (\lambda)}{n!} z^n = 
+    \frac{\tau(t_0)/ \rho(x)}{1 - z \sigma' (t_0)},
+    \hspace{5 mm} 
+    t_0 - x -  z \sigma(t_0) = 0.
+\end{equation*}
+Обычно $\alpha_n$ такой, что
+\begin{equation*}
+    \Psi(x, z) = \sum_{n=0}^{\infty} p_n (x) z^n.
+\end{equation*}
+
+
+\textbf{Полиномы Лежандра}. Дифференциральное уравнение ($a,\, b = -1,\, 1$):
+\begin{equation*}
+    \sigma(x) = 1-  x^2, 
+    \hspace{5 mm} 
+    \tau(x) = -2 x = \sigma',
+    \hspace{5 mm} \rho = 1,
+    \hspace{10 mm} 
+    (1- x^2) P_n'' - 2 x P_n' + n(n+1)P_n = 0.
+\end{equation*}
+Формула Родрига:
+\begin{equation*}
+    P_n (x) = \frac{(-1)^n}{2^n n!} \partial_x^n (1-x^2)^n, 
+    \hspace{5 mm} 
+    \alpha_n = \frac{(-1)^n}{2^n n!},
+    \hspace{5 mm} 
+    a_n = \frac{(2n)!}{2^n (n!)^2}.
+\end{equation*}
+Нормировка:
+\begin{equation*}
+    \|P_n\|^2 = \frac{2}{2n + 1}.
+\end{equation*}
+Рекуррентное соотноешение:
+\begin{equation*}
+    A_n = \frac{\|p_n+1\|^2}{\bk{p_{n+1}}{x p_n}} = \frac{a_{n+1}}{a_n} = \frac{2n + 1}{n+1},
+    \hspace{5 mm} 
+    B_n = 0,
+    \hspace{5 mm} 
+    C_n = - \frac{n}{n+1},
+\end{equation*}
+подставляя, приходим к
+\begin{equation*}
+    (n+1) P_{n+1} (x) - (2n+1) x P_n + n  P_{n-1} (x) = 0.
+\end{equation*}
+Производяшая функция:
+\begin{equation*}
+    \psi(x, z) = \sum_{n=0}^{\infty} P_n (x) z^n = \frac{1}{\sqrt{z^2 - 2 z x + 1}}.
+\end{equation*}
+Умеем дифференцировать
+\begin{equation*}
+    (x^2-1) \frac{d P_n}{d x}  = n (x P_n (x) - P_{n-1} (x)).
+\end{equation*}
+
+
+\textbf{Полиномы Эрмита}. Дифференциральное уравнение
+\begin{equation*}
+    \sigma = 1, \hspace{5 mm} 
+    \tau = - 2 x,
+    \hspace{5 mm} \rho(x)  = e^{-x^2},
+    \hspace{5 mm} 
+    H_n'' - 2 x H_n' + 2 n H_n = 0, 
+    \hspace{5 mm} 
+    (e^{-x^2} H_n')' = -2 n e^{-x^2} H_n.
+\end{equation*}
+Знаем, что формула Родрига примет вид
+\begin{equation*}
+    H_n (x) = (-1)^n e^{x^2} \partial_x^n e^{-x^2},
+    \hspace{5 mm} 
+    a_n = 2^n,
+\end{equation*}
+тогда
+\begin{equation*}
+    \|H_n\|^2 =  2^n n! \sqrt{\pi}.
+\end{equation*}
+Рекуррентное соотношение:
+\begin{equation*}
+    H_{n+1} (x) = 2 x H_n (x) - 2 n H_{n-1} (x).
+\end{equation*}
+Производящаяя функция:
+\begin{equation*}
+    \psi(x,z) = e^{-z^2+2 zx} = \sum_{n=0}^{\infty}  \frac{H_n (x)}{n!} z^n.
+\end{equation*}

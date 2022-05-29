@@ -1,0 +1,61 @@
+\textbf{Метод Лапласа}. Рассмотрим дифференциральное уравнение, вида
+\begin{equation*}
+    (a_n z + b_n) f^{(n)} + \ldots + (a_1 z + b_1) f^{(1)} + (a_0 z + b_0) f^{(0)} = 0,
+    \hspace{10 mm} 
+    f(z) = \int_C \tilde{f} (p) e^{pz} \d p,
+\end{equation*}
+где $f(p) e^{pz} |_{\partial C}^{\forall  z} = 0$. Тогда
+\begin{equation*}
+    - \partial_p \left[ A(p) f(p)\right] + B(p) f(p) = 0,
+    \hspace{5 mm} 
+    A(p) = a_n p^n +\ldots + a_1 p + a_0,
+    \hspace{5 mm} 
+    B(p) = b_n p^n + b_{n-1} p^{n-1} + \ldots + b_1 p + b_0.
+\end{equation*}
+Решая, находим
+\begin{equation*}
+    \tilde{f}(p) = \frac{1}{A(p)} \exp\left(
+        \int_{p_0}^{p} \frac{B(t)}{A(t)}\d t
+    \right).
+\end{equation*}
+
+
+\textbf{Метод перевала}. Действительный метод перевала:
+\begin{equation*}
+    \int_{-\infty}^{+\infty} e^{f(x)} g(x) \d x = g(x_0) e^{f(x_0)} \sqrt{\frac{2\pi}{|f''(x_0)|}}.
+\end{equation*}
+Для стационарной фазы:
+\begin{equation*}
+    \int_{-\infty}^{+\infty} e^{i f(x)} g(x) \d x = g(x_0) e^{i f (x_0)} 
+    \sqrt{\frac{2\pi}{|f''(x_0)}} e^{\pm i \pi/4},
+\end{equation*} 
+где $\pm$ согласован с $\sign f''$. 
+
+Для комплексного метода перевала
+\begin{equation*}
+    I = \int_C e^{f(z)} g(z) \d z = g(z_0) e^{f(z_0)} e^{i \varphi} \sqrt{\frac{2\pi}{|f''|}},
+    \hspace{5 mm} 
+    \varphi = \frac{1}{2}\left(\pm \pi - \arg f''(z_0) \right).
+\end{equation*}
+
+
+
+
+\textbf{Функция Эйри}. Решаем уравнение, вида
+\begin{equation*}
+    \partial_x^2 Y - x Y = 0,
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    Y(x) = \int_C e^{x t - t^3/3} \d t.
+\end{equation*}
+Так приходим к
+\begin{equation*}
+    \Ai (x) = 
+    \frac{1}{2 \pi i} \int_{- i \infty}^{+i \infty} e^{xt - t^3/3} \d t= 
+    \frac{1}{\pi} \int_{0}^{\infty} \cos(x u + u^3/3) \d u.
+\end{equation*}
+В качетсве второго решения выбрается 
+\begin{equation*}
+    \Bi (x) = \frac{1}{\pi} \int_{0}^{\infty} \left[
+        e^{xu - u^3/3}  + \sin (xu + u^3/3)
+    \right]\d u.
+\end{equation*}

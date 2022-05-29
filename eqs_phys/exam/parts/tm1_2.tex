@@ -1,0 +1,279 @@
+\Tsec[]{Задача Штурма-Лиувилля}
+
+\textbf{Постановка задачи}. 
+Задача Штурма-Лиувилля:
+\begin{equation*}
+    \hat{L} = \partial_x^2 + Q(x) \partial_x + U(x),
+    \hspace{5 mm} 
+    \hat{L} f(x) = \varphi(x),
+    \hspace{5 mm} 
+    \left\{\begin{aligned}
+        \alpha_1 f(a) + \beta_1 f'(a) &= 0 \\
+        \alpha_2 f(b) + \beta_2 f'(b) &= 0,
+    \end{aligned}\right.
+\end{equation*}
+где\footnote{
+    Часто можно встретить нулевые граничные условия: $f(a) = f(b) = 0$. 
+}  $|\alpha_1| + |\beta_2| \neq 0$ и $|\alpha_2| + |\beta_2| \neq 0$.
+
+\textbf{Граничные условия}.  C учетом того, что функция Грина $G$ наследует граничные условия:
+\begin{align*}
+    \alpha_1 G(a, y) + \beta_1 G'_x (a, y) &= 0, \\
+    \alpha_2 G(b, y) + \beta_2 G'_x (b, y) &= 0.
+\end{align*}
+Запищем уравнение на $G(x, y)$:
+\begin{equation*}
+    \hat{L} G(x, y) = \delta(x-y).
+\end{equation*}
+Решение этого уравнение можем найти решая две системы на $u(x)$ при $x < y$ и $v(x)$ при $x > y$:
+\begin{equation*}
+\left\{\begin{aligned}
+        \hat{L} u(x) &= 0 \\
+        \alpha_1 u(a) + \beta_1 u'(a) &= 0
+    \end{aligned}\right.
+    \hspace{10 mm} 
+    \left\{\begin{aligned}
+        \hat{L} v &= 0 \\
+        \alpha_2 v(b) + \beta_2 v'(b) &= 0
+    \end{aligned}\right.
+\end{equation*}
+Теперь можем выписать ответ
+\begin{equation*}
+    G(x, y) = \frac{1}{W(y)} \left\{\begin{aligned}
+        &v(y) u(x), &x < y, \\
+        &v(x) u(y), &x > y,
+    \end{aligned}\right.
+    \hspace{10 mm} 
+    W[u, v](y) = \frac{v' (y) u(y) - v(y) u'(y)}{u(y)}.
+\end{equation*}
+Который существует и единственнен для $W \neq 0$. Для $W = \const $ $G(x, y) = G(y, x)$, а значит $\hat{L}^{-1}$ -- симметричный самосопряженный оператор, и у $\hat{L}$ есть ОНБ из собственных функций. 
+
+
+\textbf{Вронскиан}.  Бывает удобно найти $W(x)$, записав формулу Лиувилля-Остроградского
+\begin{equation*}
+    W(x) = 
+    \det \begin{pmatrix}
+        u & v  \\
+        u' & v'  \\
+    \end{pmatrix}
+    =
+    W(x_0) \exp\left(
+        - \int_{x_0}^{x}  Q(z) \d z
+    \right).
+\end{equation*}
+
+
+\begin{to_def}
+    \textit{Специальной ФСР} называется решение уравнения $\hat{L} u = 0$ и $\alpha_1 u(a) + \beta_1 u'(a) = 0$, и аналогичного уравнения по $v(x)$ с граничным условием в $b$, 
+    если $W[u, v] \neq 0$, то есть $u$ и $v$ линейной независимы. 
+\end{to_def}
+
+
+% \noindent
+% \textbf{Пример I}. Рассмотрим уравнения
+% \begin{equation*}
+%     \left\{\begin{aligned}
+%         \partial_x^2 f(x) = \varphi(x) \\
+%         f(a) = f(b) = 0
+%     \end{aligned}\right.
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     u(x) = x - a,
+%     \hspace{5 mm} 
+%     v(x) = x - b,
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     W = \begin{pmatrix}
+%         u & v  \\
+%         u' & v'  \\
+%     \end{pmatrix} = b-a = \const,
+% \end{equation*}
+% а значит
+% \begin{equation*}
+%     G(x, y) = \frac{1}{b-a} \left\{\begin{aligned}
+%         &(y-b)(x-a), &x < y \\
+%         &(x-b)(y-a), &x > y.
+%     \end{aligned}\right.
+% \end{equation*}
+
+% \noindent
+% \textbf{Пример II}. Рассмотрим двумерный цилиндр, радуса $R$, вне которого $\rho(r > R) = 0$, $\rho(\vc{r}) = \rho(r)$. Рассмотрим уравнения Лапласа:
+% \begin{equation*}
+%     \nabla^2 \varphi = - 4 \pi \rho,
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     (\partial_r^2 + \tfrac{1}{r} \partial_r) \varphi = - 4 \pi \rho.
+% \end{equation*}
+% Добавим граничные условия: потенциал определен с точностью до константы, так что пусть $\varphi(R) = 0$, также хотим конечность $\varphi$ при $r=0$, так что пусть $\varphi(0) = 1$.
+
+% Получили задачу, где при $r < r'$
+% \begin{equation*}
+%     \left\{\begin{aligned}
+%         &\left(\partial_r^2 + \tfrac{1}{r} \partial_r\right) u(r) = 0,
+%         &u(0) = 1
+%     \end{aligned}\right.
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     u' = \frac{C}{r},
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     u(r) = C \ln r + D = 1.
+% \end{equation*}
+% Аналогично, рассмотрим $r > r'$:
+% \begin{equation*}
+%     \left\{\begin{aligned}
+%         &\left(\partial_r^2 + \tfrac{1}{r} \partial_r\right) v(r) = 0,
+%         &v(R) = 0,
+%     \end{aligned}\right.
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}  
+%     v(R) = C' \ln r + D',
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}   
+%     v = \ln \left(\frac{r}{R}\right).
+% \end{equation*}
+% Сразу вычислим 
+% \begin{equation*}
+%     W[u,\,  v] = \det \begin{pmatrix}
+%         1 & \ln r/R  \\
+%         0 & 1/r  \\
+%     \end{pmatrix} = \frac{1}{r},
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     G(r, r') = r' \left\{\begin{aligned}
+%         & \ln \tfrac{r'}{R}, & r < r' \\
+%         & \ln \frac{r}{R}, & r > r'
+%     \end{aligned}\right.
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     \varphi(r) = \int_{0}^{R} G(r, r') \left(- 4 \pi \rho(r')\right) \d r'.
+% \end{equation*}
+
+
+
+
+\Tsec[]{Метод Фурье в задаче Штурма-Лиувилля}
+
+Допустим мы в $\mathcal H$, соответственно есть $\langle x | y\rangle$. Рассмотрим некоторый достаточно хороший самосопряженный компактный оператор $\hat{L}$, у которого есть ОНБ из собственных функций: $\hat{L} e_n = \lambda_n e_n$.
+
+
+\begin{to_thr}[thr Гильберта-Шмидта]
+    Если $\hat{L}$ -- компактный\footnote{
+        $\mathcal D (A)$ -- компакт в гильбертовом пространстве.
+    }  ССО, то у $A$ есть ОНБ из собственных функций. 
+\end{to_thr}
+
+Вернемся к оператору Штурма-Лиувилля, который живет в $\mathcal H = L_2[a, b]$:
+\begin{equation*}
+    \hat{L} = A(x) \partial_x^2 + B(x) \partial_x + C(x),
+    \hspace{5 mm} 
+    \langle f|g\rangle = \int_{a}^{b} f \bar{g} \d x.
+\end{equation*}
+Для задачи Штурма-Лиувилля $\hat{L}$  симметричен, при $B(x) = A'(x)$. 
+
+% Итак, для оператора Штурма-Лиувилля ищем собственные функции:
+% \begin{equation*}
+%     \left\{\begin{aligned}
+%         &\hat{L} e_n (x) = \lambda_n e_n (x) \\
+%         &\text{гран. усл.}
+%     \end{aligned}\right.
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     f(x) = \sum_n f_n e_n(x),
+% \end{equation*}
+% домножая на $e_m$, находим, что
+% \begin{equation*} 
+%     f_m = \frac{\langle f | e_m\rangle}{\langle e_m | e_n\rangle},
+%     \hspace{10 mm} 
+%     \langle f | e_m\rangle = \int_{a}^{b}  f(x) \bar{e}_m (x) \d x.
+% \end{equation*}
+% Метод Фурье решения краевых задач:
+% \begin{equation*}
+%     L(\partial_t) u(x, t) = \hat{A}_x u(x, t) + f(x, t),
+% \end{equation*}
+% плюс граничные условия.  Раскладывая,
+% \begin{equation*}
+%     \hat{A}_x e_n = \lambda_n e_n,
+%     \hspace{10 mm} 
+%     u = \sum_n u_n(t) e_n (x),
+%     \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+%     f(x, t) = \sum f_n (t) e_n (x),
+% \end{equation*}
+% а значит
+% \begin{equation*}
+%     \sum_n \left(
+%         L(\partial_t) u_n (t) - \lambda_n u_n (t) - f_n (t)
+%     \right) e_n (x) = 0,
+% \end{equation*}
+% откуда можем находить $u_n (t)$:
+% \begin{equation*}
+%     u(x, t) = \sum_n u_n (t) e_n (x). 
+% \end{equation*}
+% \subsection*{Ещё что-то}
+% Рассмотрим снова некоторую граничную задачу:
+% \begin{equation*}
+%     \hat{L} G(x, y) = \delta(x-y).
+% \end{equation*}
+% Запишем граничные условия:
+% \begin{equation*}
+%     \alpha_1 G(a. y) + \beta_1 G'_x(a, y) = 0,
+%     \hspace{10 mm} 
+%     \alpha_2 G(b, y) + \beta_2 G'_x (b, y) = 0,
+% \end{equation*}
+% где  $|\alpha_1| + |\beta_2| \neq 0$ и $|\alpha_2| + |\beta_2| \neq 0$.
+% Можем выписать ответ:
+% \begin{equation*}
+%     G(x, y) = \frac{1}{W(y)} \left\{\begin{aligned}
+%         &v(y) u(x), &x < y; \\
+%         &v(x) u(y), &x > y,
+%     \end{aligned}\right.
+% \end{equation*}
+% где Вронскиан можно запсиать, как
+% \begin{equation*}
+%     W(x) = W(x_0) \exp\left(
+%         - \int_{x_0}^{x}  Q(t) \d t,
+%     \right)
+% \end{equation*}
+% где $Q(t)$ -- из оператора Штурма-Лиувилля. 
+% Также решали задачу с периодическими гран. условиями, где $G$ наследовала гран. условия. 
+% Решать это всё умеем двумя способами: разделяя на $x  > y$ и $x < y$, и через метод Фурье:
+% \begin{equation*}
+%     \hat{L} e_n  = \lambda_n e_n,
+%     \hspace{10 mm} 
+%     \langle e_n | e_m \rangle = \int_{a}^{b} e_n (x) \bar{e}_m(x)  \d x.
+% \end{equation*}
+Тогда можем найти функцию Грина, как решение уравнения $\hat{L} G(x, y) = \delta(x-y)$
+\begin{equation*}
+    G(x, y) = \sum_n g_n (y) e_n (x),
+    \hspace{5 mm} 
+    \delta(x-y) = \sum_n \delta_n ( y) e_n (x).
+\end{equation*}
+Находим коэффициенты Фурье: \red{нужен пример про собственные функции}
+\begin{equation*}
+    \delta_n (y) = \frac{\bar{e}_n (y)}{\langle e_n | e_n\rangle},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    g_n (y) = \frac{1}{\lambda_n} \frac{\bar{e}_n (y)}{\langle e_n | e_n\rangle}.
+\end{equation*}
+% где мы решали уравнение, вида $\hat{L} G = \delta(x-y)$. 
+Проблема возникает при $\lambda_n = 0$. 
+
+
+
+\textbf{Решение}. Наличие у оператора собственного числа $\lambda_n = 0$ называется нулевой модой. Рассмотрим оператор:
+\begin{equation*}
+    \hat{L} = \partial_x^2,
+\end{equation*}
+для которого $e_n (x) = e^{i n x}$, где $\langle e_n | e_n\rangle = 2 \pi$, где $e_0 = 1$ и $\lambda_{0} = 0$. Пусть тогда
+\begin{equation*}
+    \delta(x) = \sum \frac{\bar{e}_n (0) e_n (x)}{\langle e_n | e_n\rangle} = \sum \frac{e^{i n x}}{2 \pi},
+    \hspace{10 mm} 
+    G(x) = \sum  g_n e_n (x). 
+\end{equation*}
+но для $\hat{L} G = \delta(x)$ оказывается нет решений (справа $e_0$ есть, а слева нет). То есть
+\begin{equation*}
+    \Ker \hat{L} \neq \{0\},
+    \hspace{10 mm} 
+    \Ker \hat{L} + \Im \hat{L} = \mathcal H,
+\end{equation*}
+поэтому всегда имеем ввиду, что $\hat{L} \hat{L}^{-1} = \mathbbm{1}$, но только для $\Im \hat{L}$. 
+
+В общем, проблему уйдёт, если рассмотрим уравнение, вида
+\begin{equation*}
+    \hat{L} G(x) = \delta(x) - e_0(x) = \delta(x) - \frac{1}{2 \pi},
+\end{equation*}
+то есть справа единичный оператор только на образе $\Im \hat{L}$. 
+
+
+
+Если в источнике есть нулевая мода, то уравнение не имеет решений. 
+
