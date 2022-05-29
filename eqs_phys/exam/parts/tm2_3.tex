@@ -1,8 +1,6 @@
-\section*{ТеорМин №3}
-\addcontentsline{toc}{section}{ТеорМин №3}
+\Tsec[]{Теория групп}
 
-
-\textbf{Теория групп}. \textit{Сопряженными} (из одного  \textit{класса сопряженности}) называть элементы $g \sim h$ такие, что $\exists r \in G,\, g = r h r^{-1}$. Далее классы сопряженности будем обозначать за $C_1,\, \ldots,\, C_k$, элементы в них за $h_i \in C_i$.
+\textit{Сопряженными} (из одного  \textit{класса сопряженности}) называть элементы $g \sim h$ такие, что $\exists r \in G,\, g = r h r^{-1}$. Далее классы сопряженности будем обозначать за $C_1,\, \ldots,\, C_k$, элементы в них за $h_i \in C_i$.
 
 Циклическая группа $C_n$
 \begin{equation*}
@@ -44,7 +42,9 @@
 Для $n \2 2 = 0$ получатся классы сопряженности  $\{r^b,\,  r^{n-b}\}$, $\{s,\,  s r^2,\, s r^4,\, \}$ и $\{s r,\, s r^3,\, s r^5,\, \ldots\}$. Для $n \not{\hspace{-1.5pt}\2}\, 2$ получится $\{r^b,\, r^{n-b}\}$ и $\{s,\, s r,\,  sr^2,\, \ldots\}$. 
 
 
-\textbf{Теория представлений}. Далее работаем с конечными группами $|G| < + \infty$. Элемент группы обознаем за $g \in G$. \textit{Представление} группы определяют как гомоморфизм $\rho\colon G \mapsto \,\text{GL}(V, \mathbb{C})$ (невырожденные матрицы). 
+\Tsec[]{Теория представлений}
+
+Далее работаем с конечными группами $|G| < + \infty$. Элемент группы обознаем за $g \in G$. \textit{Представление} группы определяют как гомоморфизм $\rho\colon G \mapsto \,\text{GL}(V, \mathbb{C})$ (невырожденные матрицы). 
 
 
 \textit{Характером представления} $\rho$ называют $\chi[V] = \tr \rho(g)$ для $g \in G$. Характеры изморфных представлений совпадают, а также
@@ -83,7 +83,7 @@
 \textit{Критерием неприводимости} является $\bk{\chi}{\chi} = 1$,
 тогда разложение на неприводимые: $\chi = a_1 \chi^{(1)} + \ldots + a_n \chi^{(n)}$, где $a_i = \bk{\chi}{\chi^{(i)}}$.
 
-\textbf{Таблицы неприводимых представлений}
+\Tsec[]{Таблицы неприводимых представлений}
 Построение для $C_n$ тривиально в силу абелевости группы. Каждый элемент представим в виде $\sqrt[n]{1}$. Построение производим с учетом свойства $\rho(r^k) = \rho(r)^k$. 
 
 Теперь для $D_4$ размера $|D_4| = 2 \times n = 8$, будут классы сопряженности $\{\1\}$, $\{r^2\},\ \{r,\, r^3\}$ и $\{s,\, s r^2\}$, $\{s r,\, s r^3\}$. 
@@ -108,67 +108,67 @@
 Тут важно посмотреть на отображение $e_1 + e_2 + e_3 + e_4$, построив $\chi[\mathbb{C}^4]$, значениях характеров которой можем восстановить по количеству неподвижных точек (4, 2, 1, 0, 0). Неприводимое представление можем получить в виде $\chi[\mathbb{C}^4] - \chi^{(1)}$.
 Также может помочь тензорное произведение представлений. 
 
-\textbf{Преобразование Меллина}. Для функции $g(x)$ такую, что $g(x) = O(x^{-\alpha})$ при $x \to 0$ и $g(x) = x^{-\beta}$ при $x \to + \infty$ можем определить
-\textit{преобразование Меллина}
-\begin{equation*}
-	G(\lambda) = \int_{0}^{\infty} g(x) x^{\lambda-1} \d x,
-\end{equation*}
-определенного в полосе $\alpha < \Re \lambda < \beta$. Обратное преобразование может быть найдено в виде
-\begin{equation*}
-	g(x) = \int_{C - i \infty}^{C + i \infty} G(\lambda) x^{-\lambda} \frac{d \lambda}{2 \pi i},
-\end{equation*} 
-для $\alpha  <C < \beta$. 
+% \textbf{Преобразование Меллина}. Для функции $g(x)$ такую, что $g(x) = O(x^{-\alpha})$ при $x \to 0$ и $g(x) = x^{-\beta}$ при $x \to + \infty$ можем определить
+% \textit{преобразование Меллина}
+% \begin{equation*}
+% 	G(\lambda) = \int_{0}^{\infty} g(x) x^{\lambda-1} \d x,
+% \end{equation*}
+% определенного в полосе $\alpha < \Re \lambda < \beta$. Обратное преобразование может быть найдено в виде
+% \begin{equation*}
+% 	g(x) = \int_{C - i \infty}^{C + i \infty} G(\lambda) x^{-\lambda} \frac{d \lambda}{2 \pi i},
+% \end{equation*} 
+% для $\alpha  <C < \beta$. 
 
-Для вычисления инетгралов бывает удобно воспользоваться сверточным свойством преобразования Меллина
-\begin{equation*}
-	\int_{-\infty}^{+\infty} f(x) g(x) x^{\lambda-1} \d x = 
-	\int_{C_f - i \infty}^{C_f + i \infty} F(\lambda_f) G(\lambda-\lambda_f) \frac{\d \lambda_f}{2\pi i}  = \int_{C_g - i \infty}^{C_g + i \infty}  F(\lambda-\lambda_g)  G(\lambda_g) \frac{\d \lambda_g}{2\pi i},
-\end{equation*}
-где $\alpha_f + \alpha_g < \Re \lambda < \beta_f + \beta_g$. 
-В частности, при допустимом $\lambda = 1$, получаем
-\begin{equation*}
-	\int_{0}^{\infty} f(x) g(x) \d x = 
-	\int_{C_f - i \infty}^{C_f + i \infty} F(\lambda_f) G(1-\lambda_f) \frac{d \lambda_f}{2 \pi i}.
-\end{equation*}
+% Для вычисления инетгралов бывает удобно воспользоваться сверточным свойством преобразования Меллина
+% \begin{equation*}
+% 	\int_{-\infty}^{+\infty} f(x) g(x) x^{\lambda-1} \d x = 
+% 	\int_{C_f - i \infty}^{C_f + i \infty} F(\lambda_f) G(\lambda-\lambda_f) \frac{\d \lambda_f}{2\pi i}  = \int_{C_g - i \infty}^{C_g + i \infty}  F(\lambda-\lambda_g)  G(\lambda_g) \frac{\d \lambda_g}{2\pi i},
+% \end{equation*}
+% где $\alpha_f + \alpha_g < \Re \lambda < \beta_f + \beta_g$. 
+% В частности, при допустимом $\lambda = 1$, получаем
+% \begin{equation*}
+% 	\int_{0}^{\infty} f(x) g(x) \d x = 
+% 	\int_{C_f - i \infty}^{C_f + i \infty} F(\lambda_f) G(1-\lambda_f) \frac{d \lambda_f}{2 \pi i}.
+% \end{equation*}
 
-Приведем некоторый зоопарк по преобразованию Меллина:
-\begin{gather*}
-	e^{-x} \overset{M}{\to}  \Gamma(\lambda),
-	\hspace{5 mm} 
-	\frac{1}{1 + a x^n} \overset{M}{\to} \frac{\pi  a^{-\frac{\lambda }{n}}}{n \sin \left(\frac{\pi  \lambda }{n}\right)},
-	\hspace{5 mm} 
-	\frac{1}{\sqrt[m]{1 + x^n}} \overset{M}{\to}
-	\frac{\Gamma \left(\frac{\lambda }{n}\right) \Gamma \left(\frac{1}{m}-\frac{\lambda }{n}\right)}{n \Gamma \left(\frac{1}{m}\right)}, 
-	\hspace{5 mm} 
-	\frac{1}{1-x}\overset{M}{\to}  \pi  \cot (\pi  \lambda ),
-	\\
-	\frac{1}{\sqrt{a x^2+b x}}
-	\overset{M}{\to}
-	\frac{\Gamma (1-\lambda ) \Gamma \left(\lambda -\frac{1}{2}\right) \left(\frac{a}{b}\right)^{\frac{1}{2}-\lambda }}{\sqrt{\pi b}},
-	\hspace{5 mm} 
-	x^n \overset{M}{\to} 2 \pi  \delta (i (n+\lambda )), 
-	\hspace{5 mm} 
-	\frac{1}{1 + e^{\alpha x}} \overset{M}{\to}  \left(1-2^{1-\lambda }\right) \alpha ^{-\lambda } \Gamma (\lambda ) \zeta (\lambda ),
-	\\ 
-	\sin x \overset{M}{\to} \sin \left(\frac{\pi  \lambda }{2}\right) \Gamma (\lambda )
-	, \hspace{5 mm}  
-	\cos x \overset{M}{\to} \cos \left(\frac{\pi  \lambda }{2}\right) \Gamma (\lambda ).
-\end{gather*}
-% А также несколько обратных преобразований
+% Приведем некоторый зоопарк по преобразованию Меллина:
 % \begin{gather*}
-% 	\frac{\Gamma(\lambda)}{\Gamma(\lambda + \beta)} = - \frac{(1-x)^{\beta-1}}{\Gamma(\beta)} (\theta(|x|-1)-1).
+% 	e^{-x} \overset{M}{\to}  \Gamma(\lambda),
+% 	\hspace{5 mm} 
+% 	\frac{1}{1 + a x^n} \overset{M}{\to} \frac{\pi  a^{-\frac{\lambda }{n}}}{n \sin \left(\frac{\pi  \lambda }{n}\right)},
+% 	\hspace{5 mm} 
+% 	\frac{1}{\sqrt[m]{1 + x^n}} \overset{M}{\to}
+% 	\frac{\Gamma \left(\frac{\lambda }{n}\right) \Gamma \left(\frac{1}{m}-\frac{\lambda }{n}\right)}{n \Gamma \left(\frac{1}{m}\right)}, 
+% 	\hspace{5 mm} 
+% 	\frac{1}{1-x}\overset{M}{\to}  \pi  \cot (\pi  \lambda ),
+% 	\\
+% 	\frac{1}{\sqrt{a x^2+b x}}
+% 	\overset{M}{\to}
+% 	\frac{\Gamma (1-\lambda ) \Gamma \left(\lambda -\frac{1}{2}\right) \left(\frac{a}{b}\right)^{\frac{1}{2}-\lambda }}{\sqrt{\pi b}},
+% 	\hspace{5 mm} 
+% 	x^n \overset{M}{\to} 2 \pi  \delta (i (n+\lambda )), 
+% 	\hspace{5 mm} 
+% 	\frac{1}{1 + e^{\alpha x}} \overset{M}{\to}  \left(1-2^{1-\lambda }\right) \alpha ^{-\lambda } \Gamma (\lambda ) \zeta (\lambda ),
+% 	\\ 
+% 	\sin x \overset{M}{\to} \sin \left(\frac{\pi  \lambda }{2}\right) \Gamma (\lambda )
+% 	, \hspace{5 mm}  
+% 	\cos x \overset{M}{\to} \cos \left(\frac{\pi  \lambda }{2}\right) \Gamma (\lambda ).
 % \end{gather*}
+% % А также несколько обратных преобразований
+% % \begin{gather*}
+% % 	\frac{\Gamma(\lambda)}{\Gamma(\lambda + \beta)} = - \frac{(1-x)^{\beta-1}}{\Gamma(\beta)} (\theta(|x|-1)-1).
+% % \end{gather*}
 
-\textbf{Гамма функция}. Полезно будет вспомнить, что
-\begin{equation*}
-	\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} \d t = \int_{0}^{1} (-\ln x)^{z-1} \d x = \frac{2^{z+1}}{z} \int_{0}^{1} y (-\ln y)^{z} \d y,
-	\hspace{10 mm} 
-	\Gamma\left(\tfrac{1}{2} + n\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi} = \frac{(2n-1)!!}{2^n} \sqrt{\pi}.
-\end{equation*}
-Для произведения бывает удобно
-\begin{equation*}
-	\Gamma(z) \Gamma\left(z + \frac{1}{n}\right) \ldots \Gamma(z + \frac{n-1}{n}) = n^{\frac{1}{2} - nz } \cdot (2 \pi)^{\frac{n-1}{2}} \Gamma(nz),
-	\hspace{5 mm} 
-	\Gamma(1-z) \Gamma(z) = \frac{\pi}{\sin \pi z}.
-\end{equation*}
+% \textbf{Гамма функция}. Полезно будет вспомнить, что
+% \begin{equation*}
+% 	\Gamma(z) = \int_{0}^{\infty} t^{z-1} e^{-t} \d t = \int_{0}^{1} (-\ln x)^{z-1} \d x = \frac{2^{z+1}}{z} \int_{0}^{1} y (-\ln y)^{z} \d y,
+% 	\hspace{10 mm} 
+% 	\Gamma\left(\tfrac{1}{2} + n\right) = \frac{(2n)!}{4^n n!} \sqrt{\pi} = \frac{(2n-1)!!}{2^n} \sqrt{\pi}.
+% \end{equation*}
+% Для произведения бывает удобно
+% \begin{equation*}
+% 	\Gamma(z) \Gamma\left(z + \frac{1}{n}\right) \ldots \Gamma(z + \frac{n-1}{n}) = n^{\frac{1}{2} - nz } \cdot (2 \pi)^{\frac{n-1}{2}} \Gamma(nz),
+% 	\hspace{5 mm} 
+% 	\Gamma(1-z) \Gamma(z) = \frac{\pi}{\sin \pi z}.
+% \end{equation*}
 

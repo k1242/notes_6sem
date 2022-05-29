@@ -44,13 +44,33 @@
 \red{перейти к сферически симметричному случаю}.
 
 
+\Tsec[]{Уравнение Гельмгольца}
+
+Рассмотрим отдельно уравнение Гельмгольца
+\begin{equation*}
+    (\nabla^2 + \kappa^2) f = \varphi(\vc{r}).
+\end{equation*}
+Как и раньше, запишем найдём решение в виде
+\begin{equation*}
+    (\nabla^2 + \kappa^2) G(\vc{r}) = \delta(\vc{r}),
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    f(\vc{r}) = f_0(\vc{r}) + \int d^3 r_1 \ G(\vc{r}-\vc{r}_1) \varphi(\vc{r}_1),
+\end{equation*}
+где $f_0$ -- решение однородного уравнения Гельмгольца.
+Функция Грина:
+\begin{equation*}
+    G = - \frac{\exp(i \kappa r)}{4 \pi r},
+\end{equation*}
+для $\omega > 0$ и $G \to G^*$ при $\omega < 0$.
+
+
 
 
 \Tsec[]{Уравнение теплопроводности}
 
-Уравнение диффузии:
+Уравнение диффузии с известным $u(0, \vc{x}) = u_0 (\vc{x})$:
 \begin{equation}
-    \left(\partial_t - \nabla^2\right) u = 0,
+    \left(\partial_t - \nabla^2\right) u(t, \vc{x}) = 0,
     \label{difeq}
 \end{equation}
 решение которого может быть найдено в виде:

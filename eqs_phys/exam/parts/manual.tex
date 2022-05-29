@@ -1,3 +1,19 @@
+\Tsec[]{Вычеты}
+
+Интеграл по дуге может быть найден, как
+\begin{align*}
+    \int_C f(z) \d z = 2 \pi i \sum_{z_j} \res_{z_j} f(z),
+    \hspace{5 mm} 
+    \res_{z_j} f(z) &= \lim_{\varepsilon \to 0} \varepsilon \int_0^{2\pi} \frac{\d \varphi}{2\pi} e^{i \varphi} f(z_j + \varepsilon e^{i \varphi}) \\ 
+    &= \frac{1}{(m-1)!} \lim_{z \to z_j} \left(
+        \frac{d^{m-1} }{d z^{m-1}} (z-z_j)^m f(z)
+    \right),
+\end{align*}
+где $m$ -- степень полюса. 
+
+
+\Tsec[]{Интегралы}
+
 Например,
 \begin{equation*}
     \int_0^{\pi/2} \sin^\alpha \varphi \cos^\beta \varphi \d \varphi =  \frac{1}{2} B\left(\frac{a+1}{2},\, \frac{b+1}{2}\right).
@@ -11,3 +27,18 @@
         t = \frac{1}{1+x^n}
     \bigg/ = \frac{\Gamma \left(\frac{m+1}{n}\right) \Gamma \left(k-\frac{m+1}{n}\right)}{n \Gamma (k)}.
 \end{equation*}
+
+
+
+
+Может быть полезно:
+\begin{equation*}
+    \int_{-\infty}^{+\infty} e^{\pm i z^2} \d z = \sqrt{\pi} e^{\pm i \pi / 4},
+    \hspace{10 mm} 
+    \int_{-\infty}^{+\infty} \cos z^2 \d z = \int_{-\infty}^{+\infty} \sin z^2 \ z = \sqrt{\frac{\pi}{2}}.
+\end{equation*}
+
+% \Tsec[]{x Преобразование Фурье}
+
+% \Tsec[]{x Преобразование Лапласа}
+
