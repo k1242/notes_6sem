@@ -13,9 +13,15 @@
 \end{equation}
 где зависимость от времени амплитуды и фазы определяестся уравнениями
 \begin{align}
-    \partial_t A(t) &= \frac{1}{2\pi \omega_0}\int_{\omega_0 t-\pi}^{\omega_0 t+\pi} f(\tau, x, \dot{x}) \cos\left(\omega_0 \tau + \varphi(t)\right) \d (\omega_0\tau), 
+    \partial_t A(t) &= \frac{\varepsilon}{2\pi \omega_0}\int_{\omega_0 t-\pi}^{\omega_0 t+\pi} f(\tau, x, \dot{x}) \sin\left(\omega_0 \tau + \varphi(t)\right) \d (\omega_0\tau), 
     \label{slowA}
     \\
-    \partial_t \varphi(t) &= \frac{-1}{2 \pi A \omega_0} \int_{\omega_0 t-\pi}^{\omega_0 t + \pi} f(\tau, x, \dot{x}) \sin(\omega_0 \tau + \varphi(t)) \d (\omega_0 \tau).
+    \partial_t \varphi(t) &= \frac{-\varepsilon}{2 \pi A \omega_0} \int_{\omega_0 t-\pi}^{\omega_0 t + \pi} f(\tau, x, \dot{x}) \cos(\omega_0 \tau + \varphi(t)) \d (\omega_0 \tau).
     \label{slowphi}
 \end{align}
+Упрощая себе жизнь с $\omega_0 = 1$, приходим к выражению
+\begin{align*}
+    \partial_t A(t) &= \frac{\varepsilon}{2\pi }\int_{0}^{2\pi} f(\tau, x, \dot{x}) \sin\left( \tau + \varphi\right) \d \tau, \\
+    \partial_t \varphi(t) &= \frac{-\varepsilon}{2 \pi A } \int_{0}^{2 \pi} f(\tau, x, \dot{x}) \cos( \tau + \varphi) \d \tau,
+\end{align*}
+где $\dot{\varphi} = 0$ почти всегда и в интеграле для $\dot{A}$ можно избавиться от $\varphi$. 
