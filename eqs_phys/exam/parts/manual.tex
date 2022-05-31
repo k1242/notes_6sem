@@ -16,7 +16,13 @@
 
 Например,
 \begin{equation*}
-    \int_0^{\pi/2} \sin^a \varphi \cos^b \varphi \d \varphi =  \frac{1}{2} B\left(\frac{a+1}{2},\, \frac{b+1}{2}\right) = \frac{\Gamma\left(\frac{a+1}{2}\right) \Gamma\left(\frac{b+1}{2}\right)}{2 \Gamma\left(1 + \frac{a + b}{2}\right)}.
+    \int_0^{\pi/2} \sin^a \varphi \cos^b \varphi \d \varphi =  \frac{1}{2} B\left(\frac{a+1}{2},\, \frac{b+1}{2}\right) = \frac{\Gamma\left(\frac{a+1}{2}\right) \Gamma\left(\frac{b+1}{2}\right)}{2 \Gamma\left(1 + \frac{a + b}{2}\right)},
+\end{equation*}
+для чего напомним несколько значений
+\begin{equation*}
+    \Gamma\left(\tfrac{1}{2}\right) = \sqrt{\pi},
+    \hspace{5 mm} 
+    \Gamma\left(\tfrac{1}{2}+n\right) = \frac{(2n-1)!!}{2^n}\sqrt{\pi}.
 \end{equation*}
 Также для $1 + m < kn$, верно
 \begin{equation*}
@@ -29,6 +35,10 @@
     \int_{-\infty}^{+\infty} e^{\pm i z^2} \d z = \sqrt{\pi} e^{\pm i \pi / 4},
     \hspace{10 mm} 
     \int_{-\infty}^{+\infty} \cos z^2 \d z = \int_{-\infty}^{+\infty} \sin z^2 \ z = \sqrt{\frac{\pi}{2}}.
+\end{equation*}
+Чуть удобнее бывает пользоваться сразу формулой, вида
+\begin{equation*}
+    \int_{-\infty}^{+\infty} e^{\pm i a x^2 + i b x} \d x = \sqrt{\pi} e^{\pm i \pi/4} e^{\pm \frac{b^2}{4 a i}}.
 \end{equation*}
 
 \Tsec[]{Преобразование Фурье}
