@@ -39,7 +39,6 @@
 
 
 
-
 \textbf{Функция Эйри}. Решаем уравнение, вида
 \begin{equation*}
     \partial_x^2 f - x f = 0,
@@ -52,9 +51,26 @@
     \frac{1}{2 \pi i} \int_{- i \infty}^{+i \infty} e^{xt - t^3/3} \d t= 
     \frac{1}{\pi} \int_{0}^{\infty} \cos(x u + u^3/3) \d u.
 \end{equation*}
+Запишем асимптотики на бесконечности:
+\begin{align*}
+    \Ai(z) &\approx \frac{1}{2 \sqrt{\pi}} \frac{1}{z^{1/4}} \exp\left(
+        - \frac{2}{3} z^{3/2}
+    \right), \hspace{10 mm}  z \to +\infty\\
+    \Ai(z) &\approx \frac{1}{\sqrt{\pi}} \frac{1}{(-z)^{1/4}} \sin\left(
+        \frac{2}{3} (-z)^{3/2} + \frac{\pi}{4}
+    \right),
+    \hspace{10 mm} z \to - \infty.
+\end{align*}
+
 В качетсве второго решения выбрается 
 \begin{equation*}
     \Bi (x) = \frac{1}{\pi} \int_{0}^{\infty} \left[
         e^{xu - u^3/3}  + \sin (xu + u^3/3)
-    \right]\d u.
+    \right]\d u,
 \end{equation*}
+с асиматотиками, вида
+\begin{align*}
+    \Bi(z) &\approx \frac{1}{\sqrt{\pi}} \frac{1}{z^{1/4}} \exp\left( \frac{2}{3} z^{3/2}
+    \right), \hspace{10 mm} z \to +\infty \\
+    \Bi(z) &\approx  \frac{1}{\pi} \frac{1}{(-z)^{1/4}} \cos\left(\frac{2}{3}(-z)^{3/2} + \frac{\pi}{4}\right), \hspace{10 mm} z \to -\infty.
+\end{align*}

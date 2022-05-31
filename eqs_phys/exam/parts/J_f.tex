@@ -15,24 +15,24 @@
     J_m (z) = \frac{1}{\pi} \int_{0}^{\pi} \cos(z \sin \varphi - m \varphi) \d \varphi.
 \end{equation*}
 Умеем дифференцировать:
-\begin{equation*}
+\begin{equation}
     \frac{d J_m}{d z} = \frac{J_{m-1} (z)}{2} - \frac{J_{m+1}(z)}{2},
     \hspace{5 mm}
     \frac{m}{z} J_m (z) = \frac{1}{2} \left(J_{m+1} (z) + J_{m-1}(z)\right),
     \hspace{5 mm} 
     \frac{d }{d z} \left(z^m J_m (z)\right) = J_{m-1} (z) z^m.
-\end{equation*}
+\end{equation}
 Откуда сразу находим
-\begin{equation*}
+\begin{equation}
     \frac{d }{d x} \left(\frac{J_n (x)}{x^n }\right) = - \frac{J_{_n+1}(x)}{x^n},
     \hspace{10 mm} 
     J_{-m} (z) = (-1)^m J_m (z).
-\end{equation*}
+\end{equation}
 Умеем раскладывать в ряд и уходить на бесконечность:
 \begin{equation*}
     J_m (z) = \frac{z^m}{2^m} \sum_{k=0}^{\infty} \frac{(-1)^k z^{2k}}{4^k k! (m+k)!},
     \hspace{5 mm} 
-    J_m (z \to \infty) = \sqrt{\frac{2 \pi}{z}} \cos\left(
+    J_m (z \to \infty) = \sqrt{\frac{2}{\pi z}} \cos\left(
         z - \frac{\pi n }{2} - \frac{\pi}{4}
     \right),
 \end{equation*}
