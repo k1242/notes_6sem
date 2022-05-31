@@ -1,0 +1,28 @@
+\textbf{Общая идея}. Когда нужно посчитать какую-нибудь сумму вида $\sum_{n=-\infty}^{\infty} f_n$, то может быть удобно представить $f_n$ как вычет некотрой функции $f(z) g(z)$ с $\res_n (z) = 1$ и $f(n) = f_n$. Тогда сумма сводится к интегралу, который легко берется. Функцию $g(z)$ имеет смысл выбирать таким образом, чтобы $\lim_{z \to \pm i\infty} f(z) g(z)$ был равен нулю.
+
+\textbf{Пример №1}.
+Рассмотрим сумму, вида $S(a) = \sum_{n=-\infty}^{\infty}  \frac{1}{n^2 + a^2}.$
+Будем считать, что в $n \in \mathbb{Z}$, у некоторой функции $g(z)$ случается полюс первого порядка, например у функции:
+\begin{equation*}
+    g(z) = \pi \ctg(\pi z), 
+    \hspace{5 mm} \res_n g(z) = 1.
+\end{equation*}
+Тогда сумму $S(a)$ можно переписать через проивезедение $f(z) g(z)$, где 
+\begin{equation*}
+    f(z) = \frac{1}{n^2 + a^2},
+    \hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+    S(a) = \int \frac{\d z}{2 \pi i} \frac{\pi}{z^2 + a^2} \ctg (\pi z) = 
+    \bigg/
+        \res_{\pm ia}
+    \bigg/ = \frac{\pi}{a} \cth (a \pi),
+\end{equation*}
+где воспользовались равенством $\ctg i x = - i \cth x$.
+
+
+\textbf{Пример №2}. Теперь рассмотрим сумму c $f_n = e^{inx} (n^2 - \kappa^2)^{-2}$. Здесь в качестве $g(z)$ подойдет
+\begin{equation*}
+    g(z) = \frac{\pi e^{-i \pi z}}{\sin \pi z},
+    \hspace{10 mm} 
+    \res_n g(z) = 1,
+\end{equation*}
+тогда для $|x| < \pi$ асимптотика будет хорошей. 
