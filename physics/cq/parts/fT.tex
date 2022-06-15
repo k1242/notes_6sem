@@ -1,0 +1,55 @@
+\subsection*{Конечная температура}
+
+Для $E_{\vc{k}} \geq \Delta$ возбуждений ферми-частиц функция распределения также будет скорее ферми-функцией
+\begin{equation*}
+	f(E_{\vc{k}}) = \frac{1}{e^{E_{\vc{k}}/T}+1}.
+\end{equation*}
+Тогда можем найти количество возбуждений в \red{формуле} 
+\begin{equation*}
+	\langle 1 - \hat{\gamma}_{\vc{k}0}\D \gamma_{\vc{k}0} - \gamma_{\vc{k}1}\D \gamma_{\vc{k}1}\rangle = 1 - 2 f(E_{\vc{k}}),
+\end{equation*}
+тогда величина запрещенной зоны перепишется в виде
+\begin{equation*}
+	\Delta_{\vc{k}} = - \sum_{\vc{k}'} V_{\vc{k} \vc{k}'} u_{\vc{k}'}^* v_{\vc{k}'} \left(1 - 2(E_{\vc{k}'})\right) = - \sum_{\vc{k}'} V_{\vc{k} \vc{k}'} \frac{\Delta_{\vc{k}'}}{2 E_{\vc{k}'}} \tanh\left(
+		\frac{\beta E_{\vc{k}'}}{2}
+	\right).
+\end{equation*}
+В приближении БКШ $V_{\vc{k} \vc{k}'} = -V$ и $\Delta_{\vc{k}} = \Delta$, откуда приходим к уравнению на $\Delta(T)$:
+\begin{equation}
+	1 = \frac{V}{2} \sum_{\vc{k}} \frac{\th\left(\frac{E_{\vc{k}}}{2 T}\right)}{E_{\vc{k}}},
+	\label{muEq}
+\end{equation}
+где $E_{\vc{k}} = \sqrt{\xi_{\vc{k}}^2 + \Delta^2}$.
+
+
+
+\textit{Критическую температуру} $T_c$ определим так, что $\Delta(T) \to 0$, что $\Delta(T) \to 0$. Тогда
+$E_{\vc{k}} \to |\xi_{\vc{k}}|$, соответсвенно заменяем $E_{\vc{k}}$ в \eqref{muEq} и переходим к интегрированию:
+\begin{equation*}
+	1 = N(0) V \int_{0}^{\Theta_D/T} \frac{\th x}{x} \d x = N(0) V \ln\left(
+		\frac{2 e^{\gamma}}{\pi} \frac{\Theta_D}{T_c}
+	\right),
+	\hspace{0.5cm} \Rightarrow \hspace{0.5cm}
+	T_c = \frac{2 e^{\gamma}}{\pi} \Theta_D e^{-\tfrac{1}{N(0) V}} \approx 1.13\, \Theta_D e^{-\tfrac{1}{N(0) V}}.
+\end{equation*}
+Сравнивая с выражением для $\Delta(0)$, находим
+\begin{equation*}
+	2 \Delta(0) \approx 3.56\, T_c.
+\end{equation*}
+
+
+
+
+\subsection*{Зависимость \texorpdfstring{$\Delta(T)$}{Delta(T)}}
+
+Для конечной температуры \eqref{muEq} перейдёт в уравнение, вида
+\begin{equation*}
+	1 = N(0) V \int_{0}^{\Theta_D} \frac{\th\big(\frac{\sqrt{\xi^2 + \Delta^2}}{2 T}\big)}{\sqrt{\xi^2 + \Delta^2}} \d \xi,
+\end{equation*}
+которое мы решили численно для $N(0) V \approx 0.43$, получили  зависимость на рис. \ref{fig:1}, которая носит универсальный характер при $\Theta_D/T_c \gg 1$. Также на графике отображена асиматотика около $T_c$:
+\begin{equation*}
+	\frac{\Delta(T)}{\Delta(0)} \approx 1.74 \sqrt{1 - \frac{T}{T_c}},
+	\hspace{5 mm} 
+	T \to T_c,
+\end{equation*}
+а щель выражается в виде $\Delta(0) \approx 1.76 T_c$. 
