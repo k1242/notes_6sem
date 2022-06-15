@@ -1,23 +1,18 @@
 \begin{thebibliography}{1}
 
-\bibitem{ll5}
-L.~D. Landau and E.~M. Lifshitz.
-\newblock {\em Statistical Physics: Volume 5}.
-\newblock Elsevier, 2013.
-
 \bibitem{ll9}
 E.~M. Lifshitz and L.~P. Pitaevskii.
 \newblock {\em Statistical physics: Volume 9}.
 \newblock Elsevier, 2013.
 
-\bibitem{tinkham}
-M.~Tinkham.
-\newblock {\em Introduction to superconductivity}.
-\newblock Courier Corporation, 2004.
-
 \bibitem{cooper}
 L.~N. Cooper.
 \newblock Bound electron pairs in a degenerate fermi gas.
 \newblock {\em Physical Review}, 104(4):1189, 1956.
+
+\bibitem{tinkham}
+M.~Tinkham.
+\newblock {\em Introduction to superconductivity}.
+\newblock Courier Corporation, 2004.
 
 \end{thebibliography}

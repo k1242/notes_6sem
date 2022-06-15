@@ -1,3 +1,6 @@
+\Tsec{Каноническое преобразование Боголюбова}
+
+
 В отличии от обычного металла, из-за наличия когерентности
 \begin{equation*}
 	\langle \hat{c}_{-\vc{k}\down}\hat{c}_{\vc{k}\up} \rangle  = b_k \neq 0,
@@ -34,20 +37,21 @@
 	\end{aligned}
 \right.
 \end{equation*}
-Получим большой гамильтониан, в котором подбором параметров $u_{\vc{k}}$, $v_{\vc{k}}$ добьёмся обнуления коэффициентов перед недиагональными слагаемыми $\hat{\gamma}_{\vc{k} 0}\hat{\gamma}_{\vc{k} 1}$
+Получим большой гамильтониан \cite{tinkham}, в котором подбором параметров $u_{\vc{k}}$, $v_{\vc{k}}$ добьёмся обнуления коэффициентов перед недиагональными слагаемыми $\hat{\gamma}_{\vc{k} 0}\hat{\gamma}_{\vc{k} 1}$
 \begin{equation*}
 	u_{\vc{k}} v_{\vc{k}} = \frac{1}{2} \frac{\Delta_{\vc{k}}}{E_{\vc{k}}},
 	\hspace{1.0 cm}
 	|v_{\vc{k}}|^2 = 1 - |u_{\vc{k}}|^2 = \frac{1}{2} \left(1 - \frac{\xi_{\vc{k}}}{E_{\vc{k}}}\right).
 \end{equation*}
-Получим тогда
+Гамильтониан сведется к виду
 \begin{equation*}
 	\hat{H}_M = \sum_{\vc{k}} (\xi_{\vc{k}} - E_{\vc{k}} + \Delta_{\vc{k}} b_{\vc{k}}^*) + \sum_{\vc{k}} E_{\vc{k}} (\hat{\gamma}_{\vc{k}0}^\dagger \hat{\gamma}_{\vc{k} 0} + \hat{\gamma}_{\vc{k} 1}^\dagger \hat{\gamma}_{\vc{k} 1})
 \end{equation*}
-И тогда ширина щели задаётся
-\begin{equation*}
+И тогда \textit{ширина щели} задаётся
+\begin{equation}
 	\Delta_{\vc{k}} = - \sum_{\vc{k'}} V_{\vc{k} \vc{k'}} \langle \hat{c}_{-\vc{k}'\down} \hat{c}_{\vc{k}'\down} \rangle
 	=
 	- \sum_{\vc{k'}} V_{\vc{k} \vc{k'}} u_{\vc{k'}}^* v_{\vc{k'}} \langle 1 - \hat{\gamma}_{\vc{k}0}^\dagger \hat{\gamma}_{\vc{k} 0} - \hat{\gamma}_{\vc{k} 1}^\dagger \hat{\gamma}_{\vc{k} 1}\rangle.
-\end{equation*} 
-При $T=0$ формула переходит в \eqref{delta0} в виду отсутствия квазичастиц.
+	\label{ff}
+\end{equation} 
+При $T=0$ формула переходит в \eqref{delta0} в виду отсутствия квазичастиц, однако при $T>0$ этот подход становится гораздо удобнее. 

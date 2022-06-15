@@ -75,3 +75,6 @@
 \DeclareDocumentCommand{\kb}{m o m}{
     \IfNoValueTF{#2}{| #1 \rangle \langle #3 |}{ |#1 \rangle #2  \langle #3 |}
 }
+
+
+\newcommand{\Tsec}[1]{\subsection*{#1} \addcontentsline{toc}{subsection}{#1}}
