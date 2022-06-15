@@ -1,0 +1,53 @@
+В отличии от обычного металла, из-за наличия когерентности
+\begin{equation*}
+	\langle \hat{c}_{-\vc{k}\down}\hat{c}_{\vc{k}\up} \rangle  = b_k \neq 0,
+	\hspace{1 cm}
+	\hat{c}_{-\vc{k}\down}\hat{c}_{\vc{k}\up} = b_{\vc{k}} + (\hat{c}_{-\vc{k}\down}\hat{c}_{\vc{k}\up}  - b_k).
+\end{equation*}
+Подставив замену с точностью до флуктуаций второго порядка получим модельный гамильтониан
+\begin{equation*}
+	\hat{H}_M = \sum_{\vc{k} \sigma} \xi_{\vc{k}} \hat{c}_{\vc{k} \sigma}^\dagger \hat{c}_{\vc{k} \sigma}
+	+
+	\sum_{\vc{k} \vc{k'}} V_{\vc{k} \vc{k'}} (\hat{c}_{\vc{k}\up}^\dagger \hat{c}_{-\vc{k}\down}^\dagger b_{\vc{k'}} + b_{\vc{k}}^* \hat{c}_{-\vc{k'}\down} \hat{c}_{\vc{k'}\up} - b_{\vc{k}}^* b_{\vc{k'}}).
+\end{equation*}
+Определив щель $\Delta_{\vc{k}} = - \sum_{\vc{k}'} V_{\vc{k} \vc{k'}} b_{k'}$ получим
+\begin{equation*}
+	\hat{H}_M = \sum_{\vc{k} \sigma} \xi_{\vc{k}} \hat{c}_{\vc{k} \sigma}^\dagger \hat{c}_{\vc{k} \sigma}
+	+
+	\sum_{\vc{k}} \Delta_{\vc{k}}(\hat{c}_{\vc{k}\up}^\dagger \hat{c}_{-\vc{k}\down}^\dagger + \Delta_{\vc{k}}^* \hat{c}_{-\vc{k}\down} \hat{c}_{\vc{k}\up} - b_{\vc{k}}^* b_{\vc{k'}}).
+\end{equation*}
+Теперь произведём линейную замену c $|v_k|^2 + |u_k|^2 = 1$ на переменные Н.Н. Боголюбова
+\begin{equation*}
+\left\{
+	\begin{aligned}
+		&\hat{c}_{\vc{k} \up} &= \phantom{-} u_{\vc{k}}^* \hat{\gamma}_{\vc{k} 0} + v_{\vc{k}} \hat{\gamma}_{\vc{k} 1}^\dagger \\
+		&\hat{c}_{-\vc{k} \down}^\dagger &= -v_{\vc{k}}^* \hat{\gamma}_{\vc{k} 0} + u_{\vc{k}} \hat{\gamma}_{\vc{k} 1}^\dagger	
+	\end{aligned}
+\right.
+\hspace{0.5 cm}
+\leadsto
+\hspace{0.5 cm}
+\left\{
+	\begin{aligned}
+		\hat{\gamma}_{\vc{k} 0} = u_{\vc{k}} \hat{c}_{\vc{k} \up}- v_{\vc{k}} \hat{c}_{-\vc{k}\down}^\dagger \\
+		\hat{\gamma}_{\vc{k} 1} = v_{\vc{k}} \hat{c}_{\vc{k} \up}^\dagger - u_{\vc{k}} \hat{c}_{-\vc{k}\down}
+	\end{aligned}
+\right.
+\end{equation*}
+Получим большой гамильтониан, в котором подбором параметров $u_{\vc{k}}$, $v_{\vc{k}}$ добьёмся обнуления коэффициентов перед недиагональными слагаемыми $\hat{\gamma}_{\vc{k} 0}\hat{\gamma}_{\vc{k} 1}$
+\begin{equation*}
+	u_{\vc{k}} v_{\vc{k}} = \frac{1}{2} \frac{\Delta_{\vc{k}}}{E_{\vc{k}}},
+	\hspace{1.0 cm}
+	|v_{\vc{k}}|^2 = 1 - |u_{\vc{k}}|^2 = \frac{1}{2} \left(1 - \frac{\xi_{\vc{k}}}{E_{\vc{k}}}\right).
+\end{equation*}
+Получим тогда
+\begin{equation*}
+	\hat{H}_M = \sum_{\vc{k}} (\xi_{\vc{k}} - E_{\vc{k}} + \Delta_{\vc{k}} b_{\vc{k}}^*) + \sum_{\vc{k}} E_{\vc{k}} (\hat{\gamma}_{\vc{k}0}^\dagger \hat{\gamma}_{\vc{k} 0} + \hat{\gamma}_{\vc{k} 1}^\dagger \hat{\gamma}_{\vc{k} 1})
+\end{equation*}
+И тогда ширина щели задаётся
+\begin{equation*}
+	\Delta_{\vc{k}} = - \sum_{\vc{k'}} V_{\vc{k} \vc{k'}} \langle \hat{c}_{-\vc{k}'\down} \hat{c}_{\vc{k}'\down} \rangle
+	=
+	- \sum_{\vc{k'}} V_{\vc{k} \vc{k'}} u_{\vc{k'}}^* v_{\vc{k'}} \langle 1 - \hat{\gamma}_{\vc{k}0}^\dagger \hat{\gamma}_{\vc{k} 0} - \hat{\gamma}_{\vc{k} 1}^\dagger \hat{\gamma}_{\vc{k} 1}\rangle.
+\end{equation*} 
+При $T=0$ формула переходит в \eqref{delta0} в виду отсутствия квазичастиц.
